@@ -1,0 +1,23 @@
+.swal-text {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 20px;
+    position: relative;
+    float: none;
+    line-height: normal;
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    font-weight: 400;
+    color: rgba(0,0,0,.64);
+    max-width: calc(100% - 20px);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+    /* Outros estilos de fonte personalizada, como cor, peso, etc. */
+}
+
+.swal-title {
+    font-family: "Lato", Arial, sans-serif;
+    letter-spacing
+}

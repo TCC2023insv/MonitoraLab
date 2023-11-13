@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
+@import url('../css/cores.css');
+
+html{
+    min-height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none; 
+    list-style: none;
+}
+
+.voltar{
+    display: flex;
+    align-items: center;
+    margin: 4% 5%;
+}
+
+#voltar-icone{
+    font-size: 175%;
+    color: var(--preto-1);
+}
+
+.texto-voltar{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0.8%;
+    font-weight: 500;
+    font-size: 110%;
+    color: var(--preto-1);
+}
+
+/* Caixa */
+
+.caixa-1{
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    margin: 0 11%;
+    display: flex;
+}
+
+/* Responsável | Laboratório | Data */
+
+.resp-lab{
+    width: 100%;
+}
+
+.titulo{
+    color: var(--azul-1);
+    font-weight: 900;
+    font-size: 150%;
+}
+
+.responsavel{
+    display: flex;
+}
+
+.nome-resp{
+    margin-left: 0.8%;
+    font-size: 150%;
+}
+
+.laboratorio{
+    display: flex;
+    margin-top: 0.5%;
+}
+
+.labN{
+    margin-left: 0.8%;
+    font-size: 150%;
+}
+
+.data{
+    float: right;
+    font-size: 150%;
+}
+
+.caixa-2{
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    margin: 4% 11%;
+    display: flex;
+}
+
+.caixa-problemas{
+    border: 2px solid var(--cinza-1);
+    border-radius: 10px;
+    padding: 3% 4%;
+    width: 55%;
+    height: 10%;
+}
+
+
+
+/* Itens da caixa de problema */
+
+.itens{
+    margin-top: 5%;
+}
+
+.prob{
+    font-size: 110%;
+    font-weight: 500;
+    width: 500%;
+
+}
+
+.quant{
+    font-size: 115%;
+    float: right;
+    padding: 0 15%;
+}
+
+.qual-prob{
+    font-size: 112%;
+    width: 40%;
+    float: right;
+}
+
+/* Atividade exercida */
+
+.atv-probN{
+    width: 100%;
+}
+
+.atv-prob{
+    margin-left: 10%;
+}
+
+.texto{
+    text-align: justify;
+    margin-top: 2%;
+    font-size: 110%;
+}
+
+.prob-N-solucionado{
+    margin-left: 10%;
+    margin-top: 8%;
+}
+
+/* Fotos */
+
+.fotos{
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    margin: 3% 11%;
+}
+
+.carrosel-fotos{
+    margin-top: 2%;
+    display: flex;
+}
+
+.foto{
+    background-color: var(--cinza-1);
+    border: 0.5px solid var(--preto-1);
+    border-radius: 5px;
+
+    width: 340px;
+    height: 200px;
+
+    margin-right: 3%;
+}
+
+
+
+/* Btn e texto excluir */
+
+.area-excluir{
+    display: flex;
+    margin: 5% 11%;
+}
+
+/* Botão de excluir */
+
+
+.Btn-Excluir{
+    background-color: var(--vermelho-1);
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5% 1.5%;
+    border-radius: 8px;
+    width: 7.5%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#icone-lixo{
+    font-size: 145%;
+    color: var(--branco-1);
+}
+
+a.btn-excluir{
+    color: var(--branco-1);
+    font-size: 85%;
+    margin: 0 12%;
+}
+
+.Btn-Excluir:hover{
+    background-color: var(--vermelho-2);
+}
+
+.texto-excluir{
+    font-family: 'Poppins', sans-serif;
+    font-size: 85%;
+    margin-left: 1%;
+    width: 30%;
+}

@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('../css/cores.css');
+
+html{
+    min-height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none; 
+    list-style: none;
+}
+
+.voltar{
+    display: flex;
+    align-items: center;
+    margin: 3% 1% 2% 5%;
+}
+
+#voltar-icone{
+    font-size: 175%;
+    color: var(--preto-1);
+}
+
+.texto-voltar{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0.8%;
+    font-weight: 400;
+    font-size: 110%;
+    color: var(--preto-1);
+}
+
+/* Título */
+
+.titulo{
+    font-family: 'Poppins', sans-serif;
+    color: var(--azul-1);
+    font-weight: 700;
+    font-size: 180%;
+    margin: 1% 11%;
+}
+
+.forms{
+    margin: 2% 8% 8% 8%;
+    box-shadow: 1px 10px 35px var(--preto-2);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    border: none;
+}
+
+.caixas{
+    display: flex;
+}
+
+.sub-titulo{
+    font-size: 90%;
+    font-weight: 500;
+}
+
+.caixa-esquerda{
+    width: 50%;
+    margin: 3% 2%;
+}
+
+.Resp{
+    display: flex;
+    flex-direction: column;
+}
+
+.txt{
+    padding: 1.4% 1%;
+    border-radius: 5px;
+    border: 1px solid var(--cinza-4);
+    font-size: 90%;
+    font-family: 'Poppins', sans-serif; 
+    width: 80%;
+    margin-top: 1%;
+    
+}
+
+.txt:hover{
+    background-color: var(--cinza-2);
+}
+
+.Lab-Data{
+    display: flex;
+    margin-top: 5%;
+}
+
+.Lab{
+    display: flex;
+    flex-direction: column;
+    width: 39%;
+}
+
+.Data{
+    display: flex;
+    flex-direction: column;
+    margin-left: 4%;
+    width: 39%;
+}
+
+.sele-lab{
+    font-family: 'Poppins', sans-serif;
+    font-size: 90%;
+    padding: 3% 4% 3% 3%;
+    margin-top: 1%;
+    border-radius: 5px;
+}
+
+.sele-lab:hover{
+    background-color: var(--cinza-2);
+}
+
+#date{
+    font-family: 'Poppins', sans-serif;
+    font-size: 90%;
+    padding: 2.5% 4%;
+    margin-top: 1%;
+    border-radius: 5px;
+    border: 1px solid var(--cinza-4);
+}
+
+#date:hover{
+    background-color: var(--cinza-2);
+}
+
+.titulo-2{
+    color: var(--azul-1);
+    font-weight: 700;
+    font-size: 150%;
+    text-align: center;
+    margin-top: 12%;
+}
+
+.caixa-problemas{
+    border: 1px solid var(--cinza-4);
+    border-radius: 10px;
+    padding: 7% 6%;
+    width: 70%;
+    margin-top: 8%;
+}
+
+.itens{
+    margin-top: 6%;
+    display: flex;
+}
+
+.txtProb{
+    font-size: 110%;
+    font-weight: 600;
+    width: 42%;
+}
+
+.txtQuant{
+    font-size: 110%;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid var(--cinza-4);
+    border-radius: 4px;
+    width: 14%;
+    text-align: center;
+}
+
+.txtQuant:hover{
+    background-color: var(--cinza-2);
+}
+
+.select-prob{
+    font-size: 80%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--cinza-3);
+    border-radius: 4px;
+    margin-left: 10%;
+    width: 38%;
+    cursor: pointer;
+}
+
+.select-prob:hover{
+    background-color: var(--cinza-2);
+}
+
+.caixa-direita{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
