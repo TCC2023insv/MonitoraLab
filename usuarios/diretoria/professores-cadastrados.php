@@ -1,13 +1,13 @@
 <?php
    require("../../php/conexao/conexaoBD.php");
    
-   if (!isset($_SESSION)) session_start();
+//    if (!isset($_SESSION)) session_start();
 
-   if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
-   {
-       session_destroy();
-       header("Location: ../login.php");
-   }
+//    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
+//    {
+//        session_destroy();
+//        header("Location: ../login.php");
+//    }
 
    $conexao = ConectarBanco();
 

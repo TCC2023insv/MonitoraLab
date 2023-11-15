@@ -12,6 +12,12 @@ html{
     list-style: none;
 }
 
+.Caixa-Texto{
+    width: 100%;
+    height: 32%;
+    padding: 4%;
+}
+
 .voltar{
     display: flex;
     align-items: center;

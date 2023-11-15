@@ -1,3 +1,17 @@
+<?php
+   require("../../php/conexao/conexaoBD.php");
+   
+//    if (!isset($_SESSION)) session_start();
+
+//    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
+//    {
+//        session_destroy();
+//        header("Location: ../login.php");
+//    }
+
+   $conexao = ConectarBanco();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,9 +32,9 @@
         <img src="../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>
         <ul>
-            <li><a class="nav-li" href=" ">Diagnósticos</a></li>
-            <li><a class="nav-li" href=" ">Ocorrências</a></li>
-            <li><a class="active" href=" ">Cadastros</a></li>
+            <li><a class="nav-li" href="">Diagnósticos</a></li>
+            <li><a class="nav-li" href="">Ocorrências</a></li>
+            <li><a class="active" href="professores-cadastrados.php">Cadastros</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>

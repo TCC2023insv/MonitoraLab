@@ -1,3 +1,22 @@
+<?php
+    // if (!isset($_SESSION)) session_start();
+
+    // if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Mon')
+    // {
+    //     session_destroy();
+    //     header("Location: ../login.php");
+    // }
+
+    // require('../../php/conexao/conexaoBD.php');
+    // $conexao = ConectarBanco();
+    // $sql_query = $conexao->query("SELECT `Nome` FROM monitor WHERE login = '"  . $_SESSION['login'] . "'");
+    // while ($monitor = $sql_query->fetch_assoc())
+    // {
+    //     $nomeMonitor = $monitor['Nome'];
+    // }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" type="text/css" href="../../css/registrar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../../css/fonte-alert.css">
+    <script src="../../js/sweetalert.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Registrar Diagnóstico</title>
 </head>
@@ -14,9 +35,8 @@
         <img src="../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario">Nicoli Kassa</div>
         <ul>
-            <li><a class="active" href="">Diagnósticos</a></li>
-            <li><a class="nav-li" href="">Ocorrências</a></li>
-            <li><a class="nav-li" href="">Cadastros</a></li>
+            <li><a href="">Diagnósticos</a></li>
+            <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
@@ -177,6 +197,21 @@
             </div>
         </form>
     </fieldset>
-
+        <script>
+            function Sair()
+            {
+                swal({
+                    title: "Deseja realmente sair?",
+                    icon: "warning",
+                    buttons: ["Cancel", true],
+                }).then(value =>{
+                    if (value)
+                    {
+                        window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                    }
+                })
+                return false;
+            }
+        </script>
     </body>
 </html>

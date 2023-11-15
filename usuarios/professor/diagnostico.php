@@ -1,4 +1,29 @@
-<!-- ADICIONAR PHP -->
+<?php
+//    require("../../php/conexao/conexaoBD.php");
+   
+//    if (!isset($_SESSION)) session_start();
+
+//    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
+//    {
+//        session_destroy();
+//        header("Location: ../login.php");
+//    }
+
+//    $conexao = ConectarBanco();
+//    $ID_Reparo = $_GET['id'];
+
+//    $sql_query = $conexao->query("SELECT `ID`, `Data`, `Acao`, `Problemas_Nao_Solucionados`, `Responsavel`, 
+//    `Login_Monitor`, `Laboratorio` FROM `reparo` WHERE ID = '$ID_Reparo'") or die ($conexao->error);
+
+//     $sql_query_prob = $conexao->query("SELECT dispositivo.Nome, dispositivo.Quantidade, dispositivo.Problema 
+//     FROM dispositivo JOIN dispositivo_reparo ON dispositivo.ID = dispositivo_reparo.ID_Dispositivo
+//     WHERE dispositivo_reparo.ID_Reparo = '$ID_Reparo'") or die ($conexao->error);
+
+//     if ($sql_query && mysqli_num_rows($sql_query) > 0) {
+//         $reparo = mysqli_fetch_assoc($sql_query);
+//     }
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

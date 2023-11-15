@@ -1,13 +1,13 @@
 <?php
    require("../../php/conexao/conexaoBD.php");
 
-   if (!isset($_SESSION)) session_start();
+//    if (!isset($_SESSION)) session_start();
    
-   if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
-   {
-       session_destroy();
-       header("Location: ../login.php");
-   }
+//    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
+//    {
+//        session_destroy();
+//        header("Location: ../login.php");
+//    }
    
    $conexao = ConectarBanco();
 
@@ -64,12 +64,12 @@
                 </div>
                 <div class="login">
                     <p class="sub-titulos">Login:</p>
-                    <div class="login-usu"><?php echo $monitor['Login']; ?></div>   
+                    <div class="login-usu" name="var-login"></div><?php echo $monitor['Login']; ?></div>   
                 </div>
             </div>
             <div class="Btn-Excluir">
                 <i id="icone-lixo" class="ph-fill ph-trash"></i>
-                <a href="#" class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">excluir</a>
+                <a class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">excluir</a>
             </div>
         </div>
         <hr>

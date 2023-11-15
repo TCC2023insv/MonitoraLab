@@ -1,11 +1,11 @@
 <?php
-    if (!isset($_SESSION)) session_start();
+    // if (!isset($_SESSION)) session_start();
 
-    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
-    {
-        session_destroy();
-        header("Location: ../login.php");
-    }
+    // if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
+    // {
+    //     session_destroy();
+    //     header("Location: ../login.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
