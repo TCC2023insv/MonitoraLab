@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('cores.css');
+
+html{
+    min-height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none; 
+    list-style: none;
+    letter-spacing: normal;
+}
+
+body{
+    background: var(--branco-1);
+    font-family:'Literata', serif;
+    font-weight: 470;
+    letter-spacing: 5px;    
+}
+
+.voltar{
+    display: flex;
+    align-items: center;
+    margin: 2% 5% 2% 5%;
+}
+
+#voltar-icone{
+    font-size: 175%;
+    color: var(--preto-1);
+}
+
+.texto-voltar{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0.8%;
+    font-weight: 500;
+    font-size: 110%;
+    color: var(--preto-1);
+}
+
+h2{
+    color: var(--azul-1);
+    text-transform: uppercase;
+    margin: 1% 0 0 3%;
+    letter-spacing: normal;
+    font-size: 170%;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.botao-extrair{
+    background-color: var(--azul-1);
+    color: var(--branco-1);
+    width: auto;
+    height: auto;
+    font-family: 'Poppins', sans-serif ;
+    border: none;
+    display: flex;
+    margin: 1% 0 2% 80%;
+    font-size: 100%;
+    padding: 0.5%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao-extrair:hover{
+    transition: all;
+    transform: scale(1.05);
+}
+
+.fa-solid{
+margin: 1.5% 0 0 8px;
+}
+
+.container-geral{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-1{
+    display: flex;
+    flex-direction: column;
+    margin: 1% 0 0 3%;
+    font-family: 'Literata', serif;
+    font-weight: 450;
+    text-align: justify;
+    word-spacing: 8px;
+}
+
+.container-2{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    width: 60%;
+    margin: 1% 10% 0 0;
+    border-bottom: 1px solid var(--cinza-3);
+}
+
+.problema-data{
+    display: flex;
+    justify-content:space-between;
+}
+
+.cabecalho-ocorrencia{
+    margin: 0 0 3% 0
+}
+
+.titulo-problema{
+    color: var(--azul-1);
+    letter-spacing: normal;
+    font-size: 170%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.titulo-ocorrencia{
+    font-weight: 450;
+}
+
+.infos-ocorrencia{
+    display: flex;
+    flex-direction: column;
+}
+
+.responsavel{
+    color: var(--azul-1);
+    margin: 0 0 1% 0;
+    font-size: 110%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.laboratorio{
+    color: var(--azul-1);
+    margin: 0 0 1% 0;
+    font-size: 110%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.descricao-ocorrencia{
+    margin: 0 0 4% 0;
+}
+
+/* Pagina de visualizar ocorrencia */
+
+.container{
+    width: 70%;
+    margin: 3% 0 2% 15%;
+    text-align: justify;
+    border-bottom: 1px solid var(--cinza-3);
+}
+
+.botao-registrar{
+    background-color: var(--azul-1);
+    color: var(--branco-1);
+    width: auto;
+    height: auto;
+    font-family: 'Poppins', sans-serif ;
+    border: none;
+    display: flex;
+    margin: 1% 81% 2% 3%;
+    font-size: 100%;
+    padding: 0.5%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao-registrar:hover{
+    transition: all;
+    transform: scale(1.05);
+}
+
+.fa-regular{
+margin: 1.5% 0 0 8px;
+}
+
+.titulo-editar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.editar{
+    border: none;
+    width: auto;
+    background-color: var(--amarelo-1);
+    color: var(--branco-1);
+    font-size: 120%;
+    margin: 0;
+    padding: 0.5%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+button:hover{
+    transition: all;
+    transform: scale(1.05);
+}
+
+.arquivar{
+    border: none;
+    width: auto;
+    background-color: var(--azul-2);
+    color: var(--branco-1);
+    font-size: 120%;
+    margin: 0;
+    padding: 0.5%;
+    border-radius: 5px;
+    cursor: pointer;
+}
