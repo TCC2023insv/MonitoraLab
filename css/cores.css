@@ -3,15 +3,18 @@
 
 .tema-claro, :root{
     --azul-1: #24416B;
+    --azul-2:#5E93E0;
     --branco-1: #FFFFFF;
     --vermelho-1: #EF4747;
     --vermelho-2: #d83b3b;
+    --amarelo-1:#DDD73C;
     --preto-1: #000000;
     --cinza-1: #939393;
     --cinza-2: #7d7d7d4c;
     --cinza-3: #7d7d7d;
     --cinza-4: #4e4e4eb4;
     --preto-2: #0000001c;
+    --preto-3: #141414;
 }
 
 
