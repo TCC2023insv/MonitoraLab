@@ -31,18 +31,13 @@
     <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-professor.png" class="icone-usuario">
         <div class="usuario">Professor</div>
-        <ul>
+        <ul class="nav-professor">
             <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
             <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
             <li><a class="active" href="">Cadastros</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
-
-    <div class="voltar">
-        <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-        <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-    </div>
 
     <h1 class="titulo">CADASTROS</h1>
     <a href="cadastrar-monitor.php" class="Cadastrar" id="Cadastrar">
@@ -66,10 +61,10 @@
                     <p class="sub-titulos">Login:</p>
                     <div class="login-usu" name="var-login"></div><?php echo $monitor['Login']; ?></div>   
                 </div>
-            </div>
-            <div class="Btn-Excluir">
-                <i id="icone-lixo" class="ph-fill ph-trash"></i>
-                <a class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">excluir</a>
+                <div class="Btn-Excluir">
+                    <i id="icone-lixo" class="ph-fill ph-trash"></i>
+                    <a class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">excluir</a>
+                </div>
             </div>
         </div>
         <hr>

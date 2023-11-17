@@ -39,12 +39,6 @@
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
-
-    <div class="voltar">
-        <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-        <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-    </div>
-
     <h1 class="titulo">CADASTROS</h1>
     <a href="cadastrar-professor.php" class="Cadastrar">
         <i id="mais" class="ph ph-plus"></i>

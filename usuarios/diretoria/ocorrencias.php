@@ -32,9 +32,6 @@
     </head>
     <body>
         <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../../icons/icone-direcao.png" class="icone-usuario">
-        <div class="usuario">Direção</div>
             <h1 class="logo">MonitoraLab</h1>
             <img src="../../icons/icone-direcao.png" class="icone-usuario">
             <div class="usuario">Direção</div>
@@ -46,13 +43,8 @@
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-        
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
-
-        <h2>Ocorrência registradas</h2>
+    
+        <h2>Ocorrências Registradas</h2>
        
         <?php
             while ($ocorrencia = $sql_query->fetch_assoc())

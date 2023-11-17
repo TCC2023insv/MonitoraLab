@@ -4,7 +4,7 @@
 nav{
     background-color: var(--azul-1);
     color: var(--branco-1);
-    padding: 1.5% 2%;
+    padding: 1.1% 2%;
     /* width: auto; */
     display: flex;
     align-items: center;
@@ -12,27 +12,38 @@ nav{
 
 .logo{
     font-family: 'Poppins', sans-serif;
-    font-size: 180%;
+    font-size: 165%;
     font-weight: bold; 
     letter-spacing: 2px;
     margin-left: 2%;
 }
 
 .icone-usuario{
-    margin-left: 2%;
+    margin-left: 3%;
+    margin-right: 0.4%;
+    width: 3%;
 }
 
 .usuario{
     font-family: 'Poppins', sans-serif;
-    font-size: 110%;
+    font-size: 100%;
     margin-left: 0.5%;
 }
 
 nav ul{
     position: absolute;
-    margin-left: 56%;
+    margin-left: 54%;
 }
 
+ul.nav-monitor{
+    position: absolute;
+    margin-left: 72%;
+}
+
+ul.nav-professor{
+    position: absolute;
+    margin-left: 64%;
+}
 
 nav ul li{
     display: inline-block;
@@ -47,11 +58,7 @@ nav ul li a{
     letter-spacing: 1px;
     line-height: 20%;
     position: relative;
-<<<<<<< HEAD
-    font-weight: 3;
-=======
     font-weight: 400;
->>>>>>> 14e1d738aca5301bef83a3305134d7c6dc399856
 }
 
 .nav-li::after{
@@ -83,7 +90,7 @@ nav ul li a{
 /* BotÃ£o de sair */
 .Btn-Sair{
     background-color: var(--vermelho-1);
-    padding: 25% 70%;
+    padding: 20% 60%;
     border-radius: 8px;
 }
 

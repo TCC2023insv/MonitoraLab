@@ -35,18 +35,13 @@
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-professor.png" class="icone-usuario">
         <div class="usuario">Professor</div>
-            <ul>
+            <ul class="nav-professor">
                 <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
                 <li><a class="active" href="">Ocorrências</a></li>
                 <li><a class="nav-li" href="monitores-cadastrados.php">Cadastros</a></li>
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
 
         <h2>Ocorrência registradas</h2>
         <a class="botao-registrar" href="registrar-ocorrencia.php">Registrar Ocorrencia<i class="fa-regular fa-pen-to-square"></i></a>

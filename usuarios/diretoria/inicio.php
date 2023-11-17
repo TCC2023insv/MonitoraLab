@@ -42,12 +42,6 @@
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
-        
             <h2>Diagnósticos</h2>
             <?php
                 while ($reparo = $sql_query->fetch_assoc())
@@ -67,6 +61,7 @@
                 }
                 $conexao->close();
             ?>
+        
 
         <script>
             function Sair()

@@ -34,18 +34,12 @@
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario">Monitor</div>
-            <ul>
+            <ul class="nav-monitor">
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="registrar-diagnostico.php">Registrar</a></li>
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
-        
             <h2>Diagnósticos</h2>
 
             <?php

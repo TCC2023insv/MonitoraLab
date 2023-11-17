@@ -36,7 +36,7 @@ html{
 .titulo{
     font-family: 'Poppins', sans-serif;
     color: var(--azul-1);
-    margin: 0% 5%;
+    margin: 4% 0 2% 5%;
     font-size: 180%;
 }
 
@@ -72,13 +72,13 @@ a.Cadastrar{
 
 .caixa-1{
     margin: 1% 5%;
-    width: auto;
+    width: 100%;
     display: flex;
 }
 
 .dados{
     font-family: 'Poppins', sans-serif;
-    width: 85%;
+    width: 76%;
     margin-left: 2%;
 }
 
