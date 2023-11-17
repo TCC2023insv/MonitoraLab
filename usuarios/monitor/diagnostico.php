@@ -22,7 +22,8 @@
     $sql_query_img = $conexao->query("SELECT `Path` FROM `arquivos` WHERE ID_Reparo = '$ID_Reparo'")
     or die ($conexao->error);
 
-    if ($sql_query && mysqli_num_rows($sql_query) > 0) {
+    if ($sql_query && mysqli_num_rows($sql_query) > 0) 
+    {
         $reparo = mysqli_fetch_assoc($sql_query);
     }
 
