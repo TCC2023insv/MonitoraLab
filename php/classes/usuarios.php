@@ -127,7 +127,7 @@
 
                         break;
                     default:
-                    header("Location: ../usuarios/login.php");
+                    header("Location: ../../login.php");
                         break;
                 }
             }
@@ -139,7 +139,7 @@
             {
                 session_start();
                 session_destroy();
-                header("Location: ../../usuarios/login.php");
+                header("Location: ../../login.php");
             }
         }
     }
