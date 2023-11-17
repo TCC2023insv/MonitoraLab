@@ -4,7 +4,7 @@
 nav{
     background-color: var(--azul-1);
     color: var(--branco-1);
-    padding: 1.5% 2%;
+    padding: 1.1% 2%;
     /* width: auto; */
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@ nav{
 
 .logo{
     font-family: 'Poppins', sans-serif;
-    font-size: 180%;
+    font-size: 160%;
     font-weight: bold; 
     letter-spacing: 2px;
     margin-left: 2%;
@@ -20,17 +20,28 @@ nav{
 
 .icone-usuario{
     margin-left: 2%;
+    width: 3%;
 }
 
 .usuario{
     font-family: 'Poppins', sans-serif;
-    font-size: 110%;
+    font-size: 100%;
     margin-left: 0.5%;
 }
 
 nav ul{
     position: absolute;
     margin-left: 56%;
+}
+
+ul.nav-monitor{
+    position: absolute;
+    margin-left: 56%;
+}
+
+ul.nav-professor{
+    position: absolute;
+    margin-left: 64%;
 }
 
 

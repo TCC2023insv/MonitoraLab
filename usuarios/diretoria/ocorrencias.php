@@ -32,9 +32,6 @@
     </head>
     <body>
         <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../../icons/icone-direcao.png" class="icone-usuario">
-        <div class="usuario">Direção</div>
             <h1 class="logo">MonitoraLab</h1>
             <img src="../../icons/icone-direcao.png" class="icone-usuario">
             <div class="usuario">Direção</div>
