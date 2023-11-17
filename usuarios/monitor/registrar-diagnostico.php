@@ -1,19 +1,19 @@
 <?php
-    // if (!isset($_SESSION)) session_start();
+    if (!isset($_SESSION)) session_start();
 
-    // if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Mon')
-    // {
-    //     session_destroy();
-    //     header("Location: ../login.php");
-    // }
+    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Mon')
+    {
+        session_destroy();
+        header("Location: ../login.php");
+    }
 
-    // require('../../php/conexao/conexaoBD.php');
-    // $conexao = ConectarBanco();
-    // $sql_query = $conexao->query("SELECT `Nome` FROM monitor WHERE login = '"  . $_SESSION['login'] . "'");
-    // while ($monitor = $sql_query->fetch_assoc())
-    // {
-    //     $nomeMonitor = $monitor['Nome'];
-    // }
+    require('../../php/conexao/conexaoBD.php');
+    $conexao = ConectarBanco();
+    $sql_query = $conexao->query("SELECT `Nome` FROM monitor WHERE login = '"  . $_SESSION['login'] . "'");
+    while ($monitor = $sql_query->fetch_assoc())
+    {
+        $nomeMonitor = $monitor['Nome'];
+    }
 
 ?>
 <!DOCTYPE html>
@@ -32,9 +32,8 @@
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario">Nicoli Kassa</div>
         <ul>
-            <li><a class="active" href="">Diagnósticos</a></li>
-            <li><a class="nav-li" href="">Ocorrências</a></li>
-            <li><a class="nav-li" href="">Cadastros</a></li>
+            <li><a href="inicio.php">Diagnósticos</a></li>
+            <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
@@ -47,13 +46,13 @@
     <h1 class="titulo">REGISTRAR DIAGNÓSTICO</h1>
    
     <fieldset class="forms">
-        <form class=" " action="" method="">
+        <form id="Diagnostico" class=" " action="../../php/classes/usuarios.php" method="">
             <div class="caixas">
                 <div class="caixa-esquerda">
                 
                     <div class="Resp">
                         <label class="sub-titulo">Responsável</label>
-                        <input class="txt" type="text" id="" name=" " placeholder="Insira o nome do responsável" required>
+                        <input class="txt" type="text" name="responsavel" id="Responsavel" value="<?= $nomeMonitor ?>" readonly required>
     
                     </div>
                     
@@ -210,8 +209,94 @@
             <button type="submit" class="Btn-Registrar" name="btnRegistrar">REGISTRAR</button>
         </form>
     </fieldset>
+
     <script src="../../js/miniatura.js"></script>
     <script>
+    var formData = new FormData();
+         
+    document.getElementById("upload").onchange = function(e)
+    {
+        if (e.target.files != null && e.target.files != 0)
+        {
+            formData.append("foto[]", e.target.files[0]);
+        }
+    }
+    $(document).ready(function() {
+        $("#Diagnostico").submit(function(e) {
+            e.preventDefault();
+
+            var Lab = $("#Lab-2").val();
+            var data = $("#Data-2").val();
+            var responsavel = $("#Responsavel").val();
+            var quantApps = $("#quantApps").val();
+            var probApps = $("#probApps").val();
+            var quantFonte = $("#quantFonte").val();
+            var probFonte = $("#probFonte").val();
+            var quantHD = $("#quantHD").val();
+            var probHD = $("#probHD").val();
+            var quantMonitor = $("#quantMonitor").val();
+            var probMonitor = $("#probMonitor").val();
+            var quantMouse = $("#quantMouse").val();
+            var probMouse = $("#probMouse").val();
+            var quantTeclado = $("#quantTeclado").val();
+            var probTeclado = $("#probTeclado").val();
+            var quantWindows = $("#quantWindows").val();
+            var probWindows = $("#probWindows").val();
+            var atvExercida = $("#atvExercida").val();
+            var probSolucionados = $("#probSolucionados").val();
+            var RegistrarDiagnostico = "RegistrarDiagnostico";
+
+            formData.append("Lab", Lab);
+            formData.append("data", data);
+            formData.append("responsavel", responsavel);
+            formData.append("quantApps", quantApps);
+            formData.append("probApps", probApps);
+            formData.append("quantFonte", quantFonte);
+            formData.append("probFonte", probFonte);
+            formData.append("quantHD", quantHD);
+            formData.append("probHD", probHD);
+            formData.append("quantMonitor", quantMonitor);
+            formData.append("probMonitor", probMonitor);
+            formData.append("quantMous", quantMouse);
+            formData.append("probMouse", probMouse);
+            formData.append("quantTeclado",quantTeclado);
+            formData.append("probTeclado", probTeclado);
+            formData.append("quantWindows", quantWindows);
+            formData.append("probWindows", probWindows);
+            formData.append("atvExercida", atvExercida);
+            formData.append("probSolucionados", probSolucionados);
+            formData.append("RegistrarDiagnostico", RegistrarDiagnostico);
+
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    swal({
+                    title: "Diagnóstico Registrado!",
+                    text: "O diagnóstico foi registrado com sucesso. Agradecemos a colaboração!",
+                    icon: "success",
+                    button: {confirm: true},
+                    }).then(value =>{
+                        if (value)
+                        {
+                        window.location.href = "javascript: history.go(-1)";
+                        }
+                    });
+                },
+                error: function() {
+                    swal({
+                    title: "Falha no Registro!",
+                    text: "Ocorreu um problema ao registrar o diagnóstico.Tente novamente.",
+                    icon: "error",
+                    button: {confirm: true},
+                    });
+                }
+            });
+        });
+    });
             function Sair()
             {
                 swal({

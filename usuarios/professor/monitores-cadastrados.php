@@ -32,8 +32,8 @@
         <img src="../icons/icone-professor.png" class="icone-usuario">
         <div class="usuario">Amaral</div>
         <ul>
-            <li><a class="nav-li" href="">Diagnósticos</a></li>
-            <li><a class="nav-li" href="">Ocorrências</a></li>
+            <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
+            <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
             <li><a class="active" href="">Cadastros</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
