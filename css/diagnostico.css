@@ -27,7 +27,7 @@ html{
     font-family: 'Poppins', sans-serif;
     margin-left: 0.8%;
     font-weight: 500;
-    font-size: 110%;
+    font-size: 125%;
     color: var(--preto-1);
 }
 
@@ -57,8 +57,8 @@ html{
 }
 
 .nome-resp{
-    margin-left: 0.8%;
-    font-size: 150%;
+    margin-left: 1%;
+    font-size: 140%;
 }
 
 .laboratorio{
@@ -67,8 +67,8 @@ html{
 }
 
 .labN{
-    margin-left: 0.8%;
-    font-size: 150%;
+    margin-left: 1%;
+    font-size: 140%;
 }
 
 .data{
@@ -97,24 +97,27 @@ html{
 
 .itens{
     margin-top: 5%;
+    display: flex;
 }
 
-.prob{
-    font-size: 110%;
+.prob{ 
+    float: left;
+    width: 30%;
+    font-size: 120%;
     font-weight: 500;
-    width: 500%;
-
+   
 }
 
 .quant{
-    font-size: 115%;
+    font-size: 120%;
     float: right;
     padding: 0 15%;
+    text-align: center;
 }
 
 .qual-prob{
-    font-size: 112%;
-    width: 40%;
+    font-size: 120%;
+    width: 50%;
     float: right;
 }
 
@@ -131,7 +134,7 @@ html{
 .texto{
     text-align: justify;
     margin-top: 2%;
-    font-size: 110%;
+    font-size: 120%;
 }
 
 .prob-N-solucionado{
@@ -149,6 +152,7 @@ html{
 
 .carrosel-fotos{
     margin-top: 2%;
+    width: auto;
     display: flex;
 }
 

@@ -28,7 +28,11 @@
 </head>
 <body>
     <nav>
+<<<<<<< HEAD
     <h1 class="logo">MonitoraLab</h1>
+=======
+        <h1 class="logo">MonitoraLab</h1>
+>>>>>>> 14e1d738aca5301bef83a3305134d7c6dc399856
         <img src="../../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>
         <ul>
