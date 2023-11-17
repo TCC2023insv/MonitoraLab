@@ -41,26 +41,23 @@
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-<<<<<<< HEAD
-        
-=======
->>>>>>> 14e1d738aca5301bef83a3305134d7c6dc399856
             <h2>Diagnósticos</h2>
 
-            <div class="info-diagnostico">
+            
             <?php
                 while ($reparo = $sql_query->fetch_assoc())
                 {
             ?>
             <div class="container">
+                <div class="info-diagnostico">
                     <label class="titulo-dados"><?php echo date('d/m/Y', strtotime($reparo['Data'])); ?></label>
                     <label class="titulo-dados">Diagnosticado por: <?php echo $reparo['Responsavel'];?></label>
                     <label class="titulo-dados">Laboratório: <?php echo $reparo['Laboratorio']; ?></label>
                 </div>
-                <div class="link-diagnostico">
+                    <div class="link-diagnostico">
                     <a class="link" href=<?php echo "diagnostico.php?id=" . $reparo['ID'];?>>Ver diagnóstico<i class="fa-solid fa-arrow-right"></i></a>    
                 </div>
-                </div>
+            </div>
             <?php
                 }
                 $conexao->close();
