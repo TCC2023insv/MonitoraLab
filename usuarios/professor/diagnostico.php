@@ -1,27 +1,27 @@
 <?php
-//    require("../../php/conexao/conexaoBD.php");
+   require("../../php/conexao/conexaoBD.php");
    
-//    if (!isset($_SESSION)) session_start();
+   if (!isset($_SESSION)) session_start();
 
-//    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
-//    {
-//        session_destroy();
-//        header("Location: ../login.php");
-//    }
+   if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
+   {
+       session_destroy();
+       header("Location: ../login.php");
+   }
 
-//    $conexao = ConectarBanco();
-//    $ID_Reparo = $_GET['id'];
+   $conexao = ConectarBanco();
+   $ID_Reparo = $_GET['id'];
 
-//    $sql_query = $conexao->query("SELECT `ID`, `Data`, `Acao`, `Problemas_Nao_Solucionados`, `Responsavel`, 
-//    `Login_Monitor`, `Laboratorio` FROM `reparo` WHERE ID = '$ID_Reparo'") or die ($conexao->error);
+   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Acao`, `Problemas_Nao_Solucionados`, `Responsavel`, 
+   `Login_Monitor`, `Laboratorio` FROM `reparo` WHERE ID = '$ID_Reparo'") or die ($conexao->error);
 
-//     $sql_query_prob = $conexao->query("SELECT dispositivo.Nome, dispositivo.Quantidade, dispositivo.Problema 
-//     FROM dispositivo JOIN dispositivo_reparo ON dispositivo.ID = dispositivo_reparo.ID_Dispositivo
-//     WHERE dispositivo_reparo.ID_Reparo = '$ID_Reparo'") or die ($conexao->error);
+    $sql_query_prob = $conexao->query("SELECT dispositivo.Nome, dispositivo.Quantidade, dispositivo.Problema 
+    FROM dispositivo JOIN dispositivo_reparo ON dispositivo.ID = dispositivo_reparo.ID_Dispositivo
+    WHERE dispositivo_reparo.ID_Reparo = '$ID_Reparo'") or die ($conexao->error);
 
-//     if ($sql_query && mysqli_num_rows($sql_query) > 0) {
-//         $reparo = mysqli_fetch_assoc($sql_query);
-//     }
+    if ($sql_query && mysqli_num_rows($sql_query) > 0) {
+        $reparo = mysqli_fetch_assoc($sql_query);
+    }
 
 ?>
 
@@ -41,9 +41,9 @@
         <img src="../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>
         <ul>
-            <li><a class="active" href="">Diagnósticos</a></li>
-            <li><a class="nav-li" href="">Ocorrências</a></li>
-            <li><a class="nav-li" href="../paginas/navbar.html">Cadastros</a></li>
+            <li><a class="active" href="inicio.php">Diagnósticos</a></li>
+            <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
+            <li><a class="nav-li" href="monitores-cadastrados.php">Cadastros</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
@@ -57,17 +57,35 @@
         <div class="resp-lab">
              <div class="responsavel">
                 <p class="titulo">Responsável: </p>
-                <p class="nome-resp">Nicoli Kassa</p>
+                <p class="nome-resp"><?php echo $reparo['Responsavel']; ?></p>
             </div>
             <div class="laboratorio">
                 <p class="titulo">Laboratório:</p>
-                <p class="labN">Lab 1</p>
+                <p class="labN"><?php echo $reparo['Laboratorio']; ?></p>
             </div>
         </div>
-        <div class="data">00/00/0000</div>
+        <div class="data"><?php echo date('d/m/Y', strtotime($reparo['Data'])); ?></div>
     </div>
 
     <div class="caixa-2">
+        <div class="caixa-problemas">
+            <p class="titulo">Problemas</p>
+    <?php
+        while ($problema = $sql_query_prob->fetch_assoc())
+        {
+    ?> 
+            <div class="itens">
+                <label class="prob"><?php echo $problema['Nome']; ?></label>
+                <label class="qual-prob"><?php echo $problema['Problema'];?></label>  
+                <label class="quant"><?php echo $problema['Quantidade']; ?></label>
+            </div>
+    <?php
+        }
+    ?>
+        </div>
+    </div>
+
+    <!-- <div class="caixa-2">
         <div class="caixa-problemas">
             <p class="titulo">Problemas</p>
             <div class="itens">
@@ -80,18 +98,18 @@
                 <label class="qual-prob">Quebrado</label>  
                 <label class="quant">1</label>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="atv-probN">
             <div class="atv-prob">
                 <p class="titulo">Atividade exercida</p>
-                <p class="texto">Durante o período especificado, solucionamos vários problemas na sala de informática, incluindo questões de conexão à internet, lentidão em computadores, problemas com impressoras, software, acesso a redes locais e vírus/malware. Também abordamos problemas de energia elétrica com a instalação de um UPS, resolvemos questões de hardware e substituímos periféricos defeituosos.</p>
+                <p class="texto"><?php echo $reparo['Acao']; ?></p>
             </div>
 
             <div class="prob-N-solucionado">
                 <p class="titulo">Problemas não solucionados</p>
-                <p class="texto">Apesar dos esforços da equipe de suporte, alguns problemas na sala de informática permanecem sem solução. Isso inclui desafios relacionados a falhas ocasionais na conexão à internet, que podem ser atribuídas a questões de infraestrutura externa. Além disso, a lentidão de alguns computadores persiste devido a limitações de hardware que não podem ser totalmente resolvidas com as atualizações disponíveis.</p>
+                <p class="texto"><?php echo $reparo['Problemas_Nao_Solucionados']; ?></p>
             </div>
         </div>
     </div>
