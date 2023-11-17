@@ -55,7 +55,12 @@ h1{
 
 h2{
     color: var(--azul-1);
-    margin: 10% 0 1% 40%;
+    margin-top: 18%;
+    font-weight: 700;
+    width: 100%;
+    font-size: 200%;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .forms{
@@ -66,8 +71,8 @@ h2{
 }
 
 label{
-    margin: 5% 0 1% 0;
-    font-size: 100%;
+    margin: 6% 0 1% 0;
+    font-size: 110%;
     letter-spacing: normal;
 }
 
@@ -75,11 +80,15 @@ label{
     padding: 2%;
     width: 75%;
     font-family: 'Poppins', sans-serif;
+    font-size: 100%;
+    margin-top: 1%;
 }
 
 .txt{
     padding: 2%;
     width: 70%;
+    margin-top: 1%;
+    font-size: 100%;
     font-family: 'Poppins', sans-serif;  
 }
 
@@ -91,11 +100,11 @@ label{
 #btn{
     color: var(--branco-1);
     background-color: var(--azul-1);
-    width: 50%;
+    width: 40%;
     height: 10%;
     font-family: 'Poppins', sans-serif;
-    font-size: 100%;
-    margin: 10% 0 0 12.5%;
+    font-size: 110%;
+    margin: 12% 0 0 19%;
     border: none;
     border-radius: 5px;
 }

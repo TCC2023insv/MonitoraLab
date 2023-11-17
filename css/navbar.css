@@ -12,14 +12,15 @@ nav{
 
 .logo{
     font-family: 'Poppins', sans-serif;
-    font-size: 160%;
+    font-size: 165%;
     font-weight: bold; 
     letter-spacing: 2px;
     margin-left: 2%;
 }
 
 .icone-usuario{
-    margin-left: 2%;
+    margin-left: 3%;
+    margin-right: 0.4%;
     width: 3%;
 }
 
@@ -31,7 +32,12 @@ nav{
 
 nav ul{
     position: absolute;
-    margin-left: 56%;
+    margin-left: 54%;
+}
+
+ul.nav-monitor{
+    position: absolute;
+    margin-left: 54%;
 }
 
 ul.nav-monitor{
@@ -44,6 +50,15 @@ ul.nav-professor{
     margin-left: 64%;
 }
 
+ul.nav-professor{
+    position: absolute;
+    margin-left: 64%;
+}
+
+ul.nav-monitor{
+    position: absolute;
+    margin-left: 72%;
+}
 
 nav ul li{
     display: inline-block;
@@ -90,7 +105,7 @@ nav ul li a{
 /* BotÃ£o de sair */
 .Btn-Sair{
     background-color: var(--vermelho-1);
-    padding: 25% 70%;
+    padding: 20% 60%;
     border-radius: 8px;
 }
 

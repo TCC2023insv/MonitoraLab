@@ -72,13 +72,13 @@ a.Cadastrar{
 
 .caixa-1{
     margin: 1% 5%;
-    width: auto;
+    width: 100%;
     display: flex;
 }
 
 .dados{
     font-family: 'Poppins', sans-serif;
-    width: 85%;
+    width: 76%;
     margin-left: 2%;
 }
 
