@@ -41,6 +41,7 @@
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
+        
             <h2>Diagnósticos</h2>
 
             <div class="info-diagnostico">
