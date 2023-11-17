@@ -43,11 +43,6 @@
             </ul>
         </nav>
 
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
-
         <h2>Ocorrência registradas</h2>
         <a class="botao-registrar" href="registrar-ocorrencia.php">Registrar Ocorrencia<i class="fa-regular fa-pen-to-square"></i></a>
        

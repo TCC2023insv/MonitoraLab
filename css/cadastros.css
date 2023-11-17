@@ -36,7 +36,7 @@ html{
 .titulo{
     font-family: 'Poppins', sans-serif;
     color: var(--azul-1);
-    margin: 0% 5%;
+    margin: 4% 0 3% 5%;
     font-size: 180%;
 }
 

@@ -78,15 +78,14 @@
         {
     ?> 
             <div class="itens">
-                <label class="prob"><?php echo $problema['Nome']; ?></label>
-                <label class="qual-prob"><?php echo $problema['Problema'];?></label>  
+                <label class="prob"><?php echo $problema['Nome']; ?></label>  
                 <label class="quant"><?php echo $problema['Quantidade']; ?></label>
+                <label class="qual-prob"><?php echo $problema['Problema'];?></label>
             </div>
     <?php
         }
     ?>
         </div>
-    </div>
 
     <!-- <div class="caixa-2">
         <div class="caixa-problemas">
