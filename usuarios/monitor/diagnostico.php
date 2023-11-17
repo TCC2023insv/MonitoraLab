@@ -34,7 +34,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../../css/diagnostico.css">
+    <link rel="stylesheet" type="text/css" href="../../css/registrar.css">
     <link rel="stylesheet" href="../../css/fonte-alert.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />     -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -44,9 +44,9 @@
 <body>
     <nav>
         <h1 class="logo">MonitoraLab</h1>
-        <img src="../icons/icone-monitor.png" class="icone-usuario">
+        <img src="../../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario">Nicoli Kassa</div>
-        <ul>
+        <ul class="monitor">
             <li><a class="active" href="">Diagnósticos</a></li>
             <li><a href="registrar-diagnostico.php">Registrar</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>

@@ -16,7 +16,6 @@
     // }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,19 +23,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" type="text/css" href="../../css/registrar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../../css/fonte-alert.css">
-    <script src="../../js/sweetalert.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Registrar Diagnóstico</title>
 </head>
 <body>
     <nav>
         <h1 class="logo">MonitoraLab</h1>
-        <img src="../icons/icone-monitor.png" class="icone-usuario">
+        <img src="../../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario">Nicoli Kassa</div>
         <ul>
-            <li><a href="">Diagnósticos</a></li>
-            <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
+            <li><a class="active" href="">Diagnósticos</a></li>
+            <li><a class="nav-li" href="">Ocorrências</a></li>
+            <li><a class="nav-li" href="">Cadastros</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
@@ -189,15 +187,31 @@
     
                 <div class="caixa-direita">
                     <label class="titulo-2">Atividade Exercida</label>
-                    <textarea class="Caixa-Texto" id="atvExercida" name="atvExercida" placeholder="Descreva em detalhes as atividades exercidas" required></textarea>
+                    <textarea class="caixa-texto" id="atvExercida" name="atvExercida" placeholder="Descreva em detalhes as atividades exercidas" required></textarea>
                     <label class="titulo-2">Problemas não solucionados</label>
-                    <textarea class="Caixa-Texto" id="probSolucionados" name="probSolucionados" placeholder="Descreva em detalhes os problemas não solucionados" required></textarea>
+                    <textarea class="caixa-texto" id="probSolucionados" name="probSolucionados" placeholder="Descreva em detalhes os problemas não solucionados" required></textarea>
                 </div>
     
+                
             </div>
+            <div class="Fotos">
+                <label class="titulo-2">Fotos</label>                
+                <div class="input-div">
+                    <i id="icon-foto" class="ph-fill ph-cloud-arrow-up"></i>
+                    <p class="escolher-foto">Escolher arquivo</p>
+                    <input type="file" id="file-input" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
+                </div>
+
+                <p class="fotos-selecionadas">Fotos selecionadas:</p>
+
+                <div id="miniaturas"></div>
+            </div>
+
+            <button type="submit" class="Btn-Registrar" name="btnRegistrar">REGISTRAR</button>
         </form>
     </fieldset>
-        <script>
+    <script src="../../js/miniatura.js"></script>
+    <script>
             function Sair()
             {
                 swal({
@@ -213,5 +227,6 @@
                 return false;
             }
         </script>
+
     </body>
 </html>

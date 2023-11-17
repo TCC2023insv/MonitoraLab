@@ -12,12 +12,6 @@ html{
     list-style: none;
 }
 
-.Caixa-Texto{
-    width: 100%;
-    height: 32%;
-    padding: 4%;
-}
-
 .voltar{
     display: flex;
     align-items: center;
@@ -44,7 +38,7 @@ html{
     color: var(--azul-1);
     font-weight: 700;
     font-size: 180%;
-    margin: 1% 11%;
+    margin: 1% 10%;
 }
 
 .forms{
@@ -60,12 +54,12 @@ html{
 }
 
 .sub-titulo{
-    font-size: 90%;
+    font-size:100%;
     font-weight: 500;
 }
 
 .caixa-esquerda{
-    width: 50%;
+    width: 42%;
     margin: 3% 2%;
 }
 
@@ -75,13 +69,13 @@ html{
 }
 
 .txt{
-    padding: 1.4% 1%;
+    padding: 2% 0% 2% 2%;
     border-radius: 5px;
     border: 1px solid var(--cinza-4);
-    font-size: 90%;
+    font-size: 100%;
     font-family: 'Poppins', sans-serif; 
-    width: 80%;
-    margin-top: 1%;
+    width: 98%;
+    margin-top: 2.5%;
     
 }
 
@@ -91,28 +85,28 @@ html{
 
 .Lab-Data{
     display: flex;
-    margin-top: 5%;
+    margin-top: 6%;
 }
 
 .Lab{
     display: flex;
     flex-direction: column;
-    width: 39%;
+    width: 50%;
 }
 
 .Data{
     display: flex;
     flex-direction: column;
-    margin-left: 4%;
-    width: 39%;
+    margin-left: 8%;
+    width: 50%;
 }
 
 .sele-lab{
     font-family: 'Poppins', sans-serif;
-    font-size: 90%;
-    padding: 3% 4% 3% 3%;
-    margin-top: 1%;
-    border-radius: 5px;
+    font-size: 100%;
+    padding: 3% 5% 3% 3%;
+    margin-top: 2.5%;
+    border-radius: 6px;
 }
 
 .sele-lab:hover{
@@ -121,9 +115,9 @@ html{
 
 #date{
     font-family: 'Poppins', sans-serif;
-    font-size: 90%;
-    padding: 2.5% 4%;
-    margin-top: 1%;
+    font-size: 100%;
+    padding: 2.9% 4%;
+    margin-top: 2.5%;
     border-radius: 5px;
     border: 1px solid var(--cinza-4);
 }
@@ -136,15 +130,15 @@ html{
     color: var(--azul-1);
     font-weight: 700;
     font-size: 150%;
-    text-align: center;
-    margin-top: 12%;
+    /* text-align: center; */
+    margin-top: 4%;
+    margin-left: 2%;
 }
 
 .caixa-problemas{
     border: 1px solid var(--cinza-4);
     border-radius: 10px;
     padding: 7% 6%;
-    width: 70%;
     margin-top: 8%;
 }
 
@@ -154,13 +148,13 @@ html{
 }
 
 .txtProb{
-    font-size: 110%;
+    font-size: 120%;
     font-weight: 600;
     width: 42%;
 }
 
 .txtQuant{
-    font-size: 110%;
+    font-size: 120%;
     font-weight: 300;
     font-family: 'Poppins', sans-serif;
     border: 1px solid var(--cinza-4);
@@ -174,7 +168,7 @@ html{
 }
 
 .select-prob{
-    font-size: 80%;
+    font-size: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     border: 1px solid var(--cinza-3);
@@ -192,4 +186,108 @@ html{
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 55%;
+    margin-left: 2%;
+}
+
+.caixa-texto{
+    margin: 2% 5% 5% 0%;
+    height: 30%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--cinza-3);
+    border-radius: 8px;
+    padding: 2%;
+    font-size: 100%;
+    text-align: justify;
+}
+
+.input-div{
+    width: 95%;
+    height: 200px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px dashed var(--cinza-1);
+    position: relative;
+    margin: 2%;
+    cursor: pointer;
+}
+
+.input-div:hover{
+    background-color: var(--cinza-2);
+}
+
+#file-input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#icon-foto{
+    font-size: 500%;
+    color: var(--cinza-1);
+}
+
+.escolher-foto{
+    font-family: 'Poppins', sans-serif;
+    color: var(--cinza-1);
+    font-size: 130%;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+.fotos-selecionadas{
+    margin-left: 2%;
+    font-size: 110%;
+}
+
+#miniaturas{
+    width: 90%;
+    position: relative;
+    margin: auro;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 2% 2%;
+}
+
+/* Miniatura */
+
+figure{
+    max-width: 20%;
+}
+
+img{
+    width: 100%;
+}
+
+figcaption{
+    text-align: center;
+    font-size: 80%;
+    margin-top: 2%;
+    max-width: 100%
+}
+
+
+/* Botão de registrar */
+
+.Btn-Registrar{
+    background-color: var(--azul-1);
+    color: var(--branco-1);
+    font-family: 'Poppins', sans-serif;
+    font-size: 105%;
+    border: none;
+    padding: 0.5% 2.4%;
+    border-radius: 4px;
+    font-weight: 500;
+    float: right;
+    margin: 5% 3% 5% 5%;
+    cursor: pointer;
 }
