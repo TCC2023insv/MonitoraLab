@@ -47,11 +47,7 @@ nav ul li a{
     letter-spacing: 1px;
     line-height: 20%;
     position: relative;
-<<<<<<< HEAD
-    font-weight: 3;
-=======
     font-weight: 400;
->>>>>>> 14e1d738aca5301bef83a3305134d7c6dc399856
 }
 
 .nav-li::after{
