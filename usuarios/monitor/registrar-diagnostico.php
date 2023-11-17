@@ -21,16 +21,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../css/navbar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" type="text/css" href="../../css/registrar.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="../../css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="../../css/registrar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../../js/sweetalert.js"></script>
     <title>Registrar Diagnóstico</title>
 </head>
 <body>
     <nav>
-        <h1 class="logo">MonitoraLab</h1>
+    <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
-        <div class="usuario">Nicoli Kassa</div>
+        <div class="usuario">Monitor</div>
         <ul>
             <li><a href="inicio.php">Diagnósticos</a></li>
             <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
@@ -59,7 +62,7 @@
                     <div class="Lab-Data">
                         <div class="Lab">
                             <label class="sub-titulo">Laboratório</label>
-                            <select class="sele-lab" name="sele-lab" id="" required>
+                            <select class="sele-lab" name="sele-lab" id="laboratorio" required>
                                 <option value="">Selecione</option>
                                 <option value="Lab 1">Lab 1</option>
                                 <option value="Lab 2">Lab 2</option>
@@ -206,7 +209,7 @@
                 <div id="miniaturas"></div>
             </div>
 
-            <button type="submit" class="Btn-Registrar" name="btnRegistrar">REGISTRAR</button>
+            <button type="submit" class="Btn-Registrar" name="BtnRegistrar">REGISTRAR</button>
         </form>
     </fieldset>
 
@@ -225,8 +228,8 @@
         $("#Diagnostico").submit(function(e) {
             e.preventDefault();
 
-            var Lab = $("#Lab-2").val();
-            var data = $("#Data-2").val();
+            var Lab = $("#laboratorio").val();
+            var data = $("#date").val();
             var responsavel = $("#Responsavel").val();
             var quantApps = $("#quantApps").val();
             var probApps = $("#probApps").val();
@@ -312,6 +315,8 @@
                 return false;
             }
         </script>
-
+    <?php
+        $conexao->close();
+    ?>
     </body>
 </html>

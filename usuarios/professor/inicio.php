@@ -31,9 +31,9 @@
     </head>
     <body>
         <nav>
-            <h1 class="logo">MonitoraLab</h1>
-            <img src="../../icons/icone-professor.png" class="icone-usuario">
-            <div class="usuario">Amaral</div>
+        <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-professor.png" class="icone-usuario">
+        <div class="usuario">Professor</div>
             <ul>
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
@@ -41,12 +41,6 @@
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
             </ul>
         </nav>
-
-        <div class="voltar">
-            <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
-            <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
-        </div>
-        
             <h2>Diagnósticos</h2>
 
             <div class="info-diagnostico">
@@ -62,10 +56,11 @@
                 <div class="link-diagnostico">
                     <a class="link" href=<?php echo "diagnostico.php?id=" . $reparo['ID'];?>>Ver diagnóstico<i class="fa-solid fa-arrow-right"></i></a>    
                 </div>
+                </div>
             <?php
                 }
+                $conexao->close();
             ?>
-            </div>
 
             <script>
                 function Sair()

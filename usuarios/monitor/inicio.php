@@ -31,9 +31,9 @@
     </head>
     <body>
         <nav>
-            <h1 class="logo">MonitoraLab</h1>
-            <img src="../icons/icone-professor.png" class="icone-usuario">
-            <div class="usuario">Amaral</div>
+        <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-monitor.png" class="icone-usuario">
+        <div class="usuario">Monitor</div>
             <ul>
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="registrar-diagnostico.php">Registrar</a></li>

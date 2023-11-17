@@ -43,9 +43,9 @@
 </head>
 <body>
     <nav>
-        <h1 class="logo">MonitoraLab</h1>
+    <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
-        <div class="usuario">Nicoli Kassa</div>
+        <div class="usuario">Monitor</div>
         <ul>
             <li><a class="active" href="inicio.php">Diagnósticos</a></li>
             <li><a href="registrar-diagnostico.php">Registrar</a></li>
@@ -173,6 +173,10 @@
                 })
                 return false;
             }
+
+            <?php
+        $conexao->close();
+    ?>
         </script>
     </body>
 </html>
