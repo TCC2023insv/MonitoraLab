@@ -28,13 +28,14 @@
 </head>
 <body>
     <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../icons/icone-direcao.png" class="icone-usuario">
+    <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>
         <ul>
             <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
             <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
             <li><a class="active" href="">Cadastros</a></li>
+            <li><a class="nav-li" href="ocorrencias-arquivadas.php">Arquivados</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>

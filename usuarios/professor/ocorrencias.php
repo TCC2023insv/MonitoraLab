@@ -11,7 +11,7 @@
 
    $conexao = ConectarBanco();
 
-   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Descricao`, `Responsavel` FROM ocorrencia
+   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`,`Responsavel` FROM ocorrencia
    ORDER BY `Data`DESC") or die ($conexao->error);
 ?>
 
@@ -32,9 +32,9 @@
     </head>
     <body>
         <nav>
-            <h1 class="logo">MonitoraLab</h1>
-            <img src="../icons/icone-professor.png" class="icone-usuario">
-            <div class="usuario">Amaral</div>
+        <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-professor.png" class="icone-usuario">
+        <div class="usuario">Professor</div>
             <ul>
                 <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
                 <li><a class="active" href="">Ocorrências</a></li>
@@ -51,27 +51,36 @@
         <h2>Ocorrência registradas</h2>
         <a class="botao-registrar" href="registrar-ocorrencia.php">Registrar Ocorrencia<i class="fa-regular fa-pen-to-square"></i></a>
        
+        <?php
+            while ($ocorrencia = $sql_query->fetch_assoc())
+            {
+        ?>
         <div class="container">
             <div class="cabecalho-ocorrencia">
                 <div class="problema-data">
-                    <label class="titulo-problema">Disjuntor desligado</label>
-                    <label class="data-ocorrencia">27/10/2323</label>
+                    <label class="titulo-problema"><?php echo $ocorrencia['Problema']; ?></label>
+                    <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
                 </div>
                 <div class="titulo-editar">
-                    <div class="titulo-ocorrencia">Computadores abertos em período de aula</div>
+                    <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
                     <div class="editar">
                         <button class="editar"><i class="fa-regular fa-pen-to-square editar"></i></button>
                     </div>
                 </div>
-            </div>
+                </div>
             <div class="infos-ocorrencia">
-                <label class="responsavel">Registrada por:</label>
-                <label class="laboratorio">Laboratório 4</label>
+                <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
+                <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
             </div>
             <div class="descricao-ocorrencia">
-                Hoje, na sala de informática, enfrentamos um problema inesperado. Os computadores apresentaram um erro de conexão de rede, impedindo o acesso à internet. Investiguei o problema e descobri que um cabo de rede estava desconectado. Após reconectar o cabo, os computadores voltaram a funcionar normalmente. É fundamental lembrar a importância de verificar as conexões antes de relatar problemas técnicos, pois soluções simples podem evitar interrupções nas atividades dos alunos.
+            <?php echo $ocorrencia['Descricao']; ?>
             </div>
         </div>
+
+        <?php
+            }
+            $conexao->close();
+        ?>
 
         <script>
         // function Excluir(element)

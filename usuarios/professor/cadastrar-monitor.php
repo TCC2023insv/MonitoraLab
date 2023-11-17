@@ -1,11 +1,11 @@
 <?php
-    // if (!isset($_SESSION)) session_start();
+    if (!isset($_SESSION)) session_start();
 
-    // if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
-    // {
-    //     session_destroy();
-    //     header("Location: ../login.php");
-    // }
+    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
+    {
+        session_destroy();
+        header("Location: ../login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,9 +22,9 @@
 </head>
 <body>
     <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../icons/icone-professor.png" class="icone-usuario">
-        <div class="usuario">Amaral</div>
+    <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-professor.png" class="icone-usuario">
+        <div class="usuario">Professor</div>
         <ul>
             <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
             <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
