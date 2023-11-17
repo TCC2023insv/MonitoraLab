@@ -18,6 +18,7 @@
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <link rel="stylesheet" href="../../css/fonte-alert.css">
         <script src="../../js/sweetalert.js" type="module"></script>
+        <script src="../../js/jquery.js"></script>
         <title>Registrar Ocorrência</title>
     </head>
     <body>
@@ -36,51 +37,54 @@
         <div class="voltar">
             <a href="javascript: history.go(-1)" id="voltar-icone" class="ph ph-arrow-left"></a>
             <a href="javascript: history.go(-1)" class="texto-voltar">voltar</a>
+            <h2>Registrar Ocorrência</h2>
         </div>
 
-        <h2>Registrar Ocorrência</h2>
+
         <fieldset>
-            <form class="formulário" id="Ocorrencia" action="../../php/classes/usuarios.php" method="post"></form>
+            <form class="formulário" id="Ocorrencia" action="../../php/classes/usuarios.php" method="post">
             <div class="cabecalho-forms">
                 <div class="data">
                     <label class="titulo-info">Data</label>
-                    <input type="date" id="dataOcorrencia" name="" class="input-data">
+                    <input type="date" id="dataOcorrencia" name="data" class="input-data" required>
                 </div>
                 <div class="laboratorio">
                     <label class="titulo-info">Laboratório</label>
-                    <select name="" id="Sele-lab" class="select-lab">
-                        <option>Selecione</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                    <select name="laboratorio" id="Sele-lab" class="select-lab" required>
+                        <option value="">Selecione</option>
+                        <option value="Lab 1">1</option>
+                        <option value="Lab 2">2</option>
+                        <option value="Lab 3">3</option>
+                        <option value="Lab 4">4</option>
                     </select>
                 </div>
                 <div class="problema">
                     <label class="titulo-info">Problema encontrado</label>
-                    <select id="Sele-problema" class="select-prob">
-                        <option>Selecione</option>
-                        <option>Falta de internet</option>
-                        <option>Computadores desorganizados</option>
-                        <option>Sumiço de dispositivo</option>
-                        <option>Dispositivo quebrado</option>
-                        <option>Cadeiras desorganizadas</option>
-                        <option>Cabos desconectados</option>
-                        <option>Disjuntor desligado</option>
-                        <option>Janela aberta</option>
-                        <option>Queda de energia</option>      
+                    <select id="Sele-problema" name="problema" class="select-prob" required>
+                        <option value="">Selecione</option>
+                        <option value="Falta de internet">Falta de internet</option>
+                        <option value="Computadores desorganizados">Computadores desorganizados</option>
+                        <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                        <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                        <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                        <option value="Cabos desconectados">Cabos desconectados</option>
+                        <option value="Disjuntor desligado">Disjuntor desligado</option>
+                        <option value="Janela aberta">Janela aberta</option>
+                        <option value="Queda de energia">Queda de energia</option>      
                     </select>
                 </div>   
             </div>
             <div class="titulo-descricao">
-                <input type="text" name="txt-titulo" id="titulo-ocorrencia" placeholder="Escreva um titulo para a ocorrência...">
-                <textarea class="txt-descricao" id="descricaoOcorrencia" placeholder="Descreva com detalhes a ocorrência"></textarea>
+                <input type="text" name="titulo" id="titulo-ocorrencia" placeholder="Escreva um titulo para a ocorrência..." required>
+                <textarea class="txt-descricao" name="txtDescricao" id="descricaoOcorrencia" placeholder="Descreva com detalhes a ocorrência" required></textarea>
             </div>
-            <button type="submit" name="btnRegistrarOcorrencia" class="botao">Resgistrar</button>
+            <button type="submit" name="btnRegistrarOcorrencia" class="botao">Registrar</button>
+            
+        </form>
         </fieldset>
 
         <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $("#Ocorrencia").submit(function(e) {
             e.preventDefault();
 

@@ -61,6 +61,16 @@ h2{
     margin: 1.5% 0 2% 5%;
     padding: 1% 2% 1% 2%;
 }
+.container .link-diagnostico {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all ease .2s;
+}
+
+.container:hover .link-diagnostico{
+    transform: translateX(0px);
+    opacity: 1;
+}
 
 .info-diagnostico{
     display: flex;

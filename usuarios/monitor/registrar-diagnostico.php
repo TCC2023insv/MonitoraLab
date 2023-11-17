@@ -49,7 +49,7 @@
     <h1 class="titulo">REGISTRAR DIAGNÓSTICO</h1>
    
     <fieldset class="forms">
-        <form id="Diagnostico" class=" " action="../../php/classes/usuarios.php" method="">
+        <form id="Diagnostico" class=" " action="../../php/classes/usuarios.php" method="post">
             <div class="caixas">
                 <div class="caixa-esquerda">
                 

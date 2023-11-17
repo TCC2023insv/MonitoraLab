@@ -11,7 +11,7 @@
 
    $conexao = ConectarBanco();
 
-   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`,`Responsavel` FROM ocorrencia
+   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel` FROM ocorrencia
    ORDER BY `Data`DESC") or die ($conexao->error);
 ?>
 
@@ -62,9 +62,11 @@
                     <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
                 </div>
                 <div class="titulo-editar">
-                    <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
+                <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
                     <div class="editar">
-                        <button class="editar"><i class="fa-regular fa-pen-to-square editar"></i></button>
+                        <a class="editar" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'>
+                            <i class="fa-regular fa-pen-to-square editar"></i>
+                        </a>
                     </div>
                 </div>
                 </div>

@@ -243,8 +243,9 @@
                 $responsavel = $row['nome'];
             }
             if (
-            $conexao->query("INSERT INTO ocorrencia (data, titulo, descricao, responsavel, login_prof) 
-            VALUES ('" . $Ocorrencia->data . "', '" . $Ocorrencia->titulo . "', '" . 
+            $conexao->query("INSERT INTO ocorrencia (data, titulo, laboratorio, problema, descricao, responsavel, login_prof) 
+            VALUES ('" . $Ocorrencia->data . "', '" . $Ocorrencia->titulo . "', '" . $Ocorrencia->laboratorio .
+            "', '" . $Ocorrencia->problema . "', '" . 
             $Ocorrencia->descricao . "', '" . $responsavel . "', '" . $professor . "')"))
             {
                 $conexao->close();
@@ -254,14 +255,24 @@
             return false;
         }
 
-        public function ExcluirOcorrencia($id)
+        public function EditarOcorrencia($id, $Data, $Titulo, $Laboratorio, $Problema, $Descricao)
         {
             require('../conexao/conexaoBD.php');
             $conexao = ConectarBanco();
 
-            $conexao->query("DELETE FROM ocorrencia WHERE ID = '" . $id . "'");
-            $conexao->close();
-            return header("Location: ../../../monitoralab/usuarios/professor/ocorrencias.php");
+            // $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, 
+            // `Descricao` FROM ocorrencia") or die ($conexao->error);
+
+            // if ($sql_query && mysqli_num_rows($sql_query) > 0) 
+            // {
+            //     $ocorrencia = mysqli_fetch_assoc($sql_query);
+            // }
+
+            $conexao->query("UPDATE ocorrencia SET `Data`='" . $Data . "', `Titulo`='" . $Titulo . 
+            "', `Laboratorio`='" . $Laboratorio . "', `Problema`='" . $Problema . "', 
+            `Descricao`='" . $Descricao . "' WHERE id = " . $id);
+
+            header("Location: ../../usuarios/professor/ocorrencias.php");
         }
     }
 
@@ -409,10 +420,11 @@
         $_POST['laboratorio'], $_POST['problema'], $_POST['txtDescricao']);
     }
 
-    if (isset($_GET['id-ocorrencia']))
+    if (isset($_GET['EditarOcorrencia']))
     {
         $Professor = new Professor();
-        $Professor->ExcluirOcorrencia($_GET['id-ocorrencia']);
+        $Professor->EditarOcorrencia($_GET['id'], $_GET['data'], $_GET['titulo'], $_GET['laboratorio'],
+    $_GET['problema'], $_GET['descricao']);
     }
 
     if (isset($_POST['CadastrarProfessor']))
