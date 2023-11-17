@@ -70,35 +70,19 @@
     <div class="caixa-2">
         <div class="caixa-problemas">
             <p class="titulo">Problemas</p>
-    <?php
-        while ($problema = $sql_query_prob->fetch_assoc())
-        {
-    ?> 
-            <div class="itens">
-                <label class="prob"><?php echo $problema['Nome']; ?></label>  
-                <label class="quant"><?php echo $problema['Quantidade']; ?></label>
-                <label class="qual-prob"><?php echo $problema['Problema'];?></label>
-            </div>
-    <?php
-        }
-    ?>
+            <?php
+                while ($problema = $sql_query_prob->fetch_assoc())
+                {
+            ?> 
+                <div class="itens">
+                    <label class="prob"><?php echo $problema['Nome']; ?></label>  
+                    <label class="quant"><?php echo $problema['Quantidade']; ?></label>
+                    <label class="qual-prob"><?php echo $problema['Problema'];?></label>
+                </div>
+            <?php
+                }
+            ?>
         </div>
-
-    <!-- <div class="caixa-2">
-        <div class="caixa-problemas">
-            <p class="titulo">Problemas</p>
-            <div class="itens">
-                <label class="prob">App</label>
-                <label class="qual-prob">Desatualizado</label>  
-                <label class="quant">1</label>
-            </div>
-            <div class="itens">
-                <label class="prob">Monitor</label>
-                <label class="qual-prob">Quebrado</label>  
-                <label class="quant">1</label>
-            </div>
-        </div> -->
-
 
         <div class="atv-probN">
             <div class="atv-prob">

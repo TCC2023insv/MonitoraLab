@@ -39,7 +39,6 @@
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
-
     <h1 class="titulo">CADASTROS</h1>
     <a href="cadastrar-professor.php" class="Cadastrar">
         <i id="mais" class="ph ph-plus"></i>

@@ -37,27 +37,12 @@ nav ul{
 
 ul.nav-monitor{
     position: absolute;
-    margin-left: 54%;
-}
-
-ul.nav-monitor{
-    position: absolute;
-    margin-left: 56%;
-}
-
-ul.nav-professor{
-    position: absolute;
-    margin-left: 64%;
-}
-
-ul.nav-professor{
-    position: absolute;
-    margin-left: 64%;
-}
-
-ul.nav-monitor{
-    position: absolute;
     margin-left: 72%;
+}
+
+ul.nav-professor{
+    position: absolute;
+    margin-left: 64%;
 }
 
 nav ul li{

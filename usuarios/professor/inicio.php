@@ -42,7 +42,6 @@
             </ul>
         </nav>
             <h2>Diagnósticos</h2>
-
             <?php
                 while ($reparo = $sql_query->fetch_assoc())
                 {
