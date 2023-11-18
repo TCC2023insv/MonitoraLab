@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @import url('cores.css');
 
 html{
@@ -16,28 +16,9 @@ html{
 
 body{
     background: var(--branco-1);
-    font-family:'Literata', serif;
+    font-family:'Poppins', sans-serif;
     font-weight: 470;
     letter-spacing: 5px;    
-}
-
-.voltar{
-    display: flex;
-    align-items: center;
-    margin: 2% 5% 2% 5%;
-}
-
-#voltar-icone{
-    font-size: 175%;
-    color: var(--preto-1);
-}
-
-.texto-voltar{
-    font-family: 'Poppins', sans-serif;
-    margin-left: 0.8%;
-    font-weight: 500;
-    font-size: 110%;
-    color: var(--preto-1);
 }
 
 h2{
@@ -45,7 +26,7 @@ h2{
     text-transform: uppercase;
     margin: 3% 0 0 5%;
     letter-spacing: normal;
-    font-size: 170%;
+    font-size: 180%;
     font-family: 'Poppins', sans-serif; 
 }
 
@@ -57,7 +38,7 @@ h2{
     font-family: 'Poppins', sans-serif ;
     border: none;
     display: flex;
-    margin: 1% 0 2% 80%;
+    margin: 1% 0 2% 85%;
     font-size: 100%;
     padding: 0.5%;
     border-radius: 5px;
@@ -81,8 +62,8 @@ margin: 1.5% 0 0 8px;
 .container-1{
     display: flex;
     flex-direction: column;
-    margin: 1% 0 0 3%;
-    font-family: 'Literata', serif;
+    margin: 1% 0 0 5%;
+    font-family: 'Poppins', sans-serif;
     font-weight: 450;
     text-align: justify;
     word-spacing: 8px;
@@ -93,7 +74,7 @@ margin: 1.5% 0 0 8px;
     flex-direction: column;
     text-align: justify;
     width: 60%;
-    margin: 1% 10% 0 0;
+    margin: 1% 5% 0 0;
     border-bottom: 1px solid var(--cinza-3);
 }
 
@@ -109,7 +90,7 @@ margin: 1.5% 0 0 8px;
 .titulo-problema{
     color: var(--azul-1);
     letter-spacing: normal;
-    font-size: 170%;
+    font-size: 180%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
@@ -146,8 +127,8 @@ margin: 1.5% 0 0 8px;
 /* Pagina de visualizar ocorrencia */
 
 .container{
-    width: 70%;
-    margin: 3% 0 2% 15%;
+    width: 90%;
+    margin: 3% 0 2% 5%;
     text-align: justify;
     border-bottom: 1px solid var(--cinza-3);
 }
@@ -160,7 +141,7 @@ margin: 1.5% 0 0 8px;
     font-family: 'Poppins', sans-serif ;
     border: none;
     display: flex;
-    margin: 1% 81% 2% 3%;
+    margin: 1% 81% 2% 5%;
     font-size: 100%;
     padding: 0.5%;
     border-radius: 5px;
@@ -191,6 +172,7 @@ margin: 1.5% 0 0 8px;
     padding: 0.5%;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 

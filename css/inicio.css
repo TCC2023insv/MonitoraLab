@@ -16,7 +16,7 @@ html{
 
 body{
     background: var(--branco-1);
-    font-family:'Literata', serif;
+    font-family:'Poppins', sans-serif;
     font-weight: 470;
     letter-spacing: 5px;    
 }
@@ -45,7 +45,7 @@ h2{
     text-transform: uppercase;
     margin: 3% 0 0 5%;
     letter-spacing: normal;
-    font-size: 170%;
+    font-size: 180%;
     font-family: 'Poppins', sans-serif;
 }
 
