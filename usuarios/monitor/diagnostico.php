@@ -46,7 +46,7 @@
     <nav>
     <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
-        <div class="usuario">Monitor</div>
+        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
         <ul class="nav-monitor">
             <li><a class="active" href="inicio.php">Diagnósticos</a></li>
             <li><a href="registrar-diagnostico.php">Registrar</a></li>

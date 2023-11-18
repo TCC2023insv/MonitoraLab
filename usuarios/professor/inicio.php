@@ -33,7 +33,7 @@
         <nav>
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-professor.png" class="icone-usuario">
-        <div class="usuario">Professor</div>
+        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
             <ul class="nav-professor">
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>

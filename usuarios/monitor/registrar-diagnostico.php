@@ -26,14 +26,24 @@
     <link rel="stylesheet" type="text/css" href="../../css/registrar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+<<<<<<< HEAD
     <script src="../../js/sweetalert.js"></script>
+=======
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/sweetalert.js" type="module"></script>
+    <link rel="stylesheet" href="../../css/fonte-alert.css">
+>>>>>>> parte-estrutural
     <title>Registrar Diagnóstico</title>
 </head>
 <body>
     <nav>
     <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
+<<<<<<< HEAD
         <div class="usuario">Monitor</div>
+=======
+        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
+>>>>>>> parte-estrutural
         <ul class="nav-monitor">
             <li><a href="inicio.php">Diagnósticos</a></li>
             <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
@@ -49,7 +59,11 @@
     <h1 class="titulo">REGISTRAR DIAGNÓSTICO</h1>
    
     <fieldset class="forms">
+<<<<<<< HEAD
         <form id="Diagnostico" class=" " action="../../php/classes/usuarios.php" method="post">
+=======
+        <form id="Diagnostico" enctype="multipart/form-data" action="../../php/classes/usuarios.php" method="post">
+>>>>>>> parte-estrutural
             <div class="caixas">
                 <div class="caixa-esquerda">
                 
@@ -66,7 +80,7 @@
                                 <option value="">Selecione</option>
                                 <option value="Lab 1">Lab 1</option>
                                 <option value="Lab 2">Lab 2</option>
-                                <opti/on value="Lab 3">Lab 3</option> 
+                                <option value="Lab 3">Lab 3</option> 
                                 <option value="Lab 4">Lab 4</option>
                             </select>
                         </div>
@@ -111,7 +125,7 @@
     
                         <div class="itens">
                             <label class="txtProb" name="hd">HD</label>
-                            <input class="txtQuant" id="quantFonte" type="number" min="0" max="100" placeholder="00" name="quantHD">
+                            <input class="txtQuant" id="quantHD" type="number" min="0" max="100" placeholder="00" name="quantHD">
     
                             <select class="select-prob" id="probHd" name="prob-hd">
                                 <option value="Sel">Selecionar</option>
@@ -209,7 +223,7 @@
                 <div id="miniaturas"></div>
             </div>
 
-            <button type="submit" class="Btn-Registrar" name="BtnRegistrar">REGISTRAR</button>
+            <button type="submit" class="Btn-Registrar" name="RegistrarDiagnostico">REGISTRAR</button>
         </form>
     </fieldset>
 
@@ -217,7 +231,7 @@
     <script>
     var formData = new FormData();
          
-    document.getElementById("upload").onchange = function(e)
+    document.getElementById("file-input").onchange = function(e)
     {
         if (e.target.files != null && e.target.files != 0)
         {
@@ -236,7 +250,7 @@
             var quantFonte = $("#quantFonte").val();
             var probFonte = $("#probFonte").val();
             var quantHD = $("#quantHD").val();
-            var probHD = $("#probHD").val();
+            var probHD = $("#probHd").val();
             var quantMonitor = $("#quantMonitor").val();
             var probMonitor = $("#probMonitor").val();
             var quantMouse = $("#quantMouse").val();
@@ -249,23 +263,23 @@
             var probSolucionados = $("#probSolucionados").val();
             var RegistrarDiagnostico = "RegistrarDiagnostico";
 
-            formData.append("Lab", Lab);
+            formData.append("sele-lab", Lab);
             formData.append("data", data);
             formData.append("responsavel", responsavel);
             formData.append("quantApps", quantApps);
-            formData.append("probApps", probApps);
+            formData.append("prob-apps", probApps);
             formData.append("quantFonte", quantFonte);
-            formData.append("probFonte", probFonte);
+            formData.append("prob-fonte", probFonte);
             formData.append("quantHD", quantHD);
-            formData.append("probHD", probHD);
+            formData.append("prob-hd", probHD);
             formData.append("quantMonitor", quantMonitor);
-            formData.append("probMonitor", probMonitor);
-            formData.append("quantMous", quantMouse);
-            formData.append("probMouse", probMouse);
+            formData.append("prob-monitor", probMonitor);
+            formData.append("quantMouse", quantMouse);
+            formData.append("prob-mouse", probMouse);
             formData.append("quantTeclado",quantTeclado);
-            formData.append("probTeclado", probTeclado);
+            formData.append("prob-teclado", probTeclado);
             formData.append("quantWindows", quantWindows);
-            formData.append("probWindows", probWindows);
+            formData.append("prob-windows", probWindows);
             formData.append("atvExercida", atvExercida);
             formData.append("probSolucionados", probSolucionados);
             formData.append("RegistrarDiagnostico", RegistrarDiagnostico);
@@ -282,7 +296,8 @@
                     text: "O diagnóstico foi registrado com sucesso. Agradecemos a colaboração!",
                     icon: "success",
                     button: {confirm: true},
-                    }).then(value =>{
+                    })
+                    .then(value =>{
                         if (value)
                         {
                         window.location.href = "javascript: history.go(-1)";

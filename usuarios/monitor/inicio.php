@@ -33,7 +33,7 @@
         <nav>
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
-        <div class="usuario">Monitor</div>
+        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
             <ul class="nav-monitor">
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="registrar-diagnostico.php">Registrar</a></li>
@@ -60,5 +60,26 @@
                 }
                 $conexao->close();
             ?>
+<<<<<<< HEAD
+=======
+            </div>
+
+        <script>
+            function Sair()
+            {
+                swal({
+                    title: "Deseja realmente sair?",
+                    icon: "warning",
+                    buttons: ["Cancel", true],
+                }).then(value =>{
+                    if (value)
+                    {
+                        window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                    }
+                })
+                return false;
+            }
+        </script>
+>>>>>>> parte-estrutural
         </body>
 </html>
