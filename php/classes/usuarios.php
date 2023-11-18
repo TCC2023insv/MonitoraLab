@@ -286,11 +286,11 @@
                 return $problemaSelecionado;
             }
 
-            $Diagnostico = new Diagnostico($_POST['Lab'], $_POST['data'], RegistrarProblema($_POST['probApps']),
-            $_POST['quantApps'],  RegistrarProblema($_POST['probFonte']), $_POST['quantFonte'],
-            RegistrarProblema($_POST['probHD']), $_POST['quantHD'], RegistrarProblema($_POST['probMonitor']),
+            $Diagnostico = new Diagnostico($_POST['sele-lab'], $_POST['data'], RegistrarProblema($_POST['prob-apps']),
+            $_POST['quantApps'],  RegistrarProblema($_POST['prob-fonte']), $_POST['quantFonte'],
+            RegistrarProblema($_POST['prob-hd']), $_POST['quantHD'], RegistrarProblema($_POST['prob-monitor']),
             $_POST['quantMonitor'], RegistrarProblema($_POST['probMouse']), $_POST['quantMouse'],
-            RegistrarProblema($_POST['probTeclado']), $_POST['quantTeclado'], RegistrarProblema($_POST['probWindows']),
+            RegistrarProblema($_POST['prob-teclado']), $_POST['quantTeclado'], RegistrarProblema($_POST['prob-windows']),
             $_POST['quantWindows'], $_POST['atvExercida'], $_POST['probSolucionados'], $_POST['responsavel']);
                 
                 $sql = "INSERT INTO reparo (data, acao, Problemas_Nao_Solucionados, 

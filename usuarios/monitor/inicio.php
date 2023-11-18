@@ -31,10 +31,10 @@
     </head>
     <body>
         <nav>
-            <h1 class="logo">MonitoraLab</h1>
-            <img src="../icons/icone-professor.png" class="icone-usuario">
-            <div class="usuario">Amaral</div>
-            <ul>
+        <h1 class="logo">MonitoraLab</h1>
+        <img src="../../icons/icone-monitor.png" class="icone-usuario">
+        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
+            <ul class="nav-monitor">
                 <li><a class="active" href="">Diagnósticos</a></li>
                 <li><a class="nav-li" href="registrar-diagnostico.php">Registrar</a></li>
                 <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
@@ -65,5 +65,22 @@
                 }
             ?>
             </div>
+
+        <script>
+            function Sair()
+            {
+                swal({
+                    title: "Deseja realmente sair?",
+                    icon: "warning",
+                    buttons: ["Cancel", true],
+                }).then(value =>{
+                    if (value)
+                    {
+                        window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                    }
+                })
+                return false;
+            }
+        </script>
         </body>
 </html>
