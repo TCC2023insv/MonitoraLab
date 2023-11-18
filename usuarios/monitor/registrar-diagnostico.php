@@ -26,24 +26,16 @@
     <link rel="stylesheet" type="text/css" href="../../css/registrar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<<<<<<< HEAD
-    <script src="../../js/sweetalert.js"></script>
-=======
     <script src="../../js/jquery.js"></script>
     <script src="../../js/sweetalert.js" type="module"></script>
     <link rel="stylesheet" href="../../css/fonte-alert.css">
->>>>>>> parte-estrutural
     <title>Registrar Diagnóstico</title>
 </head>
 <body>
     <nav>
     <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
-<<<<<<< HEAD
-        <div class="usuario">Monitor</div>
-=======
         <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
->>>>>>> parte-estrutural
         <ul class="nav-monitor">
             <li><a href="inicio.php">Diagnósticos</a></li>
             <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
@@ -59,11 +51,7 @@
     <h1 class="titulo">REGISTRAR DIAGNÓSTICO</h1>
    
     <fieldset class="forms">
-<<<<<<< HEAD
-        <form id="Diagnostico" class=" " action="../../php/classes/usuarios.php" method="post">
-=======
         <form id="Diagnostico" enctype="multipart/form-data" action="../../php/classes/usuarios.php" method="post">
->>>>>>> parte-estrutural
             <div class="caixas">
                 <div class="caixa-esquerda">
                 
