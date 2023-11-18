@@ -46,7 +46,7 @@ fieldset{
     flex-direction: column;
     width: 70%;
     height: auto;
-    margin: 2% 0 5% 15%;
+    margin: 4% 0 5% 15%;
     border: none;
     box-shadow: var(--cinza-4) 0px 0px 15px;
     border-radius: 5px;
@@ -56,7 +56,7 @@ fieldset{
     display: flex;
     flex-direction: row;
     justify-content:space-around;
-    margin: 2% 0 0 0 ;
+    margin: 4% 2% ;
 }
 
 .titulo-descricao{
@@ -68,7 +68,7 @@ fieldset{
 
 .titulo-info{
     letter-spacing: normal;
-    font-size: 100%;
+    font-size: 110%;
     color: var(--preto-3);
     margin: 1% 0 1% 0;
     font-weight: bold;
@@ -96,6 +96,7 @@ fieldset{
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     border: 1px solid;
+    font-size: 100%;
 }
 
 .select-lab{
@@ -107,6 +108,7 @@ fieldset{
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     border: 1px solid;
+    font-size: 100%;
 }
 
 .select-prob{
@@ -117,6 +119,7 @@ fieldset{
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     border: 1px solid;
+    font-size: 100%;
 }
 
 #titulo-ocorrencia{
@@ -145,13 +148,13 @@ fieldset{
 .botao{
     background-color: var(--azul-1);
     color: var(--branco-1);
-    width: auto;
-    height: auto;
     font-family: 'Poppins', sans-serif ;
     border: none;
-    margin: 1% 5.5% 2% 80%;
-    font-size: 100%;
+    font-size: 108%;
     padding: 0.5%;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    width: 10%;
+    margin: 3% 0 3% 85%;
 }
