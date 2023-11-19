@@ -6,7 +6,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
 
    $conexao = ConectarBanco();
@@ -57,10 +57,10 @@
                 </div>
                 <div class="titulo-editar">
                     <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
-                    <div class="arquivar">
+                    <!-- <div class="arquivar"> -->
                         <button class="arquivar" name="ArquivarOcorrencia" onclick="Arquivar(this)" var-ocorrencia="<?php echo 
                         $ocorrencia['ID']; ?>"><i class="fa-solid fa-file-import arquivar"></i></button>
-                    </div>
+                    <!-- </div> -->
                 </div>
             <div class="infos-ocorrencia">
                 <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
@@ -80,7 +80,27 @@
         function Arquivar(element)
         {
             var id = element.getAttribute('var-ocorrencia')
-            window.location.href = "../../php/classes/usuarios.php?id-arquivar="+id;
+
+            swal({
+                title: "Tem certeza?",
+                text: "A ação não poderá ser desfeita. Após arquivar a ocorrência, somente você poderá vê-la novamente",
+                icon: "warning",
+                buttons: ["Cancel", true],
+                dangerMode: true,
+                })
+                .then((value) => {
+                if (value) {
+                    swal("Ocorrência arquivada com sucesso!", {
+                    icon: "success",
+                    }).then(()=>{
+                    window.location.href = "../../php/classes/usuarios.php?id-arquivar="+id;
+                    });
+                } else {
+                    swal("Não foi possível arquivar a ocorrência.", {
+                    icon: "error",
+                    });
+                }
+                });
         }
 
         function Sair()

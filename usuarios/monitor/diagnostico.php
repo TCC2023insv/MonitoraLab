@@ -6,7 +6,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Mon')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
    
    $conexao = ConectarBanco();
@@ -129,10 +129,9 @@
     </div>
 
     <div class="area-excluir">
-        <div class="Btn-Excluir">
-            <i id="icone-lixo" class="ph-fill ph-trash"></i>
-            <a class="btn-excluir" onclick="Excluir(<?php echo $ID_Reparo; ?>)" style="cursor: pointer;">excluir</a>
-        </div>
+            <a class="Btn-Excluir" onclick="Excluir(<?php echo $ID_Reparo; ?>)" style="cursor: pointer;">
+            <i id="icone-lixo" class="ph-fill ph-trash"></i> Excluir</a>
+
         <p class="texto-excluir">Ao excluir esse diagnóstico, os dados não poderão mais ser vistos ou recuperados.</p>
     </div>
 

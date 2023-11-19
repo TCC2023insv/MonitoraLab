@@ -127,7 +127,7 @@
 
                         break;
                     default:
-                    header("Location: ../../login.php");
+                    header("Location: ../../../login.php");
                         break;
                 }
             }
@@ -191,14 +191,21 @@
             $ocorrencia['titulo'], $ocorrencia['laboratorio'], $ocorrencia['problema'], $ocorrencia['descricao']);
             }
 
-            $conexao->query("INSERT INTO `ocorrencias-arquivadas` (data, titulo, laboratorio, problema,
-            descricao, responsavel, login) VALUES ($OcorrenciaArquivada->data, '$OcorrenciaArquivada->titulo', 
-            '$OcorrenciaArquivada->laboratorio', '$OcorrenciaArquivada->problema', '$OcorrenciaArquivada->descricao',
-            '$OcorrenciaArquivada->responsavel', 'direcao')");
+            $login = 'direcao';
+            $sql_insert = $conexao->prepare("INSERT INTO `ocorrencias-arquivadas` (data, titulo, laboratorio, problema,
+            descricao, responsavel, login) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+            $sql_insert->bind_param("sssssss", $OcorrenciaArquivada->data, $OcorrenciaArquivada->titulo, 
+            $OcorrenciaArquivada->laboratorio, $OcorrenciaArquivada->problema, $OcorrenciaArquivada->descricao,
+        $OcorrenciaArquivada->responsavel, $login);
+
+            $sql_insert->execute();
 
             $conexao->query("DELETE FROM ocorrencia WHERE id='$id'");
 
             $conexao->close();
+
+            header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
         }
     }
 

@@ -4,7 +4,7 @@
     if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
     {
         session_destroy();
-        header("Location: ../login.php");
+        header("Location: ../../login.php");
     }
 ?>
 <!DOCTYPE html>

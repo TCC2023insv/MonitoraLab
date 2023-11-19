@@ -6,7 +6,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
    
    $conexao = ConectarBanco();
@@ -92,8 +92,9 @@
                 if (value) {
                     swal("Monitor excluído com sucesso!", {
                     icon: "success"
+                    }).then(()=>{
+                        window.location.href = "../../php/classes/usuarios.php?login-mon="+login;
                     });
-                    window.location.href = "../../php/classes/usuarios.php?login-mon="+login;
                 } else {
                     swal("Não foi possível deletar o monitor", {
                     icon: "error",

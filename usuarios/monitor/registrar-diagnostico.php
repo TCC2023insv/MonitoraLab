@@ -4,7 +4,7 @@
     if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Mon')
     {
         session_destroy();
-        header("Location: ../login.php");
+        header("Location: ../../login.php");
     }
 
     require('../../php/conexao/conexaoBD.php');
@@ -37,7 +37,7 @@
         <img src="../../icons/icone-monitor.png" class="icone-usuario">
         <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
         <ul class="nav-monitor">
-            <li><a href="inicio.php">Diagnósticos</a></li>
+            <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
             <li><a class="active" href="registrar-diagnostico.php">Registrar</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="Data">
                             <label class="sub-titulo">Data</label>
-                            <input id="date" type="date" name="data" required>
+                            <input id="date" type="date" name="data" value="<?= date('Y-m-d') ?>" required>
                         </div>
                     </div>
     
@@ -203,7 +203,7 @@
                 <div class="input-div">
                     <i id="icon-foto" class="ph-fill ph-cloud-arrow-up"></i>
                     <p class="escolher-foto">Escolher arquivo</p>
-                    <input type="file" id="file-input" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
+                    <input type="file" id="file-input" name="foto[]" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
                 </div>
 
                 <p class="fotos-selecionadas">Fotos selecionadas:</p>

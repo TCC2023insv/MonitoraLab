@@ -6,7 +6,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
 
    $conexao = ConectarBanco();
@@ -58,11 +58,11 @@
                 </div>
                 <div class="titulo-editar">
                 <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
-                    <div class="editar">
+                    <!-- <div class="editar"> -->
                         <a class="editar" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'>
                             <i class="fa-regular fa-pen-to-square editar"></i>
                         </a>
-                    </div>
+                    <!-- </div> -->
                 </div>
                 </div>
             <div class="infos-ocorrencia">

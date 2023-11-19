@@ -4,7 +4,7 @@
     if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
     {
         session_destroy();
-        header("Location: ../login.php");
+        header("Location: ../../login.php");
     }
 
     require("../../php/conexao/conexaoBD.php");
@@ -116,11 +116,11 @@
                 .then((value) => {
                 if (value) {
                     swal("Ocorrência atualizada com sucesso!", {
-                    icon: "success",
-                    buttons: [true]
-                    });
-                    window.location.href = "../../php/classes/usuarios.php?id="+id+"&data="+data+"&titulo="+titulo+
+                    icon: "success"
+                    }).then(()=>{
+                        window.location.href = "../../php/classes/usuarios.php?id="+id+"&data="+data+"&titulo="+titulo+
                     "&laboratorio="+laboratorio+"&problema="+problema+"&descricao="+descricao+"&EditarOcorrencia="+EditarOcorrencia;
+                    });
                 } else {
                     swal("Não foi possível editar a ocorrência.", {
                     icon: "error",

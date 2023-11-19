@@ -164,7 +164,8 @@ margin: 1.5% 0 0 8px;
 
 .editar{
     border: none;
-    width: auto;
+    width: 35px;
+    height: 32px;
     background-color: var(--amarelo-1);
     color: var(--branco-1);
     font-size: 120%;
@@ -183,12 +184,13 @@ button:hover{
 
 .arquivar{
     border: none;
-    width: auto;
+    width: 48px;
+    height: 35px;
     background-color: var(--azul-2);
     color: var(--branco-1);
     font-size: 120%;
     margin: 0;
-    padding: 0.5%;
+    padding: 5.5px 0px 0 0;
     border-radius: 5px;
     cursor: pointer;
 }
