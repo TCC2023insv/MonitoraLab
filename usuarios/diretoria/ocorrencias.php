@@ -11,7 +11,7 @@
 
    $conexao = ConectarBanco();
 
-   $sql_query = $conexao->query("SELECT `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel` FROM ocorrencia
+   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel` FROM ocorrencia
    ORDER BY `Data`DESC") or die ($conexao->error);
 ?>
 
@@ -51,7 +51,6 @@
             {
         ?>
         <div class="container">
-            <div class="cabecalho-ocorrencia">
                 <div class="problema-data">
                     <label class="titulo-problema"><?php echo $ocorrencia['Problema']; ?></label>
                     <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
@@ -59,10 +58,10 @@
                 <div class="titulo-editar">
                     <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
                     <div class="arquivar">
-                        <button class="arquivar" name="ArquivarOcorrencia"><i class="fa-solid fa-file-import arquivar"></i></button>
+                        <button class="arquivar" name="ArquivarOcorrencia" onclick="Arquivar(this)" var-ocorrencia="<?php echo 
+                        $ocorrencia['ID']; ?>"><i class="fa-solid fa-file-import arquivar"></i></button>
                     </div>
                 </div>
-            </div>
             <div class="infos-ocorrencia">
                 <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
                 <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
@@ -76,5 +75,28 @@
             }
             $conexao->close();
         ?>
+
+    <script>
+        function Arquivar(element)
+        {
+            var id = element.getAttribute('var-ocorrencia')
+            window.location.href = "../../php/classes/usuarios.php?id-arquivar="+id;
+        }
+
+        function Sair()
+        {
+            swal({
+                title: "Deseja realmente sair?",
+                icon: "warning",
+                buttons: ["Cancel", true],
+            }).then(value =>{
+                if (value)
+                {
+                    window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                }
+            })
+            return false;
+        }
+    </script>
     </body>
 </html>

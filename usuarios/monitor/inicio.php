@@ -60,8 +60,6 @@
                 }
                 $conexao->close();
             ?>
-<<<<<<< HEAD
-=======
             </div>
 
         <script>
@@ -80,6 +78,5 @@
                 return false;
             }
         </script>
->>>>>>> parte-estrutural
         </body>
 </html>

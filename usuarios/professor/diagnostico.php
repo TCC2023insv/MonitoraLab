@@ -32,7 +32,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../../css/diagnostico.css">
+    <link rel="stylesheet" href="../../css/fonte-alert.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../../js/sweetalert.js" type="module"></script>
     <title>Diagnóstico</title>
 </head>
 <body>
@@ -110,5 +112,21 @@
         $conexao->close();
     ?>
 
+    <script>
+        function Sair()
+        {
+            swal({
+                title: "Deseja realmente sair?",
+                icon: "warning",
+                buttons: ["Cancel", true],
+            }).then(value =>{
+                if (value)
+                {
+                    window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                }
+            })
+            return false;
+        }
+    </script>
 </body>
 </html>

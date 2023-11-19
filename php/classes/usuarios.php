@@ -177,6 +177,29 @@
             $conexao->close();
             return header("Location: ../../../monitoralab/usuarios/diretoria/professores-cadastrados.php");
         }
+
+        public function ArquivarOcorrencia($id)
+        {
+            require("../conexao/conexaoBD.php");
+            require("ocorrencias.php");
+            $conexao = ConectarBanco();
+
+            $sql_ocorrencia = $conexao->query("SELECT * FROM ocorrencia WHERE id = '$id'");
+            while ($ocorrencia = $sql_ocorrencia->fetch_assoc())
+            {
+                $OcorrenciaArquivada = new Ocorrencia($ocorrencia['responsavel'], $ocorrencia['data'],
+            $ocorrencia['titulo'], $ocorrencia['laboratorio'], $ocorrencia['problema'], $ocorrencia['descricao']);
+            }
+
+            $conexao->query("INSERT INTO `ocorrencias-arquivadas` (data, titulo, laboratorio, problema,
+            descricao, responsavel, login) VALUES ($OcorrenciaArquivada->data, '$OcorrenciaArquivada->titulo', 
+            '$OcorrenciaArquivada->laboratorio', '$OcorrenciaArquivada->problema', '$OcorrenciaArquivada->descricao',
+            '$OcorrenciaArquivada->responsavel', 'direcao')");
+
+            $conexao->query("DELETE FROM ocorrencia WHERE id='$id'");
+
+            $conexao->close();
+        }
     }
 
     class Professor extends Usuarios
@@ -259,14 +282,6 @@
         {
             require('../conexao/conexaoBD.php');
             $conexao = ConectarBanco();
-
-            // $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, 
-            // `Descricao` FROM ocorrencia") or die ($conexao->error);
-
-            // if ($sql_query && mysqli_num_rows($sql_query) > 0) 
-            // {
-            //     $ocorrencia = mysqli_fetch_assoc($sql_query);
-            // }
 
             $conexao->query("UPDATE ocorrencia SET `Data`='" . $Data . "', `Titulo`='" . $Titulo . 
             "', `Laboratorio`='" . $Laboratorio . "', `Problema`='" . $Problema . "', 
@@ -431,6 +446,12 @@
     {
         $Direcao = new Direcao();
         $Direcao->CadastrarProfessor($_POST['nome'], $_POST['login'], $_POST['senha']);
+    }
+
+    if (isset($_GET['id-arquivar']))
+    {
+        $Direcao = new Direcao();
+        $Direcao->ArquivarOcorrencia($_GET['id-arquivar']);
     }
 
     if (isset($_GET['login-prof']))
