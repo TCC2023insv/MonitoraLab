@@ -61,10 +61,11 @@
                     <p class="sub-titulos">Login:</p>
                     <div class="login-usu" name="var-login"></div><?php echo $monitor['Login']; ?></div>   
                 </div>
-                <div class="Btn-Excluir">
+                <!-- <div class="Btn-Excluir"> -->
+                <a class="Btn-Excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">
                     <i id="icone-lixo" class="ph-fill ph-trash"></i>
-                    <a class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo $monitor['Login']; ?>" style="cursor: pointer;">excluir</a>
-                </div>
+                    Excluir</a>
+                <!-- </div> -->
             </div>
         </div>
         <hr>

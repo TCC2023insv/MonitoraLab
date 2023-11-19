@@ -129,5 +129,22 @@
         <?php 
             $conexao->close();
         ?>
+
+    <script>
+        function Sair()
+        {
+            swal({
+                title: "Deseja realmente sair?",
+                icon: "warning",
+                buttons: ["Cancel", true],
+            }).then(value =>{
+                if (value)
+                {
+                    window.location.href = "../../php/classes/usuarios.php?resp=true";              
+                }
+            })
+            return false;
+        }
+    </script>
     </body>
 </html>

@@ -61,11 +61,12 @@
                     <div class="login-usu"><?php echo $professor['Login']; ?></div> 
                 </div>
             </div>
-            <div class="Btn-Excluir">
+            <!-- <div class="Btn-Excluir"> -->
+            <a href="#" class="Btn-Excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo 
+                $professor['Login']; ?>" style="cursor: pointer;">
                 <i id="icone-lixo" class="ph-fill ph-trash"></i>
-                <a href="#" class="btn-excluir" onclick="ExcluirUsuario(this)" var-login="<?php echo 
-                $professor['Login']; ?>" style="cursor: pointer;">Excluir</a>
-            </div>
+                 Excluir</a>
+            <!-- </div> -->
         </div>
         <hr>
     </div>
