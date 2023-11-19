@@ -5,7 +5,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
     require('../../php/conexao/conexaoBD.php');
 
@@ -96,7 +96,7 @@
                 <div class="cabecalho-ocorrencia">
                     <div class="problema-data">
                         <label class="titulo-problema"><?php echo $ocorrencia['problema']; ?></label>
-                        <label class="data-ocorrencia"><?php echo $ocorrencia['data']; ?></label>
+                        <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['data'])); ?></label>
                     </div>
                     <div class="titulo-ocorrencia"><?php echo $ocorrencia['titulo']; ?></div>
                 </div>

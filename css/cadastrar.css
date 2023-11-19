@@ -13,9 +13,10 @@ html{
 }
 
 .voltar{
+    position: absolute;
     display: flex;
     align-items: center;
-    margin: 4% 5% 2% 5%;
+    margin: 4% 5% 0 5%;
 }
 
 #voltar-icone{
@@ -34,7 +35,7 @@ html{
 /* Caixa */
 
 .caixa{
-    margin: 1% 32% 8% 32%;
+    margin: 4% 32% 0 32%;
     box-shadow: 1px 10px 35px var(--preto-2);
     font-family: 'Poppins', sans-serif;
     border-radius: 6px;
@@ -47,7 +48,7 @@ html{
     font-weight: 700;
     font-size: 180%;
     text-align: center;
-    margin-top: 12%;
+    margin-top: 8%;
 }
 
 .cad{

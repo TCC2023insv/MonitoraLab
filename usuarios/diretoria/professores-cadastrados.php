@@ -6,7 +6,7 @@
    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
    {
        session_destroy();
-       header("Location: ../login.php");
+       header("Location: ../../login.php");
    }
 
    $conexao = ConectarBanco();
@@ -106,8 +106,9 @@
                 if (value) {
                     swal("Professor excluído com sucesso!", {
                     icon: "success",
+                    }).then(()=>{
+                        window.location.href = "../../php/classes/usuarios.php?login-prof="+login;
                     });
-                    window.location.href = "../../php/classes/usuarios.php?login-prof="+login;
                 } else {
                     swal("Não foi possível deletar o professor", {
                     icon: "error",

@@ -4,7 +4,7 @@
     if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
     {
         session_destroy();
-        header("Location: ../login.php");
+        header("Location: ../../login.php");
     }
 ?>
 
@@ -46,7 +46,7 @@
             <div class="cabecalho-forms">
                 <div class="data">
                     <label class="titulo-info">Data</label>
-                    <input type="date" id="dataOcorrencia" name="data" class="input-data" required>
+                    <input type="date" id="dataOcorrencia" name="data" class="input-data" value="<?= date('Y-m-d') ?>" required>
                 </div>
                 <div class="laboratorio">
                     <label class="titulo-info">Laboratório</label>

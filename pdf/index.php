@@ -199,5 +199,6 @@
     $dompdf->render();
     header('Content-type: application/pdf');
 
-    echo $dompdf->stream('relatorio.pdf');
+    $nomeArquivo = 'relatorio_'.date('d-m-Y').'.pdf';
+    echo $dompdf->stream($nomeArquivo);
 ?>

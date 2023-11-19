@@ -37,7 +37,7 @@
                 <input class="txt" type="text" name="login" placeholder="Seu login de usuário" required>
                 <label>Senha:</label>
                 <input class="txt" type="password" name="senha" placeholder="Senha" required>
-                <button type="submit" onclick="Entrar()" id="btn" name="entrar">Entrar</button>
+                <button type="submit" onclick="Entrar()" id="btn" name="entrar" style="cursor: pointer;">Entrar</button>
             </form>
         </fieldset>
     </main>
