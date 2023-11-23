@@ -52,6 +52,8 @@
         <link rel="stylesheet" type="text/css" href="../../css/ocorrencias-arquivadas.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="../../js/jquery.js"></script>
+        <script src="../../js/filtro.js"></script>
         <link rel="stylesheet" href="../../css/fonte-alert.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
@@ -73,6 +75,48 @@
             </ul>
         </nav>
         <h2>Ocorrências Arquivadas</h2>
+        <label class="titlo-filtro">Filtrar por:</label>
+        <select id="select-filtro" class="filtro">
+            <option value="">Selecione</option>
+            <option value="Problema">Problema</option>
+            <option value="Data">Data</option>
+            <option value="Laboratorio">Laboratório</option>
+        </select>
+        <div id="pai">
+            <div id="Problema">
+                <select id="Problema">
+                    <option value="">Selecione</option>
+                    <option value="Falta de internet">Falta de internet</option>
+                    <option value="Computadores desorganizados">Computadores desorganizados</option>
+                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                    <option value="Cabos desconectados">Cabos desconectados</option>
+                    <option value="Disjuntor desligado">Disjuntor desligado</option>
+                    <option value="Janela aberta">Janela aberta</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                </select>
+            </div>
+
+            <div id="Data">
+                <select id="Data">
+                    <option value="">Selecione</option>
+                    <option value="15 dias">15 dias</option>
+                    <option value="1 mes">1 mes</option>
+                    <option value="3 meses">3 meses</option>
+                </select>
+            </div>
+
+            <div class="Laboratorio">
+                <select id="Laboratório">
+                    <option value="">Selecione</option>
+                    <option value="Lab 1">Lab 1</option>
+                    <option value="Lab 2">Lab 2</option>
+                    <option value="Lab 3">Lab 3</option>
+                    <option value="Lab 4">Lab 4</option>
+                </select>
+            </div>
+        </div>
         <button class="botao-extrair" onclick="GerarPDF()">Extrair relatório<i class="fa-solid fa-print"></i></button>
 
         <div class="container-geral">
