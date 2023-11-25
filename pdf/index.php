@@ -40,6 +40,8 @@
     $html .= 'letter-spacing: normal;';
     $html .= 'font-size: 30px;';
     $html .= 'font-family: "Poppins", sans-serif; ';
+    $html .= 'border-top: 1px solid #7d7d7d;';
+    $html .= 'border-bottom: 1px solid #7d7d7d;';
     $html .= '}';
 
     // geral
@@ -111,6 +113,11 @@
     $html .= 'text-align: justify;';
     $html .= '}';
 
+    // $html .= 'hr{';
+    // $html .= 'width: 500px;';
+    // $html .= 'height: 0.03px;';
+    // $html .= '}';
+
     $html .= '</style>';
     
     $html .= '<script src="https://unpkg.com/@phosphor-icons/web"></script>';
@@ -119,7 +126,11 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />';
     $html .= '<link rel="preconnect" href="https://fonts.googleapis.com">';
     $html .= '</head>';
-    $html .= '<br><br><br><h2>Ocorrências Arquivadas</h2><br><br>';
+    // $html .= '<hr></hr>';
+    $html .= '<br><br><br>';
+    // $html .= '<hr></hr>';
+    $html .= '<h2><br>Ocorrências Arquivadas<br></h2><br><br>';
+    $html .= '<h7>Emitido em: ' . date('d/m/Y') . '</h7>';
     $html .= '<div class="container-geral">';
     $html .= '<div class="container-1">';
 
@@ -199,6 +210,7 @@
     $dompdf->render();
     header('Content-type: application/pdf');
 
-    $nomeArquivo = 'relatorio_'.date('d-m-Y').'.pdf';
-    echo $dompdf->stream($nomeArquivo);
+    // $nomeArquivo = 'relatorio_'.date('d-m-Y').'.pdf';
+    // echo $dompdf->stream($nomeArquivo);
+    echo $dompdf->output();
 ?>

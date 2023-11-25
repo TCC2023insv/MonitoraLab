@@ -1,18 +1,51 @@
 <?php
+    if (!isset($_SESSION)) session_start();
 
-   if (!isset($_SESSION)) session_start();
-
-   if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
-   {
-       session_destroy();
-       header("Location: ../../login.php");
-   }
+    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
+    {
+        session_destroy();
+        header("Location: ../../login.php");
+    }
     require('../../php/conexao/conexaoBD.php');
+    include('../../php/classes/diagnosticos.php');
+    $conexao = ConectarBanco();
 
-   $conexao = ConectarBanco();
+    $Diagnostico = new Diagnostico();
 
-   $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas`
-   ORDER BY `Data`DESC") or die ($conexao->error);
+    // $sql_query = $Diagnostico->MostrarOcorrencias($_GET['problema'], $_GET['data'], $_GET['lab']);
+
+    if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Diagnostico->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Diagnostico->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Diagnostico->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['data']) && $_GET['data'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Diagnostico->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
+    }
+    else
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC");
+    }
 
    $faltaInternet = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Falta de internet'");
    $quantidadeFalta = mysqli_num_rows($faltaInternet);
@@ -57,6 +90,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../../js/sweetalert.js" type="module"></script>
+        
         <title>Ocorrências arquivadas</title>
     </head>
     <body>
@@ -73,6 +107,44 @@
             </ul>
         </nav>
         <h2>Ocorrências Arquivadas</h2>
+        <form method="post" action="../../php/classes/usuarios.php" id="pai">
+            <div id="Problema">
+                <select id="problema" name="problema">
+                    <option value="">Selecione</option>
+                    <option value="Falta de internet">Falta de internet</option>
+                    <option value="Computadores desorganizados">Computadores desorganizados</option>
+                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                    <option value="Cabos desconectados">Cabos desconectados</option>
+                    <option value="Disjuntor desligado">Disjuntor desligado</option>
+                    <option value="Janela aberta">Janela aberta</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                </select>
+            </div>
+
+            <div id="Data">
+                <select id="data" name="data">
+                    <option value="">Selecione</option>
+                    <option value="3 meses">3 meses</option>
+                    <option value="6 meses">6 meses</option>
+                    <option value="1 ano">1 ano</option>
+                </select>
+            </div>
+
+            <div class="Laboratorio">
+                <select id="laboratorio" name="laboratorio">
+                    <option value="">Selecione</option>
+                    <option value="Lab 1">Lab 1</option>
+                    <option value="Lab 2">Lab 2</option>
+                    <option value="Lab 3">Lab 3</option>
+                    <option value="Lab 4">Lab 4</option>
+                </select>
+            </div>
+            <button type="submit" name="filtro">Filtrar</button>
+            <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
+        </form>
+
         <button class="botao-extrair" onclick="GerarPDF()">Extrair relatório<i class="fa-solid fa-print"></i></button>
 
         <div class="container-geral">
@@ -109,11 +181,13 @@
                 </div>
             <?php 
                 }
+                $conexao->close();
             ?>
             </div>
         </div>
 
     <script>
+
         function GerarPDF()
         {
             window.location.href = '../../pdf/';
