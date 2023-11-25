@@ -207,6 +207,49 @@
 
             header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
         }
+
+        public function FiltrarOcorrencia($problema, $data, $lab)
+        {
+
+            if ($problema != '' && $data != '' && $lab != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=' . $problema . '&data=' . $data . '&lab=' . $lab);
+            }
+            else if ($problema != '' && $data != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=' . $data . '&lab=');
+            }
+            else if ($data != '' && $lab != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=' . $data . '&lab=' . $lab);
+            }
+            else if ($problema != '' && $lab != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=&lab=' . $lab);
+            }
+            else if ($problema != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=&lab=');
+            }
+            else if ($data != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=' . $data . '&lab=');
+            }
+            else if ($lab != '')
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=&lab=' . $lab);
+            }
+            else
+            {
+                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
+            }
+        }
+
+        function LimparFiltro()
+        {
+            $sql_filtro = "SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC";
+            return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
+        }
     }
 
     class Professor extends Usuarios
@@ -319,7 +362,8 @@
                 return $problemaSelecionado;
             }
 
-            $Diagnostico = new Diagnostico($_POST['sele-lab'], $_POST['data'], RegistrarProblema($_POST['prob-apps']),
+            $Diagnostico = new Diagnostico;
+            $Diagnostico->FazerDiagnostico($_POST['sele-lab'], $_POST['data'], RegistrarProblema($_POST['prob-apps']),
             $_POST['quantApps'],  RegistrarProblema($_POST['prob-fonte']), $_POST['quantFonte'],
             RegistrarProblema($_POST['prob-hd']), $_POST['quantHD'], RegistrarProblema($_POST['prob-monitor']),
             $_POST['quantMonitor'], RegistrarProblema($_POST['probMouse']), $_POST['quantMouse'],
@@ -447,6 +491,21 @@
         $Professor = new Professor();
         $Professor->EditarOcorrencia($_GET['id'], $_GET['data'], $_GET['titulo'], $_GET['laboratorio'],
     $_GET['problema'], $_GET['descricao']);
+    }
+
+    if (isset($_POST['filtro']))
+    {
+        $problema = isset($_POST['problema']) == true ? ($_POST['problema'] != '' ? $_POST['problema'] : '') : '';
+        $data = isset($_POST['data']) == true ? ($_POST['data'] != '' ? $_POST['data'] : '') : '';
+        $lab = isset($_POST['laboratorio']) == true ? ($_POST['laboratorio'] != '' ? $_POST['laboratorio'] : '') : '';
+        $Direcao = new Direcao();
+        $Direcao->FiltrarOcorrencia($problema, $data, $lab);
+    }
+
+    if (isset($_GET['limpar']))
+    {
+        $Direcao = new Direcao();
+        $Direcao->LimparFiltro();
     }
 
     if (isset($_POST['CadastrarProfessor']))
