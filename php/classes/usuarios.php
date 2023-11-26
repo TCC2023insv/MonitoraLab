@@ -187,7 +187,8 @@
             $sql_ocorrencia = $conexao->query("SELECT * FROM ocorrencia WHERE id = '$id'");
             while ($ocorrencia = $sql_ocorrencia->fetch_assoc())
             {
-                $OcorrenciaArquivada = new Ocorrencia($ocorrencia['responsavel'], $ocorrencia['data'],
+                $OcorrenciaArquivada = new Ocorrencia();
+                $OcorrenciaArquivada->RegistrarOcorrencia($ocorrencia['responsavel'], $ocorrencia['data'],
             $ocorrencia['titulo'], $ocorrencia['laboratorio'], $ocorrencia['problema'], $ocorrencia['descricao']);
             }
 
@@ -205,50 +206,51 @@
 
             $conexao->close();
 
-            header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
+            header('Location: ../../usuarios/diretoria/ocorrencias.php');
         }
 
         public function FiltrarOcorrencia($problema, $data, $lab)
         {
+            $location = "Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?";
 
             if ($problema != '' && $data != '' && $lab != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=' . $problema . '&data=' . $data . '&lab=' . $lab);
+                return header($location.'problema=' . $problema . '&data=' . $data . '&lab=' . $lab);
             }
             else if ($problema != '' && $data != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=' . $data . '&lab=');
+                return header($location.'problema='. $problema . '&data=' . $data . '&lab=');
             }
             else if ($data != '' && $lab != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=' . $data . '&lab=' . $lab);
+                return header($location.'problema=&data=' . $data . '&lab=' . $lab);
             }
             else if ($problema != '' && $lab != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=&lab=' . $lab);
+                return header($location.'problema='. $problema . '&data=&lab=' . $lab);
             }
             else if ($problema != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema='. $problema . '&data=&lab=');
+                return header($location.'problema='. $problema . '&data=&lab=');
             }
             else if ($data != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=' . $data . '&lab=');
+                return header($location.'problema=data=' . $data . '&lab=');
             }
             else if ($lab != '')
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=&lab=' . $lab);
+                return header($location.'problema=&data=&lab=' . $lab);
             }
             else
             {
-                return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
+                return header($location.'problema=&data=&lab=');
             }
         }
 
         function LimparFiltro()
         {
             $sql_filtro = "SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC";
-            return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php');
+            return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=&lab=');
         }
     }
 
@@ -305,7 +307,8 @@
 
             session_start();
             $professor = $_SESSION['login'];
-            $Ocorrencia = new Ocorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao);
+            $Ocorrencia = new Ocorrencia;
+            $Ocorrencia->RegistrarOcorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao);
 
             $conexao = ConectarBanco();
             $resultado = mysqli_query($conexao, "SELECT nome FROM professor WHERE login = '" . 
@@ -362,8 +365,7 @@
                 return $problemaSelecionado;
             }
 
-            $Diagnostico = new Diagnostico;
-            $Diagnostico->FazerDiagnostico($_POST['sele-lab'], $_POST['data'], RegistrarProblema($_POST['prob-apps']),
+            $Diagnostico = new Diagnostico($_POST['sele-lab'], $_POST['data'], RegistrarProblema($_POST['prob-apps']),
             $_POST['quantApps'],  RegistrarProblema($_POST['prob-fonte']), $_POST['quantFonte'],
             RegistrarProblema($_POST['prob-hd']), $_POST['quantHD'], RegistrarProblema($_POST['prob-monitor']),
             $_POST['quantMonitor'], RegistrarProblema($_POST['probMouse']), $_POST['quantMouse'],

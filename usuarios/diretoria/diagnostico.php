@@ -46,7 +46,7 @@
             <li><a class="active" href="inicio.php">Diagnósticos</a></li>
             <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
             <li><a class="nav-li" href="professores-cadastrados.php">Cadastros</a></li>
-            <li><a class="nav-li" href="ocorrencias-arquivadas.php">Arquivados</a></li>
+            <li><a class="nav-li" href="ocorrencias-arquivadas.php?problema=&data=&lab=">Arquivados</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
     </nav>
