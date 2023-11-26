@@ -1,4 +1,5 @@
 <?php
+use Dompdf\Css\Style;
 
     if (!isset($_SESSION)) session_start();
 
@@ -16,6 +17,7 @@
     use Dompdf\Dompdf;
     $dompdf = new Dompdf(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
+
     $html = '<!DOCTYPE html>';
     $html .= '<html lang="pt-br">';
     $html .= '<head>';
@@ -31,18 +33,16 @@
     $html .= 'font-family: "Segoe UI", sans-serif;';
     $html .= 'font-weight: 470;';
     $html .= 'font-size: 14px;';
-    // $html .= 'letter-spacing: 5px; ';
     $html .= '}';
 
     $html .= 'h2{';
     $html .= 'text-transform: uppercase;';
-    // $html .= 'text-align: center;';
     $html .= 'letter-spacing: normal;';
     $html .= 'font-size: 20px;';
+    $html .= 'margin-top: 1.5%;';
     $html .= 'margin-left: 8%;';
     $html .= 'margin-right: 8%;';
     $html .= 'font-family: "Segoe UI", sans-serif; ';
-    // $html .= 'border-top: 1px solid #7d7d7d;';
     $html .= 'border-bottom: 1px solid #7d7d7d;';
 
     $html .= '}';
@@ -67,7 +67,6 @@
     
     $html .= '.problemas{';
     $html .= 'display: block;';
-    // $html .= 'margin-bottom: 0px;';    
     $html .= '}';
 
     //problemas
@@ -84,11 +83,9 @@
     $html .= '}';
 
     $html .= '.titulo-problema{';
-    // $html .= 'color: #24416B;';
     $html .= 'letter-spacing: normal;';
     $html .= 'font-size: .9rem;';
-    $html .= 'text-transform: uppercase;';  
-    // $html .= 'margin-bottom: 10px;';
+    $html .= 'text-transform: uppercase;';
     $html .= 'font-family: "Segoe UI", sans-serif;';
     $html .= 'font-weight: 700;';
     $html .= '}';
@@ -104,7 +101,6 @@
     $html .= '}';
 
     $html .= '.responsavel{';
-    // $html .= 'color: #24416B;';
     $html .= 'margin: 0 0 20px 0;';
     $html .= 'font-size: 110%;';
     $html .= 'font-weight: 700;';
@@ -121,21 +117,17 @@
     $html .= 'text-align: justify;';
     $html .= '}';
 
-    // $html .= 'hr{';
-    // $html .= 'width: 500px;';
-    // $html .= 'height: 0.03px;';
-    // $html .= '}';
-
     $html .= '</style>';
     $html .= '</head>';
 
     $html .= '<body>';
-    $html .= '<img src="./img/cabecalho-relatorio.jpg" alt="Minha Imagem">';
-    // $html .= '<img src="data:image/jpg;base64,<BASE64_ENCODED_IMAGE>">';
-    // $html .= "<img src='/img/cabecalho-relatorio.jpg' style='width: 100%; height: 100px; object-fit: 'contain';'>";
-    $html .= '<br><br><br>';
-    $html .= '<h2><br>Ocorrências Arquivadas<br></h2><br><br>';
-    $html .= '<span style="font-size: .9rem; position: absolute; right: 8%; top: 80px;">Emitido em: ' . date('d/m/Y') . '</span>';
+
+    $imagem = file_get_contents('img/cabecalho-relatorio.jpg');
+    $img64 = base64_encode($imagem);
+
+    $html .= '<img src="data:image/jpg;base64,' . $img64 . '" style="width: 800px;">';
+    $html .= '<h2>Ocorrências Arquivadas<br></h2><br><br>';
+    $html .= '<span style="font-size: .9rem; position: absolute; right: 8%; top: 129px;">Emitido em: ' . date('d/m/Y') . '</span>';
     $html .= '<div class="container-geral">';
     $html .= '<div class="container-1">';
 
@@ -249,7 +241,7 @@
     $dompdf->render();
     header('Content-type: application/pdf');
 
-    $nomeArquivo = 'relatorio_monitoralab_'.date('d-m-Y').'.pdf';
-    echo $dompdf->stream($nomeArquivo);
-    // echo $dompdf->output();
+    // $nomeArquivo = 'relatorio_monitoralab_'.date('d-m-Y').'.pdf';
+    // echo $dompdf->stream($nomeArquivo);
+    echo $dompdf->output();
 ?>
