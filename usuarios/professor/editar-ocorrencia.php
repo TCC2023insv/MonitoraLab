@@ -1,22 +1,22 @@
 <?php
-    if (!isset($_SESSION)) session_start();
-
-    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof')
-    {
-        session_destroy();
-        header("Location: ../../login.php");
-    }
-
     require("../../php/conexao/conexaoBD.php");
     $conexao = ConectarBanco();
-
+    
     $id = $_GET["id"];
     $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, 
-    `Descricao`,`Responsavel` FROM ocorrencia WHERE id = '$id'") or die ($conexao->error);
+        `Descricao`,`Responsavel`, `Login_Prof` FROM ocorrencia WHERE id = '$id'") or die ($conexao->error);
 
     if ($sql_query && mysqli_num_rows($sql_query) > 0) 
     {
         $ocorrencia = mysqli_fetch_assoc($sql_query);
+    }
+
+    if (!isset($_SESSION)) session_start();
+
+    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Prof' or $ocorrencia['Login_Prof'] != $_SESSION['login'])
+    {
+        session_destroy();
+        header("Location: ../../login.php");
     }
 ?>
 
