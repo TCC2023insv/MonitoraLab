@@ -6,25 +6,25 @@
         session_destroy();
         header("Location: ../../login.php");
     }
+
+
     require('../../php/conexao/conexaoBD.php');
-    include('../../php/classes/diagnosticos.php');
+    include('../../php/classes/Ocorrencias.php');
     $conexao = ConectarBanco();
 
-    $Diagnostico = new Diagnostico();
-
-    // $sql_query = $Diagnostico->MostrarOcorrencias($_GET['problema'], $_GET['data'], $_GET['lab']);
+    $Ocorrencia = new Ocorrencia();
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Diagnostico->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Diagnostico->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Diagnostico->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
@@ -36,7 +36,7 @@
     }
     else if (isset($_GET['data']) && $_GET['data'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Diagnostico->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['lab']) && $_GET['lab'] != '')
     {
@@ -111,8 +111,8 @@
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
             <div id="Problema">
-                <select id="problema" name="problema">
-                    <option value="">Selecione</option>
+                <select id="problema" name="problema" title="problema">
+                    <option value="">Problema</option>
                     <option value="Falta de internet">Falta de internet</option>
                     <option value="Computadores desorganizados">Computadores desorganizados</option>
                     <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
@@ -126,8 +126,8 @@
             </div>
 
             <div id="Data">
-                <select id="data" name="data">
-                    <option value="">Selecione</option>
+                <select id="data" name="data" title="data">
+                    <option value="">Data</option>
                     <option value="3 meses">3 meses</option>
                     <option value="6 meses">6 meses</option>
                     <option value="1 ano">1 ano</option>
@@ -135,8 +135,8 @@
             </div>
 
             <div class="Laboratorio">
-                <select id="laboratorio" name="laboratorio">
-                    <option value="">Selecione</option>
+                <select id="laboratorio" name="laboratorio" title="laboratorio">
+                    <option value="">Laboratório</option>
                     <option value="Lab 1">Lab 1</option>
                     <option value="Lab 2">Lab 2</option>
                     <option value="Lab 3">Lab 3</option>
@@ -146,7 +146,12 @@
             <button type="submit" name="filtro">Filtrar</button>
             <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
         </form>
-        <button class="botao-extrair" onclick="GerarPDF()">Extrair relatório<i class="fa-solid fa-print"></i></button>
+
+        <button class="botao-extrair" 
+            onclick="GerarPDF('<?php echo $_GET['problema'] ?>', '<?php echo $_GET['data'] ?>', '<?php echo $_GET['lab'] ?>')">
+                Extrair relatório
+            <i class="fa-solid fa-print"></i>
+        </button>
 
         <div class="container-geral">
             <div class="container-1">
@@ -166,6 +171,7 @@
                 while ($ocorrencia = $sql_query->fetch_assoc())
                 {
             ?>
+            <div class='item'>
                 <div class="cabecalho-ocorrencia">
                     <div class="problema-data">
                         <label class="titulo-problema"><?php echo $ocorrencia['problema']; ?></label>
@@ -180,6 +186,7 @@
                 <div class="descricao-ocorrencia">
                     <?php echo $ocorrencia['descricao']; ?>
                 </div>
+            </div>
             <?php 
                 }
                 $conexao->close();
@@ -188,10 +195,30 @@
         </div>
 
     <script>
+        // const selectProblema = document.querySelector('#problema');
+        // const selectData = document.querySelector('#data');
+        // const selectLab = document.querySelector('#laboratorio');
+        
 
-        function GerarPDF()
+        // selectProblema.addEventListener('change', function(){
+        //     console.log(selectProblema.value);
+        //     console.log(document.querySelector('.container-2'));
+            
+        // });
+
+        // selectData.addEventListener('change', function(){
+        //     console.log(selectData.value);
+        // });
+        
+        // selectLab.addEventListener('change', function(){
+        //     console.log(selectLab.value);
+        // });
+
+
+        
+        function GerarPDF(problema, data, lab)
         {
-            window.location.href = '../../pdf/';
+            window.location.href = '../../pdf/index.php?problema='+problema+'&data='+data+'&lab='+lab;
         }
 
         function Sair()
