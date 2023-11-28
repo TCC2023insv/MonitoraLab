@@ -17,187 +17,179 @@ use Dompdf\Css\Style;
     use Dompdf\Dompdf;
     $dompdf = new Dompdf(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
+    $html = '<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+            <style>
+            
+            *{
+                margin: 0;
+                padding: 0;
+            }
 
-    $html = '<!DOCTYPE html>';
-    $html .= '<html lang="pt-br">';
-    $html .= '<head>';
-    $html .= '<meta charset="UTF-8">';
-    $html .= '<style>';
+            h2, span, .problema-data, .titulo-problema, .titulo-ocorrencia, .infos-ocorrencia, 
+            .responsavel, .laboratorio, .descricao-ocorrencia{
+                font-family: "Arial", sans-serif;
+                font-size: 12pt;
+            }
+            
+            html{
+                margin: 3cm 2cm 2cm 3cm;
+            }
 
-    $html .= '*{';
-    $html .= 'margin: 0;';
-    $html .= 'padding: 0;';
-    $html .= '}';
+            @font-face{
+                font-family: "Arial";
+                src: url("arial-cufofonts/arial.ttf");
+            }
 
-    $html .= 'body{';
-    $html .= 'font-family: "Segoe UI", sans-serif;';
-    $html .= 'font-weight: 470;';
-    $html .= 'font-size: 14px;';
-    $html .= '}';
+            body{
+                font: normal 15px/20px Arial;
+                font-weight: 470;
+                font-size: 14px;
+            }
+            
+            h2{
+                text-transform: uppercase;
+                font-size: 14pt;
+                border-bottom: 1px solid #7d7d7d;
+            }
 
-    $html .= 'h2{';
-    $html .= 'text-transform: uppercase;';
-    $html .= 'letter-spacing: normal;';
-    $html .= 'font-size: 20px;';
-    $html .= 'margin-top: 1.5%;';
-    $html .= 'margin-left: 8%;';
-    $html .= 'margin-right: 8%;';
-    $html .= 'font-family: "Segoe UI", sans-serif; ';
-    $html .= 'border-bottom: 1px solid #7d7d7d;';
+            .container-geral{
+                clear: both;
+                position: relative;
+            }
+            
+            .problemas{
+                display: block;
+            }
 
-    $html .= '}';
+            .container-1{
+                text-align: justify;
+                border-bottom: 1px solid #7d7d7d;
+            }
+            
+            .problema-data{
+                display: flex;
+                justify-content:space-between;
+            }
 
-    // geral
-    $html .= '.container-geral{';
-    $html .= 'clear: both;';
-    $html .= 'position: relative;';
-    $html .= '}';
+            .titulo-problema{
+                letter-spacing: normal;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+            
+            .titulo-ocorrencia{
+                margin-bottom: 10px;
+            }
+            
+            .infos-ocorrencia{
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .responsavel{
+                margin: 0 0 20px 0;
+                font-weight: 700;
+            }
+            
+            .laboratorio{
+                margin-top: 10px;
+                margin-bottom: 3px;
+                font-weight: 700;
+            }
 
-    //quantidades
-    $html .= '.container-1{';
-    $html .= 'position: absolute;';
-    $html .= 'left: 300pt;';
-    $html .= 'width: 320px;';
-    $html .= 'margin: 2.9% 0 0 8%;';
-    $html .= 'font-family: "Segoe UI", sans-serif;';
-    $html .= 'font-weight: 400;';
-    $html .= 'text-align: justify;';
-    $html .= 'word-spacing: 3px;';
-    $html .= '}';
-    
-    $html .= '.problemas{';
-    $html .= 'display: block;';
-    $html .= '}';
+            .descricao-ocorrencia{
+                margin: 0 0 2% 0;
+                text-align: justify;
+            }
 
-    //problemas
-    $html .= '.container-2{';
-    $html .= 'text-align: justify;';
-    $html .= 'width: 320px;';
-    $html .= 'margin-left: 8%;';
-    $html .= 'border-bottom: 1px solid #7d7d7d;';
-    $html .= '}';
+            img{
+                width: 800px;
+                position: absolute;
+                left: -19%;
+                top: -8%;
+            }
 
-    $html .= '.problema-data{';
-    $html .= 'display: flex;';
-    $html .= 'justify-content:space-between;';
-    $html .= '}';
+            span{
+                font-size: .9rem;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
 
-    $html .= '.titulo-problema{';
-    $html .= 'letter-spacing: normal;';
-    $html .= 'font-size: .9rem;';
-    $html .= 'text-transform: uppercase;';
-    $html .= 'font-family: "Segoe UI", sans-serif;';
-    $html .= 'font-weight: 700;';
-    $html .= '}';
+            .filtros{
+                border-top: 1px solid #7d7d7d;
+                border-bottom: 1px solid #7d7d7d;
+                text-align: center;
+                margin-bottom: 10px;
+            }
 
-    $html .= '.titulo-ocorrencia{';
-    $html .= 'font-size: 110%;';
-    $html .= 'margin-bottom: 10px;';
-    $html .= '}';
+            .filtro-selecionado{
+                font-weight: bold;
+                font-family: "Arial", sans-serif;
+                font-size: 10pt;
+            }
 
-    $html .= '.infos-ocorrencia{';
-    $html .= 'display: flex;';
-    $html .= 'flex-direction: column;';
-    $html .= '}';
-
-    $html .= '.responsavel{';
-    $html .= 'margin: 0 0 20px 0;';
-    $html .= 'font-size: 110%;';
-    $html .= 'font-weight: 700;';
-    $html .= '}';
-
-    $html .= '.laboratorio{';
-    $html .= 'margin-top: 10px';
-    $html .= 'font-size: 110%;';
-    $html .= 'font-weight: 700;';
-    $html .= '}';
-
-    $html .= '.descricao-ocorrencia{';
-    $html .= 'margin: 0 0 4% 0;';
-    $html .= 'text-align: justify;';
-    $html .= '}';
-
-    $html .= '</style>';
-    $html .= '</head>';
-
-    $html .= '<body>';
+            </style>
+    </head>
+    <body>';
 
     $imagem = file_get_contents('img/cabecalho-relatorio.jpg');
     $img64 = base64_encode($imagem);
 
-    $html .= '<img src="data:image/jpg;base64,' . $img64 . '" style="width: 800px;">';
-    $html .= '<h2>Ocorrências Arquivadas<br></h2><br><br>';
-    $html .= '<span style="font-size: .9rem; position: absolute; right: 8%; top: 129px;">Emitido em: ' . date('d/m/Y') . '</span>';
-    $html .= '<div class="container-geral">';
-    $html .= '<div class="container-1">';
+    $html .= '<img src="data:image/jpg;base64,' . $img64 . '>
+    <div class="container-geral">
+        <h2>Ocorrências Arquivadas<br></h2><br>
+        <span>Emitido em: ' . date('d/m/Y') . '</span>
+    </div>';
 
-    $faltaInternet = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Falta de internet'");
-    $quantidadeFalta = mysqli_num_rows($faltaInternet);
- 
-    $pcDesorganizado = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Computadores desorganizados'");
-    $quantidadePC = mysqli_num_rows($pcDesorganizado);
- 
-    $sumicoDispositivo = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Sumiço de dispositivos'");
-    $quantidadeSumico = mysqli_num_rows($sumicoDispositivo);
-    
-    $dispositivoQuebrado = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Dispositivo quebrado'");
-    $quantidadeDispQuebrado = mysqli_num_rows($dispositivoQuebrado);
-    
-    $CadeirasDesorganizadas = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Cadeiras desorganizadas'");
-    $quantidadeCadeiras = mysqli_num_rows($CadeirasDesorganizadas);
-    
-    $cabosDesconectados = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Cabos desconectados'");
-    $quantidadeCabos = mysqli_num_rows($cabosDesconectados);
-    
-    $disjuntorDesligado = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Disjuntor desligado'");
-    $quantidadeDisjuntor = mysqli_num_rows($disjuntorDesligado);
-    
-    $janelaAberta = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Janela aberta'");
-    $quantidadeJanela = mysqli_num_rows($janelaAberta);
-    
-    $quedaEnergia = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='Queda de energia'");
-    $quantidadeQueda = mysqli_num_rows($quedaEnergia);
-
-    $html .= '<label class="problemas">'.$quantidadeFalta.'x Falta de internet</label><br>';
-    $html .= '<label class="problemas">'.$quantidadePC.'x Computadores desorganizados</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeSumico.'x Sumiço de dispositivo</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeDispQuebrado.'x Dispositivo quebrado</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeCadeiras.'x Cadeiras desorganizadas</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeCabos.'x Cabos desconectados</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeDisjuntor.'x Disjuntor desligado</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeJanela.'x Janela Aberta</label><br>';
-    $html .= '<label class="problemas">'.$quantidadeQueda.'x Queda de energia</label><br>';
-    $html .= '</div>';
+    $filtroProb = "Todos";
+    $filtroData = "Todos";
+    $filtroLab = "Todos";
 
     require('../php/classes/ocorrencias.php');
     $Ocorrencia = new Ocorrencia();
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
+        $filtroProb = $_GET['problema'];
+        $filtroData = $_GET['data'];
+        $filtroLab = $_GET['lab'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
     {
+        $filtroProb = $_GET['problema'];
+        $filtroData = $_GET['data'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
+        $filtroData = $_GET['data'];
+        $filtroLab = $_GET['lab'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
+        $filtroProb = $_GET['problema'];
+        $filtroLab = $_GET['lab'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '')
     {
+        $filtroProb = $_GET['problema'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '')
     {
+        $filtroData = $_GET['data'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['lab']) && $_GET['lab'] != '')
     {
+        $filtroLab = $_GET['lab'];
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
     }
     else
@@ -205,30 +197,37 @@ use Dompdf\Css\Style;
         $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC");
     }
 
+    $html .= '<div class="filtros">
+                <label class="filtro-selecionado">FILTRO(S):</label>
+                <label class="filtro-selecionado">Problema: ' . $filtroProb . ' | </label>
+                <label class="filtro-selecionado">Laboratório: ' . $filtroLab . ' | </label>
+                <label class="filtro-selecionado">Período: ' . $filtroData . '</label>
+              </div>';
+
 
     if ($sql_query->num_rows > 0)
     {
         while ($row = $sql_query->fetch_object())
         {
-            $html .= '<div class="container-2">
-                <div class="cabecalho-ocorrencia">
-                    <div class="problema-data"><br>
-                        <label class="titulo-problema">'. $row->problema .'</label>
-                            <div class="titulo-ocorrencia">'. $row->titulo .'</div>
-                            <label class="laboratorio">'. $row->laboratorio .': </label>
-                            <label class="data-ocorrencia"> '. date('d/m/Y', strtotime($row->data)) .'</label>
-                    </div>
-                </div>
-                <div class="infos-ocorrencia">
-                    <label class="responsavel">Registrada por: '. ucwords($row->responsavel) .'</label>
-                </div>
-                <div class="descricao-ocorrencia">
-                   '. $row->descricao .'
-                </div>
-            </div>';
+            $html .= '<div class="container-1">
+                            <div class="cabecalho-ocorrencia">
+                                <div class="problema-data"><br>
+                                    <label class="titulo-problema">'. $row->problema .'</label>
+                                        <div class="titulo-ocorrencia">'. $row->titulo .'</div>
+                                        <label class="laboratorio">'. $row->laboratorio .': </label>
+                                        <label class="data-ocorrencia"> '. date('d/m/Y', strtotime($row->data)) .'</label>
+                                </div>
+                            </div>
+                            <div class="infos-ocorrencia">
+                                <label class="responsavel">Registrada por: '. ucwords($row->responsavel) .'</label>
+                            </div>
+                            <div class="descricao-ocorrencia">
+                            '. $row->descricao .'
+                            </div>
+                      </div>';
         }
     }
-
+    $conexao->close();
     $html .= '</body>';
     $html .= '</html>';
 
@@ -241,7 +240,7 @@ use Dompdf\Css\Style;
     $dompdf->render();
     header('Content-type: application/pdf');
 
-    // $nomeArquivo = 'relatorio_monitoralab_'.date('d-m-Y').'.pdf';
-    // echo $dompdf->stream($nomeArquivo);
-    echo $dompdf->output();
+    $nomeArquivo = 'relatorio_monitoralab_'.date('d-m-Y').'.pdf';
+    echo $dompdf->stream($nomeArquivo);
+    // echo $dompdf->output();
 ?>

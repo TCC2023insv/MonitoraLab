@@ -235,7 +235,7 @@
             }
             else if ($data != '')
             {
-                return header($location.'problema=data=' . $data . '&lab=');
+                return header($location.'problema=&data=' . $data . '&lab=');
             }
             else if ($lab != '')
             {

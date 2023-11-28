@@ -61,7 +61,6 @@
                     <!-- <div class="editar"> -->
                     <a class="editar" 
                         onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
-                        <!-- <a class="editar" onclick="Editar()" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'> -->
                             <i class="fa-regular fa-pen-to-square editar"></i>
                         </a>
                     <!-- </div> -->
