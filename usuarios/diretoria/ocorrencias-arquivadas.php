@@ -144,6 +144,12 @@
             <button type="submit" name="filtro">Filtrar</button>
             <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
         </form>
+        <!-- <div class="filtros">
+                <label class="filtro-selecionado">FILTRO(S):</label>
+                <label class="filtro-selecionado">Problema: ' . $filtroProb . ' | </label>
+                <label class="filtro-selecionado">Laboratório: ' . $filtroLab . ' | </label>
+                <label class="filtro-selecionado">Período: ' . $filtroData . '</label>
+        </div> -->
 
         <button class="botao-extrair" 
             onclick="GerarPDF('<?php echo $_GET['problema'] ?>', '<?php echo $_GET['data'] ?>', '<?php echo $_GET['lab'] ?>')">
@@ -193,27 +199,6 @@
         </div>
 
     <script>
-        // const selectProblema = document.querySelector('#problema');
-        // const selectData = document.querySelector('#data');
-        // const selectLab = document.querySelector('#laboratorio');
-        
-
-        // selectProblema.addEventListener('change', function(){
-        //     console.log(selectProblema.value);
-        //     console.log(document.querySelector('.container-2'));
-            
-        // });
-
-        // selectData.addEventListener('change', function(){
-        //     console.log(selectData.value);
-        // });
-        
-        // selectLab.addEventListener('change', function(){
-        //     console.log(selectLab.value);
-        // });
-
-
-        
         function GerarPDF(problema, data, lab)
         {
             window.location.href = '../../pdf/index.php?problema='+problema+'&data='+data+'&lab='+lab;
