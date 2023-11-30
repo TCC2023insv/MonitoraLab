@@ -11,7 +11,7 @@
 
    $conexao = ConectarBanco();
 
-   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel` FROM ocorrencia
+   $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel`, `Login_Prof` FROM ocorrencia
    ORDER BY `Data`DESC") or die ($conexao->error);
 ?>
 
@@ -59,7 +59,9 @@
                 <div class="titulo-editar">
                 <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
                     <!-- <div class="editar"> -->
-                        <a class="editar" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'>
+                    <a class="editar" 
+                        onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
+                        <!-- <a class="editar" onclick="Editar()" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'> -->
                             <i class="fa-regular fa-pen-to-square editar"></i>
                         </a>
                     <!-- </div> -->
@@ -80,6 +82,22 @@
         ?>
 
         <script>
+        function Editar(login_registrador, login_editor, ID)
+        {
+            if (login_registrador === login_editor)
+            {
+                window.location.href='editar-ocorrencia.php?id='+ID;
+            }
+            else
+            {
+                swal({
+                    title: "Edição não autorizada",
+                    text: "Não é possível editar a ocorrência de outro professor.",
+                    icon: "error"
+                })
+            }
+        }
+
         function Sair()
         {
             swal({

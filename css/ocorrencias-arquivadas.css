@@ -86,7 +86,11 @@ margin: 1.5% 0 0 8px;
     text-align: justify;
     width: 60%;
     margin: 1% 5% 0 0;
+}
+
+.item{
     border-bottom: 1px solid var(--cinza-3);
+    margin: 1% 5% 0 0;
 }
 
 .problema-data{
@@ -108,6 +112,7 @@ margin: 1.5% 0 0 8px;
 
 .titulo-ocorrencia{
     font-weight: 450;
+    font-size: 1.2rem;
 }
 
 .infos-ocorrencia{
@@ -117,7 +122,6 @@ margin: 1.5% 0 0 8px;
 
 .responsavel{
     color: var(--azul-1);
-    margin: 0 0 1% 0;
     font-size: 110%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -125,7 +129,6 @@ margin: 1.5% 0 0 8px;
 
 .laboratorio{
     color: var(--azul-1);
-    margin: 0 0 1% 0;
     font-size: 110%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;

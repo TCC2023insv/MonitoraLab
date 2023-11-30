@@ -1,4 +1,13 @@
 <?php
+use Dompdf\Css\Style;
+
+    if (!isset($_SESSION)) session_start();
+
+    if (!isset($_SESSION['login']) or $_SESSION['tipoDeUsuario'] != 'Dir')
+    {
+        session_destroy();
+        header("Location: ../../login.php");
+    }
 
     require('../php/conexao/conexaoBD.php');
     $conexao = ConectarBanco();
@@ -6,42 +15,36 @@
     require __DIR__.'/vendor/autoload.php';
 
     use Dompdf\Dompdf;
-    $dompdf = new Dompdf(['enable_remote' => true]);
+    $dompdf = new Dompdf(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+
 
     $html = '<!DOCTYPE html>';
     $html .= '<html lang="pt-br">';
     $html .= '<head>';
     $html .= '<meta charset="UTF-8">';
-    $html .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     $html .= '<style>';
-
-    $html .= 'html{';
-    $html .= 'min-height: 10vh;';
-    $html .= '}';
 
     $html .= '*{';
     $html .= 'margin: 0;';
     $html .= 'padding: 0;';
-    $html .= 'text-decoration: none;';
-    $html .= 'list-style: none;';
-    $html .= 'letter-spacing: normal;';
     $html .= '}';
 
     $html .= 'body{';
-    $html .= 'font-family:"Poppins", sans-serif;';
+    $html .= 'font-family: "Segoe UI", sans-serif;';
     $html .= 'font-weight: 470;';
-    $html .= 'letter-spacing: 5px; ';
+    $html .= 'font-size: 14px;';
     $html .= '}';
 
     $html .= 'h2{';
-    $html .= 'color: #24416B;';
     $html .= 'text-transform: uppercase;';
-    $html .= 'margin: 0 0 0 8%;';
     $html .= 'letter-spacing: normal;';
-    $html .= 'font-size: 30px;';
-    $html .= 'font-family: "Poppins", sans-serif; ';
-    $html .= 'border-top: 1px solid #7d7d7d;';
+    $html .= 'font-size: 20px;';
+    $html .= 'margin-top: 1.5%;';
+    $html .= 'margin-left: 8%;';
+    $html .= 'margin-right: 8%;';
+    $html .= 'font-family: "Segoe UI", sans-serif; ';
     $html .= 'border-bottom: 1px solid #7d7d7d;';
+
     $html .= '}';
 
     // geral
@@ -56,10 +59,14 @@
     $html .= 'left: 300pt;';
     $html .= 'width: 320px;';
     $html .= 'margin: 2.9% 0 0 8%;';
-    $html .= 'font-family: "Poppins", sans-serif;';
+    $html .= 'font-family: "Segoe UI", sans-serif;';
     $html .= 'font-weight: 400;';
     $html .= 'text-align: justify;';
     $html .= 'word-spacing: 3px;';
+    $html .= '}';
+    
+    $html .= '.problemas{';
+    $html .= 'display: block;';
     $html .= '}';
 
     //problemas
@@ -76,15 +83,16 @@
     $html .= '}';
 
     $html .= '.titulo-problema{';
-    $html .= 'color: #24416B;';
     $html .= 'letter-spacing: normal;';
-    $html .= 'font-size: 115%;';
-    $html .= 'font-family: "Poppins", sans-serif;';
+    $html .= 'font-size: .9rem;';
+    $html .= 'text-transform: uppercase;';
+    $html .= 'font-family: "Segoe UI", sans-serif;';
     $html .= 'font-weight: 700;';
     $html .= '}';
 
     $html .= '.titulo-ocorrencia{';
     $html .= 'font-size: 110%;';
+    $html .= 'margin-bottom: 10px;';
     $html .= '}';
 
     $html .= '.infos-ocorrencia{';
@@ -93,18 +101,14 @@
     $html .= '}';
 
     $html .= '.responsavel{';
-    $html .= 'color: #24416B;';
-    $html .= 'margin: 0 0 1% 0;';
+    $html .= 'margin: 0 0 20px 0;';
     $html .= 'font-size: 110%;';
-    $html .= 'font-family: "Poppins", sans-serif;';
     $html .= 'font-weight: 700;';
     $html .= '}';
 
     $html .= '.laboratorio{';
-    $html .= 'color: #24416B;';
-    $html .= 'margin: 0 0 1% 0;';
+    $html .= 'margin-top: 10px';
     $html .= 'font-size: 110%;';
-    $html .= 'font-family: "Poppins", sans-serif;';
     $html .= 'font-weight: 700;';
     $html .= '}';
 
@@ -113,24 +117,17 @@
     $html .= 'text-align: justify;';
     $html .= '}';
 
-    // $html .= 'hr{';
-    // $html .= 'width: 500px;';
-    // $html .= 'height: 0.03px;';
-    // $html .= '}';
-
     $html .= '</style>';
-    
-    $html .= '<script src="https://unpkg.com/@phosphor-icons/web"></script>';
-    $html .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />';
-    $html .= '<link rel="preconnect" href="https://fonts.googleapis.com">';
     $html .= '</head>';
-    // $html .= '<hr></hr>';
-    $html .= '<br><br><br>';
-    // $html .= '<hr></hr>';
-    $html .= '<h2><br>Ocorrências Arquivadas<br></h2><br><br>';
-    $html .= '<h7>Emitido em: ' . date('d/m/Y') . '</h7>';
+
+    $html .= '<body>';
+
+    $imagem = file_get_contents('img/cabecalho-relatorio.jpg');
+    $img64 = base64_encode($imagem);
+
+    $html .= '<img src="data:image/jpg;base64,' . $img64 . '" style="width: 800px;">';
+    $html .= '<h2>Ocorrências Arquivadas<br></h2><br><br>';
+    $html .= '<span style="font-size: .9rem; position: absolute; right: 8%; top: 129px;">Emitido em: ' . date('d/m/Y') . '</span>';
     $html .= '<div class="container-geral">';
     $html .= '<div class="container-1">';
 
@@ -172,34 +169,68 @@
     $html .= '<label class="problemas">'.$quantidadeQueda.'x Queda de energia</label><br>';
     $html .= '</div>';
 
-    $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data`DESC") or die ($conexao->error);
+    require('../php/classes/ocorrencias.php');
+    $Ocorrencia = new Ocorrencia();
+
+    if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['problema']) && $_GET['problema'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['data']) && $_GET['data'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
+    }
+    else if (isset($_GET['lab']) && $_GET['lab'] != '')
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
+    }
+    else
+    {
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC");
+    }
 
 
     if ($sql_query->num_rows > 0)
     {
         while ($row = $sql_query->fetch_object())
         {
-            $html .= '<div class="container-2">';
-            $html .= '<div class="cabecalho-ocorrencia">';
-            $html .= '<div class="problema-data"><br>';
-            $html .= '<label class="titulo-problema">'. $row->problema .'</label><br>';
-            $html .= '<label class="laboratorio">'. $row->laboratorio .': </label>';
-            $html .= '<label class="data-ocorrencia"> '. $row->data .'</label><br>';
-            $html .= '</div>';
-            $html .= '<div class="titulo-ocorrencia">'. $row->titulo .'</div>';
-            $html .= '</div>';
-            $html .= '<div class="infos-ocorrencia">';
-            $html .= '<label class="responsavel">Registrada por: '. $row->responsavel .'</label><br>';
-            // $html .= '<label class="laboratorio">'. $row->laboratorio .'</label><br>';
-            $html .= '</div>';
-            $html .= '<div class="descricao-ocorrencia">';
-            $html .= $row->descricao;
-            $html .= '</div>';
-            $html .= '</div>';
+            $html .= '<div class="container-2">
+                <div class="cabecalho-ocorrencia">
+                    <div class="problema-data"><br>
+                        <label class="titulo-problema">'. $row->problema .'</label>
+                            <div class="titulo-ocorrencia">'. $row->titulo .'</div>
+                            <label class="laboratorio">'. $row->laboratorio .': </label>
+                            <label class="data-ocorrencia"> '. date('d/m/Y', strtotime($row->data)) .'</label>
+                    </div>
+                </div>
+                <div class="infos-ocorrencia">
+                    <label class="responsavel">Registrada por: '. ucwords($row->responsavel) .'</label>
+                </div>
+                <div class="descricao-ocorrencia">
+                   '. $row->descricao .'
+                </div>
+            </div>';
         }
     }
 
-    $html .= '</div>';
+    $html .= '</body>';
+    $html .= '</html>';
 
     $dompdf = new Dompdf();
 
@@ -210,7 +241,7 @@
     $dompdf->render();
     header('Content-type: application/pdf');
 
-    // $nomeArquivo = 'relatorio_'.date('d-m-Y').'.pdf';
+    // $nomeArquivo = 'relatorio_monitoralab_'.date('d-m-Y').'.pdf';
     // echo $dompdf->stream($nomeArquivo);
     echo $dompdf->output();
 ?>
