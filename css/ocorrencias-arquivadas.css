@@ -15,14 +15,14 @@ html{
 }
 
 body{
-    background: var(--branco-1);
+    background: var(--fundo);
     font-family:'Poppins', sans-serif;
     font-weight: 470;
     letter-spacing: 5px;    
 }
 
 h2{
-    color: var(--azul-1);
+    color: var(--h2);
     text-transform: uppercase;
     margin: 3% 0 0 5%;
     letter-spacing: normal;
@@ -104,46 +104,63 @@ margin: 1.5% 0 0 8px;
 } */
 
 .titulo-problema{
-    color: var(--azul-1);
+    color: var(--titulo);
     letter-spacing: normal;
     font-size: 180%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    padding-left: 1.5%;
+}
+
+.data-ocorrencia{
+    color: var(--dados);
+    padding-right: 1.5%;
 }
 
 .titulo-ocorrencia{
     font-weight: 450;
     font-size: 1.2rem;
+    color: var(--dados);
+    padding-left: 1.5%;
 }
 
 .infos-ocorrencia{
     display: flex;
     flex-direction: column;
+    padding-left: 1.5%;
 }
 
 .responsavel{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-size: 110%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
 
 .laboratorio{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-size: 110%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
 
 .descricao-ocorrencia{
-    margin: 0 0 4% 0;
+    color: var(--dados);
+    margin: 0 0 2% 0;
+    padding-left: 1.5%;
 }
 
 /* Pagina de visualizar ocorrencia */
 
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container{
-    width: 90%;
-    margin: 3% 0 2% 5%;
+    width: 88%;
+    margin-top: 1.5%;
     text-align: justify;
     border-bottom: 1px solid var(--cinza-3);
 }
@@ -151,16 +168,17 @@ margin: 1.5% 0 0 8px;
 .botao-registrar{
     background-color: var(--azul-1);
     color: var(--branco-1);
-    width: auto;
+    width: 15%;
     height: auto;
     font-family: 'Poppins', sans-serif ;
     border: none;
     display: flex;
-    margin: 1% 81% 2% 5%;
+    margin: 1% 81% 1% 5%;
     font-size: 100%;
     padding: 0.5%;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 .botao-registrar:hover{
@@ -205,7 +223,7 @@ button:hover{
     color: var(--branco-1);
     font-size: 120%;
     margin: 0;
-    padding: 5.5px 0px 0 0;
+    padding: 5.5px 3px 0 0;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -214,3 +232,8 @@ button:hover{
 #pai{
     display: none;
 }
+
+
+.fa-solid{
+    margin: 0 0 0 8px;
+    }

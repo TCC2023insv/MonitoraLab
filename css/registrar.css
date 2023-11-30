@@ -12,6 +12,10 @@ html{
     list-style: none;
 }
 
+body{
+    background: var(--fundo);
+}
+
 .voltar{
     display: flex;
     align-items: center;
@@ -20,7 +24,7 @@ html{
 
 #voltar-icone{
     font-size: 175%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 .texto-voltar{
@@ -28,14 +32,14 @@ html{
     margin-left: 0.8%;
     font-weight: 400;
     font-size: 110%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 /* Título */
 
 .titulo{
     font-family: 'Poppins', sans-serif;
-    color: var(--azul-1);
+    color: var(--titulo);
     font-weight: 700;
     font-size: 180%;
     margin: 1% 10%;
@@ -43,19 +47,23 @@ html{
 
 .forms{
     margin: 2% 8% 8% 8%;
-    box-shadow: 1px 10px 35px var(--preto-2);
+    box-shadow: 1px 10px 35px var(--sombra);
     font-family: 'Poppins', sans-serif;
     border-radius: 6px;
     border: none;
+    background: var(--caixa);
 }
 
 .caixas{
     display: flex;
+    background: var(--caixa);
+    border-radius: 6px;
 }
 
 .sub-titulo{
     font-size:100%;
     font-weight: 500;
+    color: var(--titulo-dados);
 }
 
 .caixa-esquerda{
@@ -71,7 +79,7 @@ html{
 .txt{
     padding: 2% 0% 2% 2%;
     border-radius: 5px;
-    border: 1px solid var(--cinza-4);
+    border: 1px solid var(--txt);
     font-size: 100%;
     font-family: 'Poppins', sans-serif; 
     width: 98%;
@@ -80,7 +88,7 @@ html{
 }
 
 .txt:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 .Lab-Data{
@@ -110,7 +118,7 @@ html{
 }
 
 .sele-lab:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 #date{
@@ -119,15 +127,15 @@ html{
     padding: 2.9% 4%;
     margin-top: 2.5%;
     border-radius: 5px;
-    border: 1px solid var(--cinza-4);
+    border: 1px solid var(--txt);
 }
 
 #date:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 .titulo-2{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-weight: 700;
     font-size: 150%;
     /* text-align: center; */
@@ -136,7 +144,7 @@ html{
 }
 
 .caixa-problemas{
-    border: 1px solid var(--cinza-4);
+    border: 1px solid var(--borda-caixa);
     border-radius: 10px;
     padding: 7% 6%;
     margin-top: 8%;
@@ -151,27 +159,28 @@ html{
     font-size: 120%;
     font-weight: 600;
     width: 42%;
+    color: var(--dados);
 }
 
 .txtQuant{
     font-size: 120%;
     font-weight: 300;
     font-family: 'Poppins', sans-serif;
-    border: 1px solid var(--cinza-4);
+    border: 1px solid var(--txt);
     border-radius: 4px;
     width: 14%;
     text-align: center;
 }
 
 .txtQuant:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 .select-prob{
     font-size: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    border: 1px solid var(--cinza-3);
+    border: 1px solid var(--txt);
     border-radius: 4px;
     margin-left: 10%;
     width: 38%;
@@ -179,7 +188,7 @@ html{
 }
 
 .select-prob:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 .caixa-direita{
@@ -195,7 +204,7 @@ html{
     height: 30%;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    border: 1px solid var(--cinza-3);
+    border: 1px solid var(--txt);
     border-radius: 8px;
     padding: 2%;
     font-size: 100%;
@@ -211,14 +220,15 @@ html{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 2px dashed var(--cinza-1);
+    border: 2px dashed var(--miniatura);
+    color: var(--miniatura);
     position: relative;
     margin: 2%;
     cursor: pointer;
 }
 
 .input-div:hover{
-    background-color: var(--cinza-2);
+    background-color: var(--txt-hover);
 }
 
 #file-input {
@@ -229,14 +239,18 @@ html{
     cursor: pointer;
 }
 
+.Fotos{
+    background: var(--caixa);
+}
+
 #icon-foto{
     font-size: 500%;
-    color: var(--cinza-1);
+    color: var(--miniatura);
 }
 
 .escolher-foto{
     font-family: 'Poppins', sans-serif;
-    color: var(--cinza-1);
+    color: var(--miniatura);
     font-size: 130%;
     font-weight: 500;
     margin-top: 1%;
@@ -245,6 +259,7 @@ html{
 .fotos-selecionadas{
     margin-left: 2%;
     font-size: 110%;
+    color: var(--titulo-dados)
 }
 
 #miniaturas{
@@ -279,8 +294,8 @@ figcaption{
 /* Botão de registrar */
 
 .Btn-Registrar{
-    background-color: var(--azul-1);
-    color: var(--branco-1);
+    background-color: var(--fundo-botao);
+    color: var(--texto-branco);
     font-family: 'Poppins', sans-serif;
     font-size: 105%;
     border: none;

@@ -28,13 +28,18 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../../js/sweetalert.js" type="module"></script>
+        <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+        <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         <title>Ocorrências</title>
     </head>
-    <body>
+    <body class="tema-claro" id="body">
         <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../../icons/icone-professor.png" class="icone-usuario">
-        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
+            <div class="icone-mudar-tema" onclick="trocarTema()">
+                <i id="mode-icon" class="ph-fill ph-moon"></i>
+            </div>	
+            <h1 class="logo">MonitoraLab</h1>
+            <img src="../../icons/icone-professor.png" class="icone-usuario">
+            <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
             <ul class="nav-professor">
                 <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
                 <li><a class="active" href="">Ocorrências</a></li>
@@ -50,31 +55,34 @@
             while ($ocorrencia = $sql_query->fetch_assoc())
             {
         ?>
-        <div class="container">
-            <div class="cabecalho-ocorrencia">
-                <div class="problema-data">
-                    <label class="titulo-problema"><?php echo $ocorrencia['Problema']; ?></label>
-                    <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
+        <div class="flex">
+            <div class="container">
+                <div class="cabecalho-ocorrencia">
+                    <div class="problema-data">
+                        <label class="titulo-problema"><?php echo $ocorrencia['Problema']; ?></label>
+                        <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
+                    </div>
+                    <div class="titulo-editar">
+                    <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
+                        <!-- <div class="editar"> -->
+                        <a class="editar" 
+                            onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
+                            <!-- <a class="editar" onclick="Editar()" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'> -->
+                                <i class="fa-regular fa-pen-to-square editar"></i>
+                            </a>
+                        <!-- </div> -->
+                    </div>
+                    </div>
+                <div class="infos-ocorrencia">
+                    <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
+                    <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
                 </div>
-                <div class="titulo-editar">
-                <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
-                    <!-- <div class="editar"> -->
-                    <a class="editar" 
-                        onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
-                        <!-- <a class="editar" onclick="Editar()" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'> -->
-                            <i class="fa-regular fa-pen-to-square editar"></i>
-                        </a>
-                    <!-- </div> -->
+                <div class="descricao-ocorrencia">
+                <?php echo $ocorrencia['Descricao']; ?>
                 </div>
-                </div>
-            <div class="infos-ocorrencia">
-                <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
-                <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
-            </div>
-            <div class="descricao-ocorrencia">
-            <?php echo $ocorrencia['Descricao']; ?>
             </div>
         </div>
+       
 
         <?php
             }

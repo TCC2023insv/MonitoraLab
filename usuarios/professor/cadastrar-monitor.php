@@ -18,10 +18,15 @@
     <link rel="stylesheet" href="../../css/fonte-alert.css">
     <script src="../../js/jquery.js"></script>
     <script src="../../js/sweetalert.js"></script>
+    <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+    <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">  
     <title>Cadastrar Monitor</title>
 </head>
-<body>
+<body class="tema-claro" id="body">
     <nav>
+        <div class="icone-mudar-tema" onclick="trocarTema()">
+            <i id="mode-icon" class="ph-fill ph-moon"></i>
+        </div>	
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-professor.png" class="icone-usuario">
         <div class="usuario"><?php echo $_SESSION['login'] ;?></div>

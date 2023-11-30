@@ -13,6 +13,10 @@ html{
     list-style: none;
 }
 
+body{
+    background: var(--fundo);
+}
+
 .voltar{
     display: flex;
     align-items: center;
@@ -21,7 +25,7 @@ html{
 
 #voltar-icone{
     font-size: 175%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 .texto-voltar{
@@ -29,11 +33,11 @@ html{
     margin-left: 0.8%;
     font-weight: 500;
     font-size: 110%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 h2{
-    color: var(--azul-1);
+    color: var(--h2);
     text-transform: uppercase;
     margin: 1% 0 0 3%;
     letter-spacing: normal;
@@ -48,7 +52,8 @@ fieldset{
     height: auto;
     margin: 4% 0 5% 15%;
     border: none;
-    box-shadow: var(--cinza-4) 0px 0px 15px;
+    box-shadow: var(--sombra) 0px 0px 15px;
+    background: var(--caixa);
     border-radius: 5px;
 }
 
@@ -69,7 +74,7 @@ fieldset{
 .titulo-info{
     letter-spacing: normal;
     font-size: 110%;
-    color: var(--preto-3);
+    color: var(--titulo-dados);
     margin: 1% 0 1% 0;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
@@ -91,7 +96,7 @@ fieldset{
     padding: 1.5% 1.5% 1.5% 1.8%;
     height: 25px;
     width: 200px;
-    color: var(--cinza-4);
+    color: var(--txt);
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
@@ -103,7 +108,7 @@ fieldset{
     padding: 1.8% 1.8% 1.8% 2%;
     height: auto;
     width: 200px;
-    color: var(--cinza-4);
+    color: var(--txt);
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
@@ -114,7 +119,7 @@ fieldset{
 .select-prob{
     padding: 1.5% 1.5% 1.5% 1.8%;
     width: 200px;
-    color: var(--cinza-4);
+    color: var(--txt);
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
@@ -126,12 +131,15 @@ fieldset{
     width: 86%;
     margin: 0% 0 1% 6%;
     border: none;
-    border-bottom: 1px solid var(--cinza-4);
+    border-bottom: 1px solid var(--dados);
     font-family: 'Poppins', sans-serif;
     font-size: 140%;
     font-weight: 600;
     padding: 1%;
+    background-color: transparent;
+    color: var(--dados);
 }
+
 
 .txt-descricao{
     resize: none;
@@ -146,8 +154,8 @@ fieldset{
 }
 
 .botao{
-    background-color: var(--azul-1);
-    color: var(--branco-1);
+    background-color: var(--fundo-botao);
+    color: var(--texto-branco);
     font-family: 'Poppins', sans-serif ;
     border: none;
     font-size: 108%;
@@ -158,3 +166,7 @@ fieldset{
     width: 10%;
     margin: 3% 0 3% 85%;
 }
+
+.fa-solid{
+    margin: 0 0 0 8px;
+    }
