@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @import url('cores.css');
 
 html{
@@ -209,5 +208,50 @@ button:hover{
 
 /* filtro */
 #pai{
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 50%;
+    margin: 1% 0 0 46%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#problema{
+    border: none;
+    width: 50%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 85%;
+}
+
+#data{
+    border: none;
+    width: auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 85%;
+}
+
+#laboratorio{
+    border: none;
+    width: auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 85%;
+}
+
+.fa-filter{
+    font-size: 100%;
+}
+
+.limpar{
+    color: var(vermelho-2);
+}
+
+.btn-filtrar{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 95%;
+    padding: 0.3%;
+    width: 12%;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid var(--azul-1);
+    color: var(-azul-1);
 }

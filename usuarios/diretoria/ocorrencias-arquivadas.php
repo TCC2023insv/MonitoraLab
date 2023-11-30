@@ -110,9 +110,30 @@
         </nav>
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
-            <div id="Problema">
+            <span>Filtrar por:</span>
+           
+            <div class="Data">
+                <select id="data" name="data">
+                    <option value="">Data</option>
+                    <option value="3 meses">3 meses</option>
+                    <option value="6 meses">6 meses</option>
+                    <option value="1 ano">1 ano</option>
+                </select>
+            </div>
+
+            <div class="Laboratorio">
+                <select id="laboratorio" name="laboratorio">
+                    <option value="">Laboratorio</option>
+                    <option value="Lab 1">Lab 1</option>
+                    <option value="Lab 2">Lab 2</option>
+                    <option value="Lab 3">Lab 3</option>
+                    <option value="Lab 4">Lab 4</option>
+                </select>
+            </div> 
+            
+            <div class="Problema">
                 <select id="problema" name="problema">
-                    <option value="">Selecione</option>
+                    <option value="">Problema</option>
                     <option value="Falta de internet">Falta de internet</option>
                     <option value="Computadores desorganizados">Computadores desorganizados</option>
                     <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
@@ -124,27 +145,8 @@
                     <option value="Queda de energia">Queda de energia</option>
                 </select>
             </div>
-
-            <div id="Data">
-                <select id="data" name="data">
-                    <option value="">Selecione</option>
-                    <option value="3 meses">3 meses</option>
-                    <option value="6 meses">6 meses</option>
-                    <option value="1 ano">1 ano</option>
-                </select>
-            </div>
-
-            <div class="Laboratorio">
-                <select id="laboratorio" name="laboratorio">
-                    <option value="">Selecione</option>
-                    <option value="Lab 1">Lab 1</option>
-                    <option value="Lab 2">Lab 2</option>
-                    <option value="Lab 3">Lab 3</option>
-                    <option value="Lab 4">Lab 4</option>
-                </select>
-            </div>
-            <button type="submit" name="filtro">Filtrar</button>
-            <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
+            <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
+            <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
         </form>
         <button class="botao-extrair" onclick="GerarPDF()">Extrair relatório<i class="fa-solid fa-print"></i></button>
 
