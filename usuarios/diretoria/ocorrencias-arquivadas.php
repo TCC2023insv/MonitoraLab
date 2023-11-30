@@ -110,7 +110,6 @@
         </nav>
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
-<<<<<<< HEAD
             <span>Filtrar por:</span>
            
             <div class="Data">
@@ -134,10 +133,10 @@
             
             <div class="Problema">
                 <select id="problema" name="problema">
-=======
             <div id="Problema">
                 <select id="problema" name="problema" title="problema">
->>>>>>> af4fe10f8f299b3174812c7e179f61fd2f4793e8
+            <div id="Problema">
+                <select id="problema" name="problema" title="problema">
                     <option value="">Problema</option>
                     <option value="Falta de internet">Falta de internet</option>
                     <option value="Computadores desorganizados">Computadores desorganizados</option>
@@ -150,10 +149,8 @@
                     <option value="Queda de energia">Queda de energia</option>
                 </select>
             </div>
-<<<<<<< HEAD
             <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
             <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
-=======
 
             <div id="Data">
                 <select id="data" name="data" title="data">
@@ -175,7 +172,6 @@
             </div>
             <button type="submit" name="filtro">Filtrar</button>
             <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
->>>>>>> af4fe10f8f299b3174812c7e179f61fd2f4793e8
         </form>
 
         <button class="botao-extrair" 
