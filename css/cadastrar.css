@@ -12,6 +12,10 @@ html{
     list-style: none;
 }
 
+body{
+    background: var(--fundo);
+}
+
 .voltar{
     position: absolute;
     display: flex;
@@ -21,7 +25,7 @@ html{
 
 #voltar-icone{
     font-size: 175%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 .texto-voltar{
@@ -29,22 +33,23 @@ html{
     margin-left: 0.8%;
     font-weight: 500;
     font-size: 110%;
-    color: var(--preto-1);
+    color: var(--voltar);
 }
 
 /* Caixa */
 
 .caixa{
     margin: 4% 32% 0 32%;
-    box-shadow: 1px 10px 35px var(--preto-2);
+    box-shadow: 1px 10px 35px var(--sombra);
     font-family: 'Poppins', sans-serif;
     border-radius: 6px;
     border: none;
     padding: 0 0 3% 0;
+    background: var(--caixa);
 }
 
 .titulo{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-weight: 700;
     font-size: 180%;
     text-align: center;
@@ -54,19 +59,20 @@ html{
 .cad{
     display: flex;
     flex-direction: column;
-    margin: 5% 10%;
+    margin: 3% 10%;
 }
 
 .sub-titulo{
-    font-size: 90%;
+    font-size: 95%;
     font-weight: 600;
     margin-top: 5%;
+    color: var(--titulo-dados);
 }
 
 .txt{
     border-radius: 5px;
     border: 1px solid var(--cinza-1);
-    padding: 3% 2%;
+    padding: 2% 2%;
     margin-top: 1.5%;
     font-size: 100%;
 }
@@ -74,14 +80,14 @@ html{
 /* Botão de cadastrar */
 
 .Btn-Cadatrar{
-    background-color: var(--azul-1);
-    color: var(--branco-1);
+    background-color: var(--fundo-botao);
+    color: var(--texto-branco);
     font-family: 'Poppins', sans-serif;
-    font-size: 90%;
-    font-weight: 300;
-    margin-top: 10%;
-    padding: 3%;
+    font-size: 100%;
+    font-weight: 400;
+    margin-top: 12%;
+    padding: 2%;
     border-radius: 8px;
-    border: 1px solid;
+    border: 1px solid transparent;
     
 }

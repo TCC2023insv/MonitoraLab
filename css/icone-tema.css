@@ -1,0 +1,9 @@
+@import url(cores.css);
+#mode-icon{
+    color: var(--icone);
+    font-size: 150%;
+}
+
+.icone-mudar-tema{
+    margin: 0.5% 0.5% 0 0.5%;
+}

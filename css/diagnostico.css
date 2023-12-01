@@ -12,23 +12,28 @@ html{
     list-style: none;
 }
 
+body{
+    background: var(--fundo);
+    font-family:'Poppins', sans-serif;
+}
+
 .voltar{
     display: flex;
     align-items: center;
-    margin: 4% 5%;
+    margin: 4% 5% 3% 5%;
 }
 
 #voltar-icone{
-    font-size: 175%;
-    color: var(--preto-1);
+    font-size: 160%;
+    color: var(--voltar);
 }
 
 .texto-voltar{
     font-family: 'Poppins', sans-serif;
     margin-left: 0.8%;
     font-weight: 500;
-    font-size: 125%;
-    color: var(--preto-1);
+    font-size: 118%;
+    color: var(--voltar);
 }
 
 /* Caixa */
@@ -47,7 +52,7 @@ html{
 }
 
 .titulo{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-weight: 900;
     font-size: 125%;
     margin-bottom: 2%;
@@ -60,6 +65,7 @@ html{
 .nome-resp{
     margin-left: 1%;
     font-size: 120%;
+    color: var(--dados);
 }
 
 .laboratorio{
@@ -70,12 +76,14 @@ html{
 .labN{
     margin-left: 1%;
     font-size: 120%;
+    color: var(--dados);
 }
 
 .data{
     float: right;
     font-size: 120%;
     margin-right: 1%;
+    color: var(--dados);
 }
 
 .caixa-2{
@@ -110,7 +118,7 @@ html{
     width: 30%;
     font-size: 110%;
     font-weight: 500;
-   
+    color: var(--dados);
 }
 
 .quant{
@@ -119,12 +127,14 @@ html{
     margin: 0 8% 0 2%;
     text-align: center;
     width: 10%;
+    color: var(--dados);
 }
 
 .qual-prob{
     font-size: 120%;
     width: 50%;
     float: right;
+    color: var(--dados);
 }
 
 /* Atividade exercida */
@@ -141,6 +151,7 @@ html{
     text-align: justify;
     margin-top: 2%;
     font-size: 100%;
+    color: var(--dados);
 }
 
 .prob-N-solucionado{
@@ -217,4 +228,10 @@ a.btn-excluir{
     font-size: 85%;
     margin-left: 1%;
     width: 30%;
+    color: var(--dados);
 }
+
+
+.fa-solid{
+    margin: 0 0 0 8px;
+    }

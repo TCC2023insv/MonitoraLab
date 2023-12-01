@@ -13,6 +13,10 @@ html{
     list-style: none;
 }
 
+body{
+    background: var(--fundo);
+}
+
 .voltar{
     display: flex;
     align-items: center;
@@ -36,7 +40,7 @@ html{
 
 .titulo{
     font-family: 'Poppins', sans-serif;
-    color: var(--azul-1);
+    color: var(--h2);
     margin: 4% 0 2% 5%;
     font-size: 180%;
 }
@@ -51,7 +55,7 @@ a.Cadastrar{
     background-color: var(--azul-1);
     color: var(--branco-1);
     padding: 0.8% 2%;
-    margin: 2% 5% 4% 5%;
+    margin: 2% 5% 3% 5%;
     border-radius: 8px;
     width: 16%;
     cursor: pointer;
@@ -86,6 +90,7 @@ a.Cadastrar{
 .sub-titulos{
     font-weight: 500;
     font-size: 120%;
+    color: var(--titulo-dados);
 }
 
 .nome{
@@ -95,6 +100,7 @@ a.Cadastrar{
 .nome-usu{
     font-size: 120%;
     margin-left: 1%;
+    color: var(--dados);
 }
 
 .login{
@@ -104,7 +110,9 @@ a.Cadastrar{
 .login-usu{
     font-size: 120%;
     margin-left: 1%;
+    color: var(--dados);
 }
+
 hr{
     margin: 0 5%;
 }
@@ -119,7 +127,7 @@ hr{
     float: right;
     cursor: pointer;
     width: 10%;
-    margin: 1% 0;
+    margin: 1% 2%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,3 +148,6 @@ a.btn-excluir{
     background-color: var(--vermelho-2);
 }
 
+.fa-solid{
+    margin: 0 0 0 8px;
+    }

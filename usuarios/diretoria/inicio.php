@@ -27,13 +27,19 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../../js/sweetalert.js" type="module"></script>
+        
+        <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+        <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         <title>Diagnósticos</title>
     </head>
-    <body>
+    <body class="tema-claro" id="body">
         <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../../icons/icone-direcao.png" class="icone-usuario">
-        <div class="usuario">Direção</div>
+            <div class="icone-mudar-tema" onclick="trocarTema()">
+                <i id="mode-icon" class="ph-fill ph-moon"></i>
+            </div>	
+            <h1 class="logo">MonitoraLab</h1>
+            <img src="../../icons/icone-direcao.png" class="icone-usuario">
+            <div class="usuario">Direção</div>
             <ul>
                 <li><a class="active" href=""p>Diagnósticos</a></li>
                 <li><a class="nav-li" href="ocorrencias.php">Ocorrências</a></li>
@@ -47,13 +53,19 @@
                 while ($reparo = $sql_query->fetch_assoc())
                 {
             ?>
-            <div class="container">
+             <div class="container">
                 <div class="info-diagnostico">
                     <label class="titulo-dados"><?php echo date('d/m/Y', strtotime($reparo['Data'])); ?></label>
-                    <label class="titulo-dados">Diagnosticado por: <?php echo $reparo['Responsavel'];?></label>
-                    <label class="titulo-dados">Laboratório: <?php echo $reparo['Laboratorio']; ?></label>
+                    <div class="caixa">
+                        <label class="titulo-dados">Diagnosticado por:</label>
+                        <label class="dados"><?php echo $reparo['Responsavel'];?></label>
+                    </div>
+                    <div class="caixa">
+                        <label class="titulo-dados">Laboratório:</label>
+                        <label class="dados"><?php echo $reparo['Laboratorio']; ?></label>
+                    </div>
                 </div>
-                    <div class="link-diagnostico">
+                <div class="link-diagnostico">
                     <a class="link" href=<?php echo "diagnostico.php?id=" . $reparo['ID'];?>>Ver diagnóstico<i class="fa-solid fa-arrow-right"></i></a>    
                 </div>
             </div>

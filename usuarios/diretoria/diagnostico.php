@@ -33,12 +33,21 @@
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../../css/diagnostico.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../css/fonte-alert.css">
     <script src="../../js/sweetalert.js" type="module"></script>
+
+    <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+    <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
     <title>Diagnóstico</title>
 </head>
-<body>
+<body class="tema-claro" id="body">
     <nav>
+        <div class="icone-mudar-tema" onclick="trocarTema()">
+            <i id="mode-icon" class="ph-fill ph-moon"></i>
+        </div>	
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>

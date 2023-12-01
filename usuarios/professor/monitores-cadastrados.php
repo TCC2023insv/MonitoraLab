@@ -24,11 +24,16 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../css/fonte-alert.css">
     <script src="../../js/sweetalert.js" type="module"></script>
+    <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+    <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
     <title>Monitores Cadastrados</title>
 </head>
-<body>
+<body class="tema-claro" id="body">
     <nav>
-    <h1 class="logo">MonitoraLab</h1>
+        <div class="icone-mudar-tema" onclick="trocarTema()">
+            <i id="mode-icon" class="ph-fill ph-moon"></i>
+        </div>	
+        <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-professor.png" class="icone-usuario">
         <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
         <ul class="nav-professor">

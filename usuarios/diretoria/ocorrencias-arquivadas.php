@@ -110,6 +110,31 @@
         </nav>
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
+            <span>Filtrar por:</span>
+           
+            <div class="Data">
+                <select id="data" name="data">
+                    <option value="">Data</option>
+                    <option value="3 meses">3 meses</option>
+                    <option value="6 meses">6 meses</option>
+                    <option value="1 ano">1 ano</option>
+                </select>
+            </div>
+
+            <div class="Laboratorio">
+                <select id="laboratorio" name="laboratorio">
+                    <option value="">Laboratorio</option>
+                    <option value="Lab 1">Lab 1</option>
+                    <option value="Lab 2">Lab 2</option>
+                    <option value="Lab 3">Lab 3</option>
+                    <option value="Lab 4">Lab 4</option>
+                </select>
+            </div> 
+            
+            <div class="Problema">
+                <select id="problema" name="problema">
+            <div id="Problema">
+                <select id="problema" name="problema" title="problema">
             <div id="Problema">
                 <select id="problema" name="problema" title="problema">
                     <option value="">Problema</option>
@@ -124,6 +149,8 @@
                     <option value="Queda de energia">Queda de energia</option>
                 </select>
             </div>
+            <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
+            <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
 
             <div id="Data">
                 <select id="data" name="data" title="data">
