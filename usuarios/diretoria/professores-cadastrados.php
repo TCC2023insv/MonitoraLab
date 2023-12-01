@@ -82,6 +82,7 @@
     ?>
 
     <script>
+
         function Sair()
         {
             swal({

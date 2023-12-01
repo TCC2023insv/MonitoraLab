@@ -85,15 +85,13 @@
         <link rel="stylesheet" type="text/css" href="../../css/ocorrencias-arquivadas.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
-        <script src="../../js/jquery.js"></script>
-        <script src="../../js/filtro.js"></script>
         <link rel="stylesheet" href="../../css/fonte-alert.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="../../js/sweetalert.js" type="module"></script>
         <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
         <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
+        <script src="../../js/sweetalert.js" type="module"></script>
         
         <title>Ocorrências arquivadas</title>
     </head>
@@ -115,7 +113,20 @@
         </nav>
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
-            <span>Filtrar por:</span>
+            <div id="Problema">
+                <select id="problema" name="problema" title="problema">
+                    <option value="">Problema</option>
+                    <option value="Falta de internet">Falta de internet</option>
+                    <option value="Computadores desorganizados">Computadores desorganizados</option>
+                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                    <option value="Cabos desconectados">Cabos desconectados</option>
+                    <option value="Disjuntor desligado">Disjuntor desligado</option>
+                    <option value="Janela aberta">Janela aberta</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                </select>
+            </div>
 
             <div id="Data">
                 <select id="data" name="data" title="data">
@@ -135,25 +146,15 @@
                     <option value="Lab 4">Lab 4</option>
                 </select>
             </div>
-
-            <div id="Problema">
-                <select id="problema" name="problema" title="problema">
-                    <option value="">Problema principal</option>
-                    <option value="Falta de internet">Falta de internet</option>
-                    <option value="Computadores desorganizados">Computadores desorganizados</option>
-                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
-                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
-                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
-                    <option value="Cabos desconectados">Cabos desconectados</option>
-                    <option value="Disjuntor desligado">Disjuntor desligado</option>
-                    <option value="Janela aberta">Janela aberta</option>
-                    <option value="Queda de energia">Queda de energia</option>
-                </select>
-            </div>
-
-            <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
-            <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
+            <button type="submit" name="filtro">Filtrar</button>
+            <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
         </form>
+        <!-- <div class="filtros">
+                <label class="filtro-selecionado">FILTRO(S):</label>
+                <label class="filtro-selecionado">Problema: ' . $filtroProb . ' | </label>
+                <label class="filtro-selecionado">Laboratório: ' . $filtroLab . ' | </label>
+                <label class="filtro-selecionado">Período: ' . $filtroData . '</label>
+        </div> -->
 
         <button class="botao-extrair" 
             onclick="GerarPDF('<?php echo $_GET['problema'] ?>', '<?php echo $_GET['data'] ?>', '<?php echo $_GET['lab'] ?>')">
@@ -203,27 +204,6 @@
         </div>
 
     <script>
-        // const selectProblema = document.querySelector('#problema');
-        // const selectData = document.querySelector('#data');
-        // const selectLab = document.querySelector('#laboratorio');
-        
-
-        // selectProblema.addEventListener('change', function(){
-        //     console.log(selectProblema.value);
-        //     console.log(document.querySelector('.container-2'));
-            
-        // });
-
-        // selectData.addEventListener('change', function(){
-        //     console.log(selectData.value);
-        // });
-        
-        // selectLab.addEventListener('change', function(){
-        //     console.log(selectLab.value);
-        // });
-
-
-        
         function GerarPDF(problema, data, lab)
         {
             window.location.href = '../../pdf/index.php?problema='+problema+'&data='+data+'&lab='+lab;

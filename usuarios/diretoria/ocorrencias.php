@@ -84,6 +84,7 @@
         ?>
 
     <script>
+
         function Arquivar(element)
         {
             var id = element.getAttribute('var-ocorrencia')
