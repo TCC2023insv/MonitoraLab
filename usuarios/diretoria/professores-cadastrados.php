@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
     <title>Professores Cadastrados</title>
 </head>
-<body class="tema-claro" id="body">
+<body id="body">
     <nav> 
         <div class="icone-mudar-tema" onclick="trocarTema()">
             <i id="mode-icon" class="ph-fill ph-moon"></i>
