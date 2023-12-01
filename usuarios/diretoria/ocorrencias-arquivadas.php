@@ -92,11 +92,16 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../../js/sweetalert.js" type="module"></script>
+        <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+        <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         
         <title>Ocorrências arquivadas</title>
     </head>
     <body>
         <nav>
+        <div class="icone-mudar-tema" onclick="trocarTema()">
+            <i id="mode-icon" class="ph-fill ph-moon"></i>
+        </div>	
         <h1 class="logo">MonitoraLab</h1>
         <img src="../../icons/icone-direcao.png" class="icone-usuario">
         <div class="usuario">Direção</div>
@@ -111,46 +116,6 @@
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
             <span>Filtrar por:</span>
-           
-            <div class="Data">
-                <select id="data" name="data">
-                    <option value="">Data</option>
-                    <option value="3 meses">3 meses</option>
-                    <option value="6 meses">6 meses</option>
-                    <option value="1 ano">1 ano</option>
-                </select>
-            </div>
-
-            <div class="Laboratorio">
-                <select id="laboratorio" name="laboratorio">
-                    <option value="">Laboratorio</option>
-                    <option value="Lab 1">Lab 1</option>
-                    <option value="Lab 2">Lab 2</option>
-                    <option value="Lab 3">Lab 3</option>
-                    <option value="Lab 4">Lab 4</option>
-                </select>
-            </div> 
-            
-            <div class="Problema">
-                <select id="problema" name="problema">
-            <div id="Problema">
-                <select id="problema" name="problema" title="problema">
-            <div id="Problema">
-                <select id="problema" name="problema" title="problema">
-                    <option value="">Problema</option>
-                    <option value="Falta de internet">Falta de internet</option>
-                    <option value="Computadores desorganizados">Computadores desorganizados</option>
-                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
-                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
-                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
-                    <option value="Cabos desconectados">Cabos desconectados</option>
-                    <option value="Disjuntor desligado">Disjuntor desligado</option>
-                    <option value="Janela aberta">Janela aberta</option>
-                    <option value="Queda de energia">Queda de energia</option>
-                </select>
-            </div>
-            <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
-            <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
 
             <div id="Data">
                 <select id="data" name="data" title="data">
@@ -170,15 +135,25 @@
                     <option value="Lab 4">Lab 4</option>
                 </select>
             </div>
-            <button type="submit" name="filtro">Filtrar</button>
-            <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
+
+            <div id="Problema">
+                <select id="problema" name="problema" title="problema">
+                    <option value="">Problema principal</option>
+                    <option value="Falta de internet">Falta de internet</option>
+                    <option value="Computadores desorganizados">Computadores desorganizados</option>
+                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                    <option value="Cabos desconectados">Cabos desconectados</option>
+                    <option value="Disjuntor desligado">Disjuntor desligado</option>
+                    <option value="Janela aberta">Janela aberta</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                </select>
+            </div>
+
+            <button class="btn-filtrar" type="submit" name="filtro">Filtrar<i class="fa-regular fa-filter"></i></button>
+            <a href="../../php/classes/usuarios.php?limpar=true" class="limpar">Limpar</a>
         </form>
-        <!-- <div class="filtros">
-                <label class="filtro-selecionado">FILTRO(S):</label>
-                <label class="filtro-selecionado">Problema: ' . $filtroProb . ' | </label>
-                <label class="filtro-selecionado">Laboratório: ' . $filtroLab . ' | </label>
-                <label class="filtro-selecionado">Período: ' . $filtroData . '</label>
-        </div> -->
 
         <button class="botao-extrair" 
             onclick="GerarPDF('<?php echo $_GET['problema'] ?>', '<?php echo $_GET['data'] ?>', '<?php echo $_GET['lab'] ?>')">
@@ -228,6 +203,27 @@
         </div>
 
     <script>
+        // const selectProblema = document.querySelector('#problema');
+        // const selectData = document.querySelector('#data');
+        // const selectLab = document.querySelector('#laboratorio');
+        
+
+        // selectProblema.addEventListener('change', function(){
+        //     console.log(selectProblema.value);
+        //     console.log(document.querySelector('.container-2'));
+            
+        // });
+
+        // selectData.addEventListener('change', function(){
+        //     console.log(selectData.value);
+        // });
+        
+        // selectLab.addEventListener('change', function(){
+        //     console.log(selectLab.value);
+        // });
+
+
+        
         function GerarPDF(problema, data, lab)
         {
             window.location.href = '../../pdf/index.php?problema='+problema+'&data='+data+'&lab='+lab;
