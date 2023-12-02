@@ -68,31 +68,21 @@
                         <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>
                     </div>
                     <div class="titulo-editar">
-                    <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
-                        <!-- <div class="editar"> -->
-                        <a class="editar" 
-                            onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
-                            <!-- <a class="editar" onclick="Editar()" href='editar-ocorrencia.php?id=<?php echo $ocorrencia['ID'];?>'> -->
-                                <i class="fa-regular fa-pen-to-square editar"></i>
-                            </a>
-                        <!-- </div> -->
-                    </div>
-                    </div>
-                <div class="infos-ocorrencia">
-                    <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
-                    <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
-                </div>
-                <div class="titulo-editar">
                 <div class="titulo-ocorrencia"><?php echo $ocorrencia['Titulo']; ?></div>
                     <!-- <div class="editar"> -->
                     <a class="editar" 
                         onclick="Editar('<?php echo $ocorrencia['Login_Prof'] ?>', '<?php echo $_SESSION['login'] ?>', '<?php echo $ocorrencia['ID'] ?>')" ?>
                             <i class="fa-regular fa-pen-to-square editar"></i>
                         </a>
-                    <!-- </div> -->
-                <div class="descricao-ocorrencia">
-                <?php echo $ocorrencia['Descricao']; ?>
+                    </div>
                 </div>
+                <div class="infos-ocorrencia">
+                    <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
+                    <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
+                </div>
+                <!-- <div class="descricao-ocorrencia"> -->
+                <label class="descricao-ocorrencia"><?php echo $ocorrencia['Descricao']; ?></label>
+                <!-- </div> -->
             </div>
         </div>
        
