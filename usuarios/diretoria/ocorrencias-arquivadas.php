@@ -89,17 +89,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-<<<<<<< HEAD
-        <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
-        <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
-        <script src="../../js/sweetalert.js" type="module"></script>
-        
-=======
-        <script src="../../js/sweetalert.js" type="module"></script>
         <!-- <script type="text/javascript" src="../../js/trocartema.js" defer=""></script> -->
         <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         <script src="../../js/sweetalert.js" type="module"></script>
->>>>>>> arrumando
         <title>Ocorrências arquivadas</title>
         <style>
             body{
@@ -107,7 +99,7 @@
             }
         </style>
     </head>
-    <body>
+    <body id="body">
         <nav>
         <div class="icone-mudar-tema" onclick="trocarTema()">
             <i id="mode-icon" class="ph-fill ph-moon"></i>
