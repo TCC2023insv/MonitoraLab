@@ -32,6 +32,11 @@
     <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
     <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
     <title>Registrar Diagnóstico</title>
+    <style>
+        body{
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body id="body">
     <nav>
@@ -222,92 +227,132 @@
 
     <script src="../../js/miniatura.js"></script>
     <script>
-    var formData = new FormData();
-         
-    document.getElementById("file-input").onchange = function(e)
-    {
-        if (e.target.files != null && e.target.files != 0)
-        {
-            formData.append("foto[]", e.target.files[0]);
+        const mode = document.getElementById('mode-icon');
+        function trocarTema(){
+            if(body.classList == 'tema-escuro')
+            {
+                body.classList = 'tema-claro';
+                mode.classList.remove('ph-sun');
+                mode.classList.add('ph-moon');
+
+
+                localStorage.setItem('temaSelecionado', 'claro');
+            }
+            else
+            {
+                body.classList = 'tema-escuro';
+                mode.classList.remove('ph-moon');
+                mode.classList.add('ph-sun');
+
+                localStorage.setItem('temaSelecionado', 'escuro');
+            }
         }
-    }
-    $(document).ready(function() {
-        $("#Diagnostico").submit(function(e) {
-            e.preventDefault();
 
-            var Lab = $("#laboratorio").val();
-            var data = $("#date").val();
-            var responsavel = $("#Responsavel").val();
-            var quantApps = $("#quantApps").val();
-            var probApps = $("#probApps").val();
-            var quantFonte = $("#quantFonte").val();
-            var probFonte = $("#probFonte").val();
-            var quantHD = $("#quantHD").val();
-            var probHD = $("#probHd").val();
-            var quantMonitor = $("#quantMonitor").val();
-            var probMonitor = $("#probMonitor").val();
-            var quantMouse = $("#quantMouse").val();
-            var probMouse = $("#probMouse").val();
-            var quantTeclado = $("#quantTeclado").val();
-            var probTeclado = $("#probTeclado").val();
-            var quantWindows = $("#quantWindows").val();
-            var probWindows = $("#probWindows").val();
-            var atvExercida = $("#atvExercida").val();
-            var probSolucionados = $("#probSolucionados").val();
-            var RegistrarDiagnostico = "RegistrarDiagnostico";
+        window.onload = function () {
+            var temaAtual = localStorage.getItem('temaSelecionado');
 
-            formData.append("sele-lab", Lab);
-            formData.append("data", data);
-            formData.append("responsavel", responsavel);
-            formData.append("quantApps", quantApps);
-            formData.append("prob-apps", probApps);
-            formData.append("quantFonte", quantFonte);
-            formData.append("prob-fonte", probFonte);
-            formData.append("quantHD", quantHD);
-            formData.append("prob-hd", probHD);
-            formData.append("quantMonitor", quantMonitor);
-            formData.append("prob-monitor", probMonitor);
-            formData.append("quantMouse", quantMouse);
-            formData.append("prob-mouse", probMouse);
-            formData.append("quantTeclado",quantTeclado);
-            formData.append("prob-teclado", probTeclado);
-            formData.append("quantWindows", quantWindows);
-            formData.append("prob-windows", probWindows);
-            formData.append("atvExercida", atvExercida);
-            formData.append("probSolucionados", probSolucionados);
-            formData.append("RegistrarDiagnostico", RegistrarDiagnostico);
+            if (temaAtual === 'escuro') 
+            {
+                body.classList.add('tema-escuro');
+                mode.classList.remove('ph-moon');
+                mode.classList.add('ph-sun');
+            } 
+            else
+            {
+                body.classList.add('tema-claro');
+                mode.classList.remove('ph-sun');
+                mode.classList.add('ph-moon');
+            }
+            document.body.style.visibility = 'visible';
+        };
 
-            $.ajax({
-                type: "POST",
-                url: $(this).attr("action"),
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    swal({
-                    title: "Diagnóstico Registrado!",
-                    text: "O diagnóstico foi registrado com sucesso. Agradecemos a colaboração!",
-                    icon: "success",
-                    button: {confirm: true},
-                    })
-                    .then(value =>{
-                        if (value)
-                        {
-                        window.location.href = "javascript: history.go(-1)";
-                        }
-                    });
-                },
-                error: function() {
-                    swal({
-                    title: "Falha no Registro!",
-                    text: "Ocorreu um problema ao registrar o diagnóstico.Tente novamente.",
-                    icon: "error",
-                    button: {confirm: true},
-                    });
-                }
+        var formData = new FormData();
+            
+        document.getElementById("file-input").onchange = function(e)
+        {
+            if (e.target.files != null && e.target.files != 0)
+            {
+                formData.append("foto[]", e.target.files[0]);
+            }
+        }
+        $(document).ready(function() {
+            $("#Diagnostico").submit(function(e) {
+                e.preventDefault();
+
+                var Lab = $("#laboratorio").val();
+                var data = $("#date").val();
+                var responsavel = $("#Responsavel").val();
+                var quantApps = $("#quantApps").val();
+                var probApps = $("#probApps").val();
+                var quantFonte = $("#quantFonte").val();
+                var probFonte = $("#probFonte").val();
+                var quantHD = $("#quantHD").val();
+                var probHD = $("#probHd").val();
+                var quantMonitor = $("#quantMonitor").val();
+                var probMonitor = $("#probMonitor").val();
+                var quantMouse = $("#quantMouse").val();
+                var probMouse = $("#probMouse").val();
+                var quantTeclado = $("#quantTeclado").val();
+                var probTeclado = $("#probTeclado").val();
+                var quantWindows = $("#quantWindows").val();
+                var probWindows = $("#probWindows").val();
+                var atvExercida = $("#atvExercida").val();
+                var probSolucionados = $("#probSolucionados").val();
+                var RegistrarDiagnostico = "RegistrarDiagnostico";
+
+                formData.append("sele-lab", Lab);
+                formData.append("data", data);
+                formData.append("responsavel", responsavel);
+                formData.append("quantApps", quantApps);
+                formData.append("prob-apps", probApps);
+                formData.append("quantFonte", quantFonte);
+                formData.append("prob-fonte", probFonte);
+                formData.append("quantHD", quantHD);
+                formData.append("prob-hd", probHD);
+                formData.append("quantMonitor", quantMonitor);
+                formData.append("prob-monitor", probMonitor);
+                formData.append("quantMouse", quantMouse);
+                formData.append("prob-mouse", probMouse);
+                formData.append("quantTeclado",quantTeclado);
+                formData.append("prob-teclado", probTeclado);
+                formData.append("quantWindows", quantWindows);
+                formData.append("prob-windows", probWindows);
+                formData.append("atvExercida", atvExercida);
+                formData.append("probSolucionados", probSolucionados);
+                formData.append("RegistrarDiagnostico", RegistrarDiagnostico);
+
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr("action"),
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        swal({
+                        title: "Diagnóstico Registrado!",
+                        text: "O diagnóstico foi registrado com sucesso. Agradecemos a colaboração!",
+                        icon: "success",
+                        button: {confirm: true},
+                        })
+                        .then(value =>{
+                            if (value)
+                            {
+                            window.location.href = "javascript: history.go(-1)";
+                            }
+                        });
+                    },
+                    error: function() {
+                        swal({
+                        title: "Falha no Registro!",
+                        text: "Ocorreu um problema ao registrar o diagnóstico.Tente novamente.",
+                        icon: "error",
+                        button: {confirm: true},
+                        });
+                    }
+                });
             });
         });
-    });
+
             function Sair()
             {
                 swal({

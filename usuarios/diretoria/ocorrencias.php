@@ -28,9 +28,14 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../../js/sweetalert.js" type="module"></script>
-        <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
+        <!-- <script type="text/javascript" src="../../js/trocartema.js" defer=""></script> -->
         <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         <title>Ocorrências</title>
+        <style>
+            body{
+                visibility: hidden;
+            }
+        </style>
     </head>
     <body id="body">
         <nav>
@@ -84,6 +89,45 @@
         ?>
 
     <script>
+
+    const mode = document.getElementById('mode-icon');
+    function trocarTema(){
+        if(body.classList == 'tema-escuro')
+        {
+            body.classList = 'tema-claro';
+            mode.classList.remove('ph-sun');
+            mode.classList.add('ph-moon');
+
+
+            localStorage.setItem('temaSelecionado', 'claro');
+        }
+        else
+        {
+            body.classList = 'tema-escuro';
+            mode.classList.remove('ph-moon');
+            mode.classList.add('ph-sun');
+
+            localStorage.setItem('temaSelecionado', 'escuro');
+        }
+    }
+
+    window.onload = function () {
+        var temaAtual = localStorage.getItem('temaSelecionado');
+
+        if (temaAtual === 'escuro') 
+        {
+            body.classList.add('tema-escuro');
+            mode.classList.remove('ph-moon');
+            mode.classList.add('ph-sun');
+        } 
+        else
+        {
+            body.classList.add('tema-claro');
+            mode.classList.remove('ph-sun');
+            mode.classList.add('ph-moon');
+        }
+        document.body.style.visibility = 'visible';
+    };
 
         function Arquivar(element)
         {
