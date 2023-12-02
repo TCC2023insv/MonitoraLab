@@ -43,8 +43,13 @@
     <script type="text/javascript" src="../../js/trocartema.js" defer=""></script>
     <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
     <title>Diagnóstico</title>
+    <style>
+        body{
+            visibility: hidden;
+        }
+    </style>
 </head>
-<body class="tema-claro" id="body">
+<body id="body">
     <nav>
         <div class="icone-mudar-tema" onclick="trocarTema()">
             <i id="mode-icon" class="ph-fill ph-moon"></i>
@@ -94,23 +99,6 @@
                 }
             ?>
         </div>
-
-        <!-- <div class="caixa-2">
-        <div class="caixa-problemas">
-            <p class="titulo">Problemas</p>
-            <div class="itens">
-                <label class="prob">App</label>
-                <label class="qual-prob">Desatualizado</label>  
-                <label class="quant">1</label>
-            </div>
-            <div class="itens">
-                <label class="prob">Monitor</label>
-                <label class="qual-prob">Quebrado</label>  
-                <label class="quant">1</label>
-            </div>
-        </div> -->
-
-
         <div class="atv-probN">
             <div class="atv-prob">
                 <p class="titulo">Atividade exercida</p>
@@ -141,43 +129,82 @@
     </div>
 
     <script>
-            function Excluir(ID)
+        const mode = document.getElementById('mode-icon');
+        function trocarTema(){
+            if(body.classList == 'tema-escuro')
             {
-                swal({
-                title: "Tem certeza?",
-                text: "Uma vez deletado, o diagnóstico será perdido.",
+                body.classList = 'tema-claro';
+                mode.classList.remove('ph-sun');
+                mode.classList.add('ph-moon');
+
+
+                localStorage.setItem('temaSelecionado', 'claro');
+            }
+            else
+            {
+                body.classList = 'tema-escuro';
+                mode.classList.remove('ph-moon');
+                mode.classList.add('ph-sun');
+
+                localStorage.setItem('temaSelecionado', 'escuro');
+            }
+        }
+
+        window.onload = function () {
+            var temaAtual = localStorage.getItem('temaSelecionado');
+
+            if (temaAtual === 'escuro') 
+            {
+                body.classList.add('tema-escuro');
+                mode.classList.remove('ph-moon');
+                mode.classList.add('ph-sun');
+            } 
+            else
+            {
+                body.classList.add('tema-claro');
+                mode.classList.remove('ph-sun');
+                mode.classList.add('ph-moon');
+            }
+            document.body.style.visibility = 'visible';
+        };
+
+        function Excluir(ID)
+        {
+            swal({
+            title: "Tem certeza?",
+            text: "Uma vez deletado, o diagnóstico será perdido.",
+            icon: "warning",
+            buttons: ["Cancel", true],
+            dangerMode: true,
+            })
+            .then((value) => {
+            if (value) {
+                swal("Diagnóstico excluído com sucesso!", {
+                icon: "success",
+                });
+                window.location.href = "../../php/classes/usuarios.php?excluir=true&id="+ID;
+            } else {
+                swal("Não foi possível deletar o diagnóstico", {
+                icon: "error",
+                });
+            }
+            });
+        }  
+
+        function Sair()
+        {
+            swal({
+                title: "Deseja realmente sair?",
                 icon: "warning",
                 buttons: ["Cancel", true],
-                dangerMode: true,
-                })
-                .then((value) => {
-                if (value) {
-                    swal("Diagnóstico excluído com sucesso!", {
-                    icon: "success",
-                    });
-                    window.location.href = "../../php/classes/usuarios.php?excluir=true&id="+ID;
-                } else {
-                    swal("Não foi possível deletar o diagnóstico", {
-                    icon: "error",
-                    });
+            }).then(value =>{
+                if (value)
+                {
+                    window.location.href = "../../php/classes/usuarios.php?resp=true";              
                 }
-                });
-            }  
-
-            function Sair()
-            {
-                swal({
-                    title: "Deseja realmente sair?",
-                    icon: "warning",
-                    buttons: ["Cancel", true],
-                }).then(value =>{
-                    if (value)
-                    {
-                        window.location.href = "../../php/classes/usuarios.php?resp=true";              
-                    }
-                })
-                return false;
-            }
+            })
+            return false;
+        }
 
             <?php
         $conexao->close();
