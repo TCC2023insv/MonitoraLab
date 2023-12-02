@@ -65,11 +65,15 @@
             <div class="dados">
                 <div class="nome">
                     <p class="sub-titulos">Nome:</p>
-                    <div class="nome-usu"><?php echo $professor['Nome']; ?></div>
+                    <div class="nome-usu">
+                        <?php echo $professor['Nome']; ?>
+                    </div>
                 </div>
                 <div class="login">
                     <p class="sub-titulos">Login:</p>
-                    <div class="login-usu"><?php echo $professor['Login']; ?></div> 
+                    <div class="login-usu">
+                        <?php echo $professor['Login']; ?>
+                    </div> 
                 </div>
             </div>
             <!-- <div class="Btn-Excluir"> -->
@@ -119,7 +123,7 @@
             mode.classList.remove('ph-moon');
             mode.classList.add('ph-sun');
         } 
-        else if (temaAtual === 'claro')
+        else 
         {
             body.classList.add('tema-claro');
             mode.classList.remove('ph-sun');

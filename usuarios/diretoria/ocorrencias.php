@@ -61,7 +61,7 @@
             {
         ?>
         <div class="flex">
-            <div class="container">
+            <div class="container-2">
                 <div class="problema-data">
                     <label class="titulo-problema"><?php echo $ocorrencia['Problema']; ?></label>
                     <label class="data-ocorrencia"><?php echo date('d/m/Y', strtotime($ocorrencia['Data'])); ?></label>

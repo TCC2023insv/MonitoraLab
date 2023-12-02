@@ -41,7 +41,7 @@ body{
 .titulo{
     font-family: 'Poppins', sans-serif;
     color: var(--h2);
-    margin: 4% 0 2% 5%;
+    margin: 3% 0 2% 5%;
     font-size: 180%;
 }
 
@@ -105,6 +105,7 @@ a.Cadastrar{
 
 .login{
     display: flex;
+    color: var(--dados);
 }
 
 .login-usu{
@@ -135,6 +136,7 @@ hr{
 
 #icone-lixo{
     font-size: 145%;
+    margin-right: 10%;
     color: var(--branco-1);
 }
 

@@ -193,7 +193,7 @@
             }
 
             $login = 'direcao';
-            $sql_insert = $conexao->prepare("INSERT INTO `ocorrencias-arquivadas` (data, titulo, laboratorio, problema,
+            $sql_insert = $conexao->prepare("INSERT INTO `ocorrencias_arquivadas` (data, titulo, laboratorio, problema,
             descricao, responsavel, login) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
             $sql_insert->bind_param("sssssss", $OcorrenciaArquivada->data, $OcorrenciaArquivada->titulo, 
@@ -249,7 +249,7 @@
 
         function LimparFiltro()
         {
-            $sql_filtro = "SELECT * FROM `ocorrencias-arquivadas` ORDER BY `Data` DESC";
+            $sql_filtro = "SELECT * FROM `ocorrencias_arquivadas` ORDER BY `Data` DESC";
             return header('Location: ../../usuarios/diretoria/ocorrencias-arquivadas.php?problema=&data=&lab=');
         }
     }
