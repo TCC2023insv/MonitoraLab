@@ -127,9 +127,6 @@
     ?>
 
     <script>
-<<<<<<< HEAD
-        
-=======
 
         const mode = document.getElementById('mode-icon');
         function trocarTema(){
@@ -169,7 +166,7 @@
             }
             document.body.style.visibility = 'visible';
         };
->>>>>>> arrumando
+        
         function Sair()
         {
             swal({

@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="../../css/registrar-ocorrencia.css"><link rel="preconnect" href="https://fonts.googleapis.com">
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <link rel="stylesheet" href="../../css/fonte-alert.css">
+        <link rel="stylesheet" type="text/css" href="../../css/icone-tema.css">
         <script src="../../js/sweetalert.js" type="module"></script>
         <title>Editar Ocorrência</title>
         <style>
@@ -37,11 +38,14 @@
             }
         </style>
     </head>
-    <body>
+    <body id="body">
         <nav>
-        <h1 class="logo">MonitoraLab</h1>
-        <img src="../../icons/icone-professor.png" class="icone-usuario">
-        <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
+            <div class="icone-mudar-tema" onclick="trocarTema()">
+                <i id="mode-icon" class="ph-fill ph-moon"></i>
+            </div>	
+            <h1 class="logo">MonitoraLab</h1>
+            <img src="../../icons/icone-professor.png" class="icone-usuario">
+            <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
             <ul>
                 <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
                 <li><a class="active" href="">Ocorrências</a></li>
@@ -172,52 +176,6 @@
                 }
                 });
             }
-    // $(document).ready(function() {
-    //     $("#EditarOcorrencia").submit(function(e) {
-    //         e.preventDefault();
-
-    //         var data = $("#dataOcorrencia").val();
-    //         var titulo = $("#titulo-ocorrencia").val();
-    //         var laboratorio = $("#Sele-lab").val();
-    //         var problema = $("#Sele-problema").val();
-    //         var txtDescricao = $("#descricaoOcorrencia").val();
-    //         var EditarOcorrencia = "EditarOcorrencia";
-
-    //         $.ajax({
-    //             type: "POST",
-    //             url: $(this).attr("action"),
-    //             data: {
-    //                 data: data,
-    //                 titulo: titulo,
-    //                 laboratorio: laboratorio,
-    //                 problema: problema,
-    //                 txtDescricao:txtDescricao,
-    //                 EditarOcorrencia:EditarOcorrencia
-    //             },
-    //             success: function(response) {
-    //                 swal({
-    //                 title: "Registro Concluído!",
-    //                 text: "O ocorrido foi registrado com sucesso. Agradecemos a colaboração!",
-    //                 icon: "success",
-    //                 button: {confirm: true},
-    //                 }).then(value =>{
-    //                     if (value)
-    //                     {
-    //                     window.location.href = "javascript: history.go(-1)";
-    //                     }
-    //                 });
-    //             },
-    //             error: function() {
-    //                 swal({
-    //                 title: "Falha no Registro!",
-    //                 text: "Ocorreu um problema ao registrar a ocorrência.Tente novamente.",
-    //                 icon: "error",
-    //                 button: {confirm: true},
-    //                 });
-    //             }
-    //         });
-    //     });
-    // });
 
     function Sair()
     {
