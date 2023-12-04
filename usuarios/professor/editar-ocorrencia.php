@@ -46,7 +46,7 @@
             <h1 class="logo">MonitoraLab</h1>
             <img src="../../icons/icone-professor.png" class="icone-usuario">
             <div class="usuario"><?php echo $_SESSION['login'] ;?></div>
-            <ul>
+            <ul class="nav-professor">
                 <li><a class="nav-li" href="inicio.php">Diagnósticos</a></li>
                 <li><a class="active" href="">Ocorrências</a></li>
                 <li><a class="nav-li" href="monitores-cadastrados.php">Cadastros</a></li>

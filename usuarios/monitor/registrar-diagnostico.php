@@ -213,7 +213,8 @@
                 <div class="input-div">
                     <i id="icon-foto" class="ph-fill ph-cloud-arrow-up"></i>
                     <p class="escolher-foto">Escolher arquivo</p>
-                    <input type="file" id="file-input" name="foto[]" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
+                    <input type="file" id="file-input" name="foto[]" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
+                
                 </div>
 
                 <p class="fotos-selecionadas">Fotos selecionadas:</p>
@@ -225,8 +226,50 @@
         </form>
     </fieldset>
 
-    <script src="../../js/miniatura.js"></script>
     <script>
+        let fileInput = document.getElementById("file-input");
+        let imageContainer = document.getElementById("miniaturas");
+
+        console.log(fileInput, imageContainer);
+
+        var formData = new FormData();
+        fileInput.onchange = function(e)
+        {
+            if (e.target.files != null && e.target.files != 0)
+            {
+                formData.append("foto[]", e.target.files[0]);
+            }
+        }
+
+        function preview(){
+            imageContainer.innerHTML = "";
+
+            for (i of fileInput.files){
+                let reader = new FileReader();
+                let figure = document.createElement("figure");
+                let figCap = document.createElement("figcaption");
+                figCap.innerText = i.name;
+                figure.appendChild(figCap);
+                reader.onload=()=>{
+                    let img = document.createElement("img");
+                    img.setAttribute("src", reader.result);
+                    figure.insertBefore(img,figCap);
+                }
+                imageContainer.appendChild(figure);
+                reader.readAsDataURL(i);
+            }
+
+        }
+
+        var formData = new FormData();
+        // document.getElementById("file-input").onchange = function(e)
+        // {
+        //     if (e.target.files != null && e.target.files != 0)
+        //     {
+        //         formData.append("foto[]", e.target.files[0]);
+        //     }
+        // }
+
         const mode = document.getElementById('mode-icon');
         function trocarTema(){
             if(body.classList == 'tema-escuro')
@@ -266,15 +309,8 @@
             document.body.style.visibility = 'visible';
         };
 
-        var formData = new FormData();
-            
-        document.getElementById("file-input").onchange = function(e)
-        {
-            if (e.target.files != null && e.target.files != 0)
-            {
-                formData.append("foto[]", e.target.files[0]);
-            }
-        }
+
+
         $(document).ready(function() {
             $("#Diagnostico").submit(function(e) {
                 e.preventDefault();
