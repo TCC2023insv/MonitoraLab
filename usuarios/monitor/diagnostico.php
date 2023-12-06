@@ -118,7 +118,7 @@
             <?php
                 while ($fotos = $sql_query_img->fetch_assoc())
                 {
-                    $img = "<img src=" . $fotos['Path'] . ">";
+                    $img = "<img class='foto' src=" . $fotos['Path'] . ">";
             ?>
                     <div class="foto"><?php echo $img; ?></div>
             <?php
