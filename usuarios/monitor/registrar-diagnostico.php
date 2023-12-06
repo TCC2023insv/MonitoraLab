@@ -212,7 +212,7 @@
                 <label class="titulo-2">Fotos</label>                
                 <div class="input-div">
                     <i id="icon-foto" class="ph-fill ph-cloud-arrow-up"></i>
-                    <p class="escolher-foto">Escolher arquivo</p>
+                    <p class="escolher-foto">Escolher foto</p>
                     <input type="file" id="file-input" name="foto[]" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
                 
                 </div>
@@ -227,24 +227,63 @@
     </fieldset>
 
     <script>
-        let fileInput = document.getElementById("file-input");
-        let imageContainer = document.getElementById("miniaturas");
+        const escolherFoto = document.querySelector('.escolher-foto')
+        // fileSelectorInput
+        const fileInput = document.querySelector('#file-input')
+        
+        const imageContainer = document.getElementById("miniaturas")
 
-        console.log(fileInput, imageContainer);
+        // UPLOAD FILES WITH BROWSE BUTTON
+        escolherFoto.onclick = () => fileInput.click()
+        fileInput.onchange = () =>{
+            [...fileInput.files].forEach((file) =>{
+                if(typeValidation(file.type)){
+                    // console.log(file);
+                    uploadFile(file)
+                }
+            })
+        }
 
-        var formData = new FormData();
-        fileInput.onchange = function(e)
-        {
-            if (e.target.files != null && e.target.files != 0)
+        //WHEN FILE DROP OP THE DRAG AREA
+        fileInput.ondrop = (e) =>{
+            e.preventDefault();
+            if(e.dataTransfer.items)
             {
-                formData.append("foto[]", e.target.files[0]);
+                [...e.dataTransfer.items].forEach((item) =>{
+                    if(item.kind === 'file'){
+                        const file = item.getAsFile();
+                        if(typeValidation(file.type)){
+                            uploadFile(file)
+                        }
+                    }
+                })
+            }
+            else{
+                [...e.dataTransfer.files].forEach((file) =>{
+                    if(typeValidation(file.type)){
+                        uploadFile(file)
+                    }
+                })
             }
         }
 
-        function preview(){
-            imageContainer.innerHTML = "";
+        // CHECK THE FILE TYPE
+        function typeValidation(type){
+            var splitType = type.split('/')[0]
+            if(splitType == 'image')
+            {
+                return true;
+            }
+        }
 
-            for (i of fileInput.files){
+        // UPLOAD FILE FUNCTION
+        function uploadFile(file)
+        {
+            console.log(file);
+
+            // miniatura
+            for (i of fileInput.files)
+            {
                 let reader = new FileReader();
                 let figure = document.createElement("figure");
                 let figCap = document.createElement("figcaption");
@@ -259,9 +298,88 @@
                 reader.readAsDataURL(i);
             }
 
+
+            var http = new XMLHttpRequest()
+            var data = new FormData()
+            data.append('file', file)
+            http.onload = () =>{
+
+            }
+            http.open('POST', 'sender.php', true)
+            http.send(data)
+            // imageContainer.innerHTML = "";
+
+            // for (i of fileInput.files){
+            //     let reader = new FileReader();
+            //     let figure = document.createElement("figure");
+            //     let figCap = document.createElement("figcaption");
+            //     figCap.innerText = i.name;
+            //     figure.appendChild(figCap);
+            //     reader.onload=()=>{
+            //         let img = document.createElement("img");
+            //         img.setAttribute("src", reader.result);
+            //         figure.insertBefore(img,figCap);
+            //     }
+            //     imageContainer.appendChild(figure);
+            //     reader.readAsDataURL(i);
+            // }
         }
 
-        var formData = new FormData();
+        // function preview()
+        // {
+        //     imageContainer.innerHTML = "";
+
+        //     for (i of fileInput.files){
+        //         let reader = new FileReader();
+        //         let figure = document.createElement("figure");
+        //         let figCap = document.createElement("figcaption");
+        //         figCap.innerText = i.name;
+        //         figure.appendChild(figCap);
+        //         reader.onload=()=>{
+        //             let img = document.createElement("img");
+        //             img.setAttribute("src", reader.result);
+        //             figure.insertBefore(img,figCap);
+        //         }
+        //         imageContainer.appendChild(figure);
+        //         reader.readAsDataURL(i);
+        //     }
+
+        // }
+
+        // let fileInput = document.getElementById("file-input");
+        // let imageContainer = document.getElementById("miniaturas");
+
+        // // console.log(fileInput, imageContainer);
+
+        // // Mostrar nome no console
+        // fileInput.addEventListener("change",(e)=>{
+        //     let fileName = e.target.files[0].name;
+        //     let filetype = e.target.value.split(".").pop();
+        //     console.log(fileName, filetype);
+        // })
+
+        // function preview()
+        // {
+        //     imageContainer.innerHTML = "";
+
+        //     for (i of fileInput.files){
+        //         let reader = new FileReader();
+        //         let figure = document.createElement("figure");
+        //         let figCap = document.createElement("figcaption");
+        //         figCap.innerText = i.name;
+        //         figure.appendChild(figCap);
+        //         reader.onload=()=>{
+        //             let img = document.createElement("img");
+        //             img.setAttribute("src", reader.result);
+        //             figure.insertBefore(img,figCap);
+        //         }
+        //         imageContainer.appendChild(figure);
+        //         reader.readAsDataURL(i);
+        //     }
+
+        // }
+
+        // var formData = new FormData();
         // document.getElementById("file-input").onchange = function(e)
         // {
         //     if (e.target.files != null && e.target.files != 0)
