@@ -307,8 +307,8 @@
 
             session_start();
             $professor = $_SESSION['login'];
-            $Ocorrencia = new Ocorrencia;
-            $Ocorrencia->RegistrarOcorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao);
+            $Ocorrencia = new Ocorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao, "não");
+            // $Ocorrencia->RegistrarOcorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao, "não");
 
             $conexao = ConectarBanco();
             $resultado = mysqli_query($conexao, "SELECT nome FROM professor WHERE login = '" . 
@@ -322,7 +322,7 @@
             $conexao->query("INSERT INTO ocorrencia (data, titulo, laboratorio, problema, descricao, responsavel, arquivado, login_prof) 
             VALUES ('" . $Ocorrencia->data . "', '" . $Ocorrencia->titulo . "', '" . $Ocorrencia->laboratorio .
             "', '" . $Ocorrencia->problema . "', '" . 
-            $Ocorrencia->descricao . "', '" . $responsavel . "', 'não', '" . $professor . "')"))
+            $Ocorrencia->descricao . "', '" . $responsavel . "', '". $Ocorrencia->arquivado ."', '" . $professor . "')"))
             {
                 $conexao->close();
                 return true;

@@ -7,8 +7,9 @@
         public $problema;
         public $titulo;
         public $descricao;
+        public $arquivado;
 
-        function RegistrarOcorrencia($responsavel, $data, $titulo, $laboratorio, $problema, $descricao)
+        function __construct($responsavel, $data, $titulo, $laboratorio, $problema, $descricao, $arquivado)
         {
             $this->responsavel = $responsavel;
             $this->data = $data;
@@ -16,6 +17,7 @@
             $this->problema = $problema;
             $this->titulo = $titulo;
             $this->descricao = $descricao;
+            $this->arquivado = $arquivado;
         }
 
         function PegarValor($valor)

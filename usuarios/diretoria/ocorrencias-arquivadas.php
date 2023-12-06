@@ -12,7 +12,7 @@
     include('../../php/classes/ocorrencias.php');
     $conexao = ConectarBanco();
 
-    $Ocorrencia = new Ocorrencia();
+    // $Ocorrencia = new Ocorrencia();
     $sql_inicial = "SELECT * FROM `ocorrencia` WHERE `arquivado`='sim' AND";
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
