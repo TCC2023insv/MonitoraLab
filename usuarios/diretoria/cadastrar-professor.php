@@ -48,6 +48,13 @@
             <li><a class="nav-li" href="ocorrencias-arquivadas.php?problema=&data=&lab=">Arquivados</a></li>
             <li><a class="Btn-Sair" onclick="Sair()" style="cursor: pointer;">Sair</a> </li>
         </ul>
+        <div class="nav-responsivo">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
 
     <div class="voltar">

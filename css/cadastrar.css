@@ -91,3 +91,22 @@ body{
     border: 1px solid transparent;
     
 }
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px){
+
+    /* tirando e diminuindo*/
+    .icone-mudar-tema{
+        display: none;
+    }
+
+    .logo{
+
+    }
+
+    .nav-responsivo{
+        display: block;
+    }
+}

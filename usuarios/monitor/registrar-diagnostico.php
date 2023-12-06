@@ -233,7 +233,7 @@
         
         const imageContainer = document.getElementById("miniaturas")
 
-        // UPLOAD FILES WITH BROWSE BUTTON
+        // Fazer upload da foto 
         escolherFoto.onclick = () => fileInput.click()
         fileInput.onchange = () =>{
             [...fileInput.files].forEach((file) =>{
@@ -244,7 +244,7 @@
             })
         }
 
-        //WHEN FILE DROP OP THE DRAG AREA
+        // Quando colocar a imagem na drag area
         fileInput.ondrop = (e) =>{
             e.preventDefault();
             if(e.dataTransfer.items)
@@ -267,7 +267,7 @@
             }
         }
 
-        // CHECK THE FILE TYPE
+        // check o tipo do arquivo
         function typeValidation(type){
             var splitType = type.split('/')[0]
             if(splitType == 'image')
@@ -276,7 +276,7 @@
             }
         }
 
-        // UPLOAD FILE FUNCTION
+        // Função de upload
         function uploadFile(file)
         {
             console.log(file);
@@ -307,22 +307,7 @@
             }
             http.open('POST', 'sender.php', true)
             http.send(data)
-            // imageContainer.innerHTML = "";
-
-            // for (i of fileInput.files){
-            //     let reader = new FileReader();
-            //     let figure = document.createElement("figure");
-            //     let figCap = document.createElement("figcaption");
-            //     figCap.innerText = i.name;
-            //     figure.appendChild(figCap);
-            //     reader.onload=()=>{
-            //         let img = document.createElement("img");
-            //         img.setAttribute("src", reader.result);
-            //         figure.insertBefore(img,figCap);
-            //     }
-            //     imageContainer.appendChild(figure);
-            //     reader.readAsDataURL(i);
-            // }
+    
         }
 
         // function preview()

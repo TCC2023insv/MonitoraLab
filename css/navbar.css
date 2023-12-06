@@ -97,3 +97,28 @@ nav ul li a{
 .Btn-Sair:hover{
     background-color: var(--vermelho-2);
 }
+
+.nav-responsivo{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+}
+
+@media (max-width: 700px){
+
+    /* tirando e diminuindo*/
+    .icone-mudar-tema{
+        display: none;
+    }
+
+    .logo{
+        font-size: 150%;
+    }
+
+    .nav-responsivo{
+        display: block;
+    }
+}
