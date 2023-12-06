@@ -278,103 +278,69 @@
             }
         }
 
-        // Função de upload
-        function uploadFile(file)
-        {
-            // console.log(file);
-            formData.append("foto[]", file)
-
-            // miniatura
-            for (i of fileInput.files)
-            {
-                let reader = new FileReader();
-                let figure = document.createElement("figure");
-                let figCap = document.createElement("figcaption");
-                figCap.innerText = i.name;
-                figure.appendChild(figCap);
-                reader.onload=()=>{
-                    let img = document.createElement("img");
-                    img.setAttribute("src", reader.result);
-                    figure.insertBefore(img,figCap);
-                }
-                imageContainer.appendChild(figure);
-                reader.readAsDataURL(i);
-            }
-
-
-            var http = new XMLHttpRequest()
-            // var data = new FormData()
-            // data.append('file', file)
-            http.onload = () =>{
-
-            }
-            http.open('POST', 'sender.php', true)
-            http.send(formData)
-    
-        }
-
-        // function preview()
+        // // Função de upload
+        // function uploadFile(file)
         // {
-        //     imageContainer.innerHTML = "";
+        //     // console.log(file);
+        //     formData.append("foto[]", file)
+        //     imageContainer.innerHTML = '';
 
-        //     for (i of fileInput.files){
-        //         let reader = new FileReader();
-        //         let figure = document.createElement("figure");
-        //         let figCap = document.createElement("figcaption");
-        //         figCap.innerText = i.name;
-        //         figure.appendChild(figCap);
-        //         reader.onload=()=>{
-        //             let img = document.createElement("img");
-        //             img.setAttribute("src", reader.result);
-        //             figure.insertBefore(img,figCap);
-        //         }
-        //         imageContainer.appendChild(figure);
-        //         reader.readAsDataURL(i);
-        //     }
-
-        // }
-
-        // let fileInput = document.getElementById("file-input");
-        // let imageContainer = document.getElementById("miniaturas");
-
-        // // console.log(fileInput, imageContainer);
-
-        // // Mostrar nome no console
-        // fileInput.addEventListener("change",(e)=>{
-        //     let fileName = e.target.files[0].name;
-        //     let filetype = e.target.value.split(".").pop();
-        //     console.log(fileName, filetype);
-        // })
-
-        // function preview()
-        // {
-        //     imageContainer.innerHTML = "";
-
-        //     for (i of fileInput.files){
-        //         let reader = new FileReader();
-        //         let figure = document.createElement("figure");
-        //         let figCap = document.createElement("figcaption");
-        //         figCap.innerText = i.name;
-        //         figure.appendChild(figCap);
-        //         reader.onload=()=>{
-        //             let img = document.createElement("img");
-        //             img.setAttribute("src", reader.result);
-        //             figure.insertBefore(img,figCap);
-        //         }
-        //         imageContainer.appendChild(figure);
-        //         reader.readAsDataURL(i);
-        //     }
-
-        // }
-
-        var formData = new FormData();
-        // document.getElementById("file-input").onchange = function(e)
-        // {
-        //     if (e.target.files != null && e.target.files != 0)
+        //     // miniatura
+        //     for (i of fileInput.files)
         //     {
-        //         formData.append("foto[]", e.target.files[0]);
+        //         let reader = new FileReader();
+        //         let figure = document.createElement("figure");
+        //         let figCap = document.createElement("figcaption");
+        //         figCap.innerText = i.name;
+        //         figure.appendChild(figCap);
+        //         reader.onload=()=>{
+        //             let img = document.createElement("img");
+        //             img.setAttribute("src", reader.result);
+        //             figure.insertBefore(img,figCap);
+        //         }
+        //         imageContainer.appendChild(figure);
+        //         reader.readAsDataURL(i);
         //     }
+
+
+        //     var http = new XMLHttpRequest()
+        //     // var data = new FormData()
+        //     // data.append('file', file)
+        //     http.onload = () =>{
+
+        //     }
+        //     http.open('POST', 'sender.php', true)
+        //     http.send(formData)
+    
         // }
+
+        // Função de upload
+function uploadFile(file) {
+    formData.append("foto[]", file);
+
+    // Adicionar apenas a última miniatura ao contêiner
+    let reader = new FileReader();
+    let figure = document.createElement("figure");
+    let figCap = document.createElement("figcaption");
+    figCap.innerText = file.name;
+    figure.appendChild(figCap);
+
+    reader.onload = () => {
+        let img = document.createElement("img");
+        img.setAttribute("src", reader.result);
+        figure.insertBefore(img, figCap);
+        imageContainer.appendChild(figure);
+    };
+
+    reader.readAsDataURL(file);
+
+    var http = new XMLHttpRequest();
+    http.onload = () => {
+        // Aqui você pode adicionar lógica para lidar com a resposta do servidor, se necessário
+    };
+    http.open('POST', 'sender.php', true);
+    http.send(formData);
+}
 
         const mode = document.getElementById('mode-icon');
         function trocarTema(){

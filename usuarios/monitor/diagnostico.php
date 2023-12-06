@@ -124,9 +124,6 @@
             <?php
                 }
             ?>
-            <!-- <div class="foto">a</div>
-            <div class="foto">a</div>
-            <div class="foto">a</div> -->
         </div>
     </div>
 
