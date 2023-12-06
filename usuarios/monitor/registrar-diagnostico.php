@@ -303,13 +303,13 @@
 
 
             var http = new XMLHttpRequest()
-            var data = new FormData()
-            data.append('file', file)
+            // var data = new FormData()
+            // data.append('file', file)
             http.onload = () =>{
 
             }
             http.open('POST', 'sender.php', true)
-            http.send(data)
+            http.send(formData)
     
         }
 
