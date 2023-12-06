@@ -213,7 +213,7 @@
                 <div class="input-div">
                     <i id="icon-foto" class="ph-fill ph-cloud-arrow-up"></i>
                     <p class="escolher-foto">Escolher foto</p>
-                    <input type="file" id="file-input" name="foto[]" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif" onchange="preview()">
+                    <input type="file" id="file-input" name="foto[]" multiple="multiple" accept="image/png, image/jpeg, image/jpg, image/jfif">
                 
                 </div>
 
@@ -232,6 +232,8 @@
         const fileInput = document.querySelector('#file-input')
         
         const imageContainer = document.getElementById("miniaturas")
+
+        var formData = new FormData()
 
         // Fazer upload da foto 
         escolherFoto.onclick = () => fileInput.click()
@@ -279,7 +281,8 @@
         // Função de upload
         function uploadFile(file)
         {
-            console.log(file);
+            // console.log(file);
+            formData.append("foto[]", file)
 
             // miniatura
             for (i of fileInput.files)
@@ -364,7 +367,7 @@
 
         // }
 
-        // var formData = new FormData();
+        var formData = new FormData();
         // document.getElementById("file-input").onchange = function(e)
         // {
         //     if (e.target.files != null && e.target.files != 0)

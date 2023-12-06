@@ -115,9 +115,18 @@
     <div class="fotos">
         <p class="titulo">Fotos</p>
         <div class="carrosel-fotos">
+            <?php
+                while ($fotos = $sql_query_img->fetch_assoc())
+                {
+                    $img = "<img src=" . $fotos['Path'] . ">";
+            ?>
+                    <div class="foto"><?php echo $img; ?></div>
+            <?php
+                }
+            ?>
+            <!-- <div class="foto">a</div>
             <div class="foto">a</div>
-            <div class="foto">a</div>
-            <div class="foto">a</div>
+            <div class="foto">a</div> -->
         </div>
     </div>
 
