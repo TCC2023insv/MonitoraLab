@@ -12,7 +12,7 @@
    $conexao = ConectarBanco();
 
    $sql_query = $conexao->query("SELECT `ID`, `Data`, `Titulo`, `Laboratorio`, `Problema`, `Descricao`, `Responsavel` FROM ocorrencia
-   ORDER BY `Data`DESC") or die ($conexao->error);
+   WHERE `arquivado`='não' ORDER BY `Data`DESC") or die ($conexao->error);
 ?>
 
 <!DOCTYPE html>

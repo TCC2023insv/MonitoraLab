@@ -184,25 +184,25 @@
             require("ocorrencias.php");
             $conexao = ConectarBanco();
 
-            $sql_ocorrencia = $conexao->query("SELECT * FROM ocorrencia WHERE id = '$id'");
-            while ($ocorrencia = $sql_ocorrencia->fetch_assoc())
-            {
-                $OcorrenciaArquivada = new Ocorrencia();
-                $OcorrenciaArquivada->RegistrarOcorrencia($ocorrencia['responsavel'], $ocorrencia['data'],
-            $ocorrencia['titulo'], $ocorrencia['laboratorio'], $ocorrencia['problema'], $ocorrencia['descricao']);
-            }
+            $conexao->query("UPDATE ocorrencia SET `arquivado`='sim' WHERE id = '$id'");
 
-            $login = 'direcao';
-            $sql_insert = $conexao->prepare("INSERT INTO `ocorrencias_arquivadas` (data, titulo, laboratorio, problema,
-            descricao, responsavel, login) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            // while ($ocorrencia = $sql_ocorrencia->fetch_assoc())
+            // {
+            //     $OcorrenciaArquivada = new Ocorrencia();
+            //     $OcorrenciaArquivada->RegistrarOcorrencia($ocorrencia['responsavel'], $ocorrencia['data'],
+            // $ocorrencia['titulo'], $ocorrencia['laboratorio'], $ocorrencia['problema'], $ocorrencia['descricao']);
+            // }
 
-            $sql_insert->bind_param("sssssss", $OcorrenciaArquivada->data, $OcorrenciaArquivada->titulo, 
-            $OcorrenciaArquivada->laboratorio, $OcorrenciaArquivada->problema, $OcorrenciaArquivada->descricao,
-        $OcorrenciaArquivada->responsavel, $login);
+        //     $sql_insert = $conexao->prepare("INSERT INTO `ocorrencias_arquivadas` (data, titulo, laboratorio, problema,
+        //     descricao, arquivado, responsavel, login) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $sql_insert->execute();
+        //     $sql_insert->bind_param("ssssssss", $OcorrenciaArquivada->data, $OcorrenciaArquivada->titulo, 
+        //     $OcorrenciaArquivada->laboratorio, $OcorrenciaArquivada->problema, $OcorrenciaArquivada->descricao, $arquivado,
+        // $OcorrenciaArquivada->responsavel, $login);
 
-            $conexao->query("DELETE FROM ocorrencia WHERE id='$id'");
+        //     $sql_insert->execute();
+
+        //     $conexao->query("DELETE FROM ocorrencia WHERE id='$id'");
 
             $conexao->close();
 
@@ -319,10 +319,10 @@
                 $responsavel = $row['nome'];
             }
             if (
-            $conexao->query("INSERT INTO ocorrencia (data, titulo, laboratorio, problema, descricao, responsavel, login_prof) 
+            $conexao->query("INSERT INTO ocorrencia (data, titulo, laboratorio, problema, descricao, responsavel, arquivado, login_prof) 
             VALUES ('" . $Ocorrencia->data . "', '" . $Ocorrencia->titulo . "', '" . $Ocorrencia->laboratorio .
             "', '" . $Ocorrencia->problema . "', '" . 
-            $Ocorrencia->descricao . "', '" . $responsavel . "', '" . $professor . "')"))
+            $Ocorrencia->descricao . "', '" . $responsavel . "', 'não', '" . $professor . "')"))
             {
                 $conexao->close();
                 return true;

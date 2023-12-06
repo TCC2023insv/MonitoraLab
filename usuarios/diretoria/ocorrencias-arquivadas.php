@@ -9,69 +9,70 @@
 
 
     require('../../php/conexao/conexaoBD.php');
-    include('../../php/classes/Ocorrencias.php');
+    include('../../php/classes/ocorrencias.php');
     $conexao = ConectarBanco();
 
     $Ocorrencia = new Ocorrencia();
+    $sql_inicial = "SELECT * FROM `ocorrencia` WHERE `arquivado`='sim' AND";
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . " `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
     }
     else
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `arquivado`='sim' ORDER BY `Data` DESC");
     }
 
-   $faltaInternet = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Falta de internet'");
+   $faltaInternet = $conexao->query($sql_inicial . " `problema`='Falta de internet'");
    $quantidadeFalta = mysqli_num_rows($faltaInternet);
 
-   $pcDesorganizado = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Computadores desorganizados'");
+   $pcDesorganizado = $conexao->query($sql_inicial . " `problema`='Computadores desorganizados'");
    $quantidadePC = mysqli_num_rows($pcDesorganizado);
 
-   $sumicoDispositivo = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Sumiço de dispositivos'");
+   $sumicoDispositivo = $conexao->query($sql_inicial . " `problema`='Sumiço de dispositivos'");
    $quantidadeSumico = mysqli_num_rows($sumicoDispositivo);
    
-   $dispositivoQuebrado = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Dispositivo quebrado'");
+   $dispositivoQuebrado = $conexao->query($sql_inicial . " `problema`='Dispositivo quebrado'");
    $quantidadeDispQuebrado = mysqli_num_rows($dispositivoQuebrado);
    
-   $CadeirasDesorganizadas = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Cadeiras desorganizadas'");
+   $CadeirasDesorganizadas = $conexao->query($sql_inicial . " `problema`='Cadeiras desorganizadas'");
    $quantidadeCadeiras = mysqli_num_rows($CadeirasDesorganizadas);
    
-   $cabosDesconectados = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Cabos desconectados'");
+   $cabosDesconectados = $conexao->query($sql_inicial . " `problema`='Cabos desconectados'");
    $quantidadeCabos = mysqli_num_rows($cabosDesconectados);
    
-   $disjuntorDesligado = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Disjuntor desligado'");
+   $disjuntorDesligado = $conexao->query($sql_inicial . " `problema`='Disjuntor desligado'");
    $quantidadeDisjuntor = mysqli_num_rows($disjuntorDesligado);
    
-   $janelaAberta = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Janela aberta'");
+   $janelaAberta = $conexao->query($sql_inicial . " `problema`='Janela aberta'");
    $quantidadeJanela = mysqli_num_rows($janelaAberta);
    
-   $quedaEnergia = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='Queda de energia'");
+   $quedaEnergia = $conexao->query($sql_inicial . " `problema`='Queda de energia'");
    $quantidadeQueda = mysqli_num_rows($quedaEnergia);
    
 ?>
