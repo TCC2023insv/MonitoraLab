@@ -340,8 +340,8 @@
         http.onload = () => {
             // Aqui você pode adicionar lógica para lidar com a resposta do servidor, se necessário
         };
-        http.open('POST', 'sender.php', true);
-        http.send(formData);
+        // http.open('POST', 'sender.php', true);
+        // http.send(formData);
     }
 
     $("button[type='submit']").click(function(){

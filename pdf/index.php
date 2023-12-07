@@ -150,51 +150,50 @@ use Dompdf\Css\Style;
     $filtroLab = "Todos";
 
     require('../php/classes/ocorrencias.php');
-    $Ocorrencia = new Ocorrencia();
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
         $filtroProb = $_GET['problema'];
         $filtroData = $_GET['data'];
         $filtroLab = $_GET['lab'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
     {
         $filtroProb = $_GET['problema'];
         $filtroData = $_GET['data'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
         $filtroData = $_GET['data'];
         $filtroLab = $_GET['lab'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
         $filtroProb = $_GET['problema'];
         $filtroLab = $_GET['lab'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '')
     {
         $filtroProb = $_GET['problema'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '')
     {
         $filtroData = $_GET['data'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE " . $Ocorrencia->PegarData($_GET['data']) . "  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['lab']) && $_GET['lab'] != '')
     {
         $filtroLab = $_GET['lab'];
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` WHERE `laboratorio`='" . $_GET['lab'] . "'  ORDER BY `Data` DESC");
     }
     else
     {
-        $sql_query = $conexao->query("SELECT * FROM `ocorrencias_arquivadas` ORDER BY `Data` DESC");
+        $sql_query = $conexao->query("SELECT * FROM `ocorrencia` ORDER BY `Data` DESC");
     }
 
     $html .= '<div class="filtros">
