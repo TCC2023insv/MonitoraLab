@@ -120,7 +120,7 @@
                 {
                     $img = "<img class='foto' src=" . $fotos['Path'] . ">";
             ?>
-                    <div class="foto"><?php echo $img; ?></div>
+                    <div class="div-foto"><?php echo $img; ?></div>
             <?php
                 }
             ?>

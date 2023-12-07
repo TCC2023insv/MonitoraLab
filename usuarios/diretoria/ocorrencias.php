@@ -74,7 +74,7 @@
                     <!-- </div> -->
                 </div>
                 <div class="infos-ocorrencia">
-                    <label class="responsavel">Registrada por: <?php echo $ocorrencia['Responsavel']; ?></label>
+                    <label class="responsavel">Registrada por: <label class="resp-nome"><?php echo $ocorrencia['Responsavel']; ?></label></label>
                     <label class="laboratorio"><?php echo $ocorrencia['Laboratorio']; ?></label>
                 </div>
                 <div class="descricao-ocorrencia">

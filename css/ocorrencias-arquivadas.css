@@ -23,7 +23,7 @@ body{
 h2{
     color: var(--h2);
     text-transform: uppercase;
-    margin: 3% 0 0 5%;
+    margin: 3% 0 1% 5%;
     letter-spacing: normal;
     font-size: 180%;
     font-family: 'Poppins', sans-serif; 
@@ -132,11 +132,21 @@ margin: 1.5% 0 0 8px;
 }
 
 .responsavel{
-    color: var(--azul-1);
+    color: var(--titulo);
     font-size: 110%;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    display: flex;
 }
+
+.resp-nome{
+    color: var(--titulo);
+    font-size: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-left: 0.5%;
+}
+
 
 .laboratorio{
     color: var(--titulo);
@@ -236,14 +246,15 @@ button:hover{
     color: var(--branco-1);
     font-size: 120%;
     margin: 0;
+    margin-right: 3%;
     padding: 5.5px 0px 0 0;
     border-radius: 5px;
     cursor: pointer;
 }
 
-/* .problemas{
+.problemas{
     color: var(--dados);
-} */
+}
 
 /* filtro */
 #pai{

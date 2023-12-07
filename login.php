@@ -13,6 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/icone-tema.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="php/conexao/conexaoBD.php"></script>
 	<script src="php/classes/usuarios.php"></script>
 	<script src="../js/erro-de-login.js"></script>
@@ -23,13 +25,19 @@
         }
     </style> -->
 </head>
-<body>
+<body id="body">
     <main class="container">
         <div class="caixa-logo">
             <h1>MonitoraLab</h1>
         </div>
         <fieldset class="caixa-forms">
-            <h2>Login</h2>
+            <div class="caixa-1">
+                <div class="icone-mudar-tema-login" onclick="trocarTema()">
+                    <i id="mode-icon-login" class="ph-fill ph-moon"></i>
+                </div>	
+                <h2>Login</h2>
+            </div>
+            
             <form method="post" action="php/classes/usuarios.php" class="forms">  
                 <label>Entrar como:</label>		
                 <select name="identificacao" class="select" required>
@@ -47,8 +55,8 @@
         </fieldset>
     </main>
 
-    <!-- <script>
-        const mode = document.getElementById('mode-icon');
+    <script>
+        const mode = document.getElementById('mode-icon-login');
         function trocarTema(){
             if(body.classList == 'tema-escuro')
             {
@@ -86,6 +94,6 @@
             }
             document.body.style.visibility = 'visible';
         };
-    </script> -->
+    </script>
 </body>
 </html>

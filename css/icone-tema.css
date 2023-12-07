@@ -1,9 +1,20 @@
 @import url(cores.css);
+
 #mode-icon{
     color: var(--icone);
     font-size: 150%;
 }
 
+#mode-icon-login{
+    color: var(--icone-login);
+    font-size: 180%;
+    float: right;
+}
+
 .icone-mudar-tema{
     margin: 0.5% 0.5% 0 0.5%;
+}
+
+.icone-mudar-tema-login{
+    margin: 6% 5% 0 0;
 }

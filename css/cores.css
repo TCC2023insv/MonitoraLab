@@ -17,7 +17,7 @@
     --preto-3: #141414;
 
     --icone: #fefefe;
-    --fundo: #fefefe;
+    --fundo: rgb(245, 242, 242);
     --fundo-botao: #24416B;
     --h2: #24416B;
     --titulo-dados: #141414;
@@ -32,6 +32,8 @@
     --txt: #4e4e4eb4;
     --txt-hover: #7d7d7d4c;
     --miniatura:#4e4e4eb4;
+    --fundo-foto:  #090808;
+    --icone-login:#24416B;
 }
 
 
@@ -52,4 +54,6 @@
     --texto-branco:#fefefe;
     --txt: #4e4e4eb4;
     --miniatura: #fefefe;
+    --fundo-foto:  #090808;
+    --icone-login:#fefefe;
 }
