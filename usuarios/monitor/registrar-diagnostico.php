@@ -269,6 +269,8 @@
             }
         }
 
+
+
         // check o tipo do arquivo
         function typeValidation(type){
             var splitType = type.split('/')[0]
@@ -315,32 +317,41 @@
         // }
 
         // Função de upload
-function uploadFile(file) {
-    formData.append("foto[]", file);
+    function uploadFile(file) {
+        formData.append("foto[]", file);
 
-    // Adicionar apenas a última miniatura ao contêiner
-    let reader = new FileReader();
-    let figure = document.createElement("figure");
-    let figCap = document.createElement("figcaption");
-    figCap.innerText = file.name;
-    figure.appendChild(figCap);
+        // Adicionar apenas a última miniatura ao contêiner
+        let reader = new FileReader();
+        let figure = document.createElement("figure");
+        let figCap = document.createElement("figcaption");
+        figCap.innerText = file.name;
+        figure.appendChild(figCap);
 
-    reader.onload = () => {
-        let img = document.createElement("img");
-        img.setAttribute("src", reader.result);
-        figure.insertBefore(img, figCap);
-        imageContainer.appendChild(figure);
-    };
+        reader.onload = () => {
+            let img = document.createElement("img");
+            img.setAttribute("src", reader.result);
+            figure.insertBefore(img, figCap);
+            imageContainer.appendChild(figure);
+        };
 
-    reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
 
-    var http = new XMLHttpRequest();
-    http.onload = () => {
-        // Aqui você pode adicionar lógica para lidar com a resposta do servidor, se necessário
-    };
-    http.open('POST', 'sender.php', true);
-    http.send(formData);
-}
+        var http = new XMLHttpRequest();
+        http.onload = () => {
+            // Aqui você pode adicionar lógica para lidar com a resposta do servidor, se necessário
+        };
+        http.open('POST', 'sender.php', true);
+        http.send(formData);
+    }
+
+    $("button[type='submit']").click(function(){
+        if(parseInt($("input[type='file']").get(0).files.length) > 3){
+            alert('Não é permitido mais de 3 fotos.')
+            $("input[type='file']").val("");
+            const div = $("miniatura");
+            
+        }
+    });
 
         const mode = document.getElementById('mode-icon');
         function trocarTema(){
