@@ -16,8 +16,8 @@
     --preto-2: #0000001c;
     --preto-3: #141414;
 
-    --icone: #fefefe;
-    --fundo: rgb(245, 242, 242);
+    --icone: #f9f7f7;
+    --fundo: #f9f7f7;
     --fundo-botao: #24416B;
     --h2: #24416B;
     --titulo-dados: #141414;
@@ -25,36 +25,39 @@
     --titulo: #24416B;
     --dados: #141414;
     --ver-diag: #24416B;
-    --caixa: #fefefe;
+    --caixa: #f9f7f7;
     --borda-caixa: #4e4e4eb4;
     --sombra: #0000001c;
-    --texto-branco:#fefefe;
+    --texto-branco:#f9f7f7;
     --txt: #4e4e4eb4;
     --txt-hover: #7d7d7d4c;
     --miniatura:#4e4e4eb4;
     --fundo-foto:  #090808;
     --icone-login:#24416B;
+    --fundo-txt: #f9f7f7;
 }
 
 
 /* TEMA ESCURO */
 .tema-escuro, :root{
-    --icone: #fefefe;
+    --icone: #f5f1f1;
     --fundo: #091932;
     --fundo-botao: #091932;
-    --h2: #fefefe;
+    --h2: #f5f1f1;
     --titulo-dados: #e9e5e5;
-    --voltar: #fefefe;
-    --titulo: #fefefe;
-    --dados: #fefefe;
+    --voltar: #f5f1f1;
+    --titulo: #f5f1f1;
+    --dados: #f5f1f1;
     --ver-diag: #bdbdbd;
     --caixa: #24416B;
-    --borda-caixa:#fefefe;
+    --borda-caixa:#f5f1f1;
     --sombra: #fefefe14;
-    --texto-branco:#fefefe;
+    --texto-branco:#f5f1f1;
     --txt: #4e4e4eb4;
-    --miniatura: #fefefe;
+    --txt-hover: #d0d0d0;
+    --miniatura: #f5f1f1;
     --fundo-foto:  #090808;
-    --icone-login:#fefefe;
+    --icone-login:#f5f1f1;
     --vermelho-2: #d83b3b;
+    --fundo-txt: #f5f1f1;
 }

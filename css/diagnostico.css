@@ -150,7 +150,7 @@ body{
 .texto{
     text-align: justify;
     margin-top: 2%;
-    font-size: 100%;
+    font-size: 112%;
     color: var(--dados);
 }
 
