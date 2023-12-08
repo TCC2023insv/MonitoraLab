@@ -28,6 +28,7 @@
 <body id="body">
     <main class="container">
         <div class="caixa-logo">
+            <img class="logo" src="icons/logo.png">
             <h1>MonitoraLab</h1>
         </div>
         <fieldset class="caixa-forms">

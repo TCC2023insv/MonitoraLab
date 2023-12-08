@@ -84,7 +84,7 @@ body{
     font-family: 'Poppins', sans-serif; 
     width: 98%;
     margin-top: 2.5%;
-    
+    background: var(--fundo-txt);
 }
 
 .txt:hover{
@@ -115,6 +115,7 @@ body{
     padding: 3% 5% 3% 3%;
     margin-top: 2.5%;
     border-radius: 6px;
+    background: var(--fundo-txt);
 }
 
 .sele-lab:hover{
@@ -128,6 +129,7 @@ body{
     margin-top: 2.5%;
     border-radius: 5px;
     border: 1px solid var(--txt);
+    background: var(--fundo-txt);
 }
 
 #date:hover{
@@ -170,6 +172,7 @@ body{
     border-radius: 4px;
     width: 14%;
     text-align: center;
+    background: var(--fundo-txt);
 }
 
 .txtQuant:hover{
@@ -185,6 +188,7 @@ body{
     margin-left: 10%;
     width: 38%;
     cursor: pointer;
+    background: var(--fundo-txt);
 }
 
 .select-prob:hover{
@@ -209,6 +213,11 @@ body{
     padding: 2%;
     font-size: 100%;
     text-align: justify;
+    background: var(--fundo-txt);
+}
+
+.caixa-texto:hover{
+    background-color: var(--txt-hover);
 }
 
 .input-div{
