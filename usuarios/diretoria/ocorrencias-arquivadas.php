@@ -152,7 +152,7 @@
                     <option value="Queda de energia">Queda de energia</option>
                 </select>
             </div>
-            <button type="submit" name="filtro"><i class="fa-solid fa-filter"></i></button>
+            <button class="filtrar" type="submit" name="filtro"><i class="fa-solid fa-filter"></i></button>
             <a class="limpar" href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
         </form>
         <!-- <div class="filtros">
