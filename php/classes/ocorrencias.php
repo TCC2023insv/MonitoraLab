@@ -9,7 +9,7 @@
         public $descricao;
         public $arquivado;
 
-        function __construct($responsavel, $data, $titulo, $laboratorio, $problema, $descricao, $arquivado)
+        function GerarOcorrencia($responsavel, $data, $titulo, $laboratorio, $problema, $descricao, $arquivado)
         {
             $this->responsavel = $responsavel;
             $this->data = $data;

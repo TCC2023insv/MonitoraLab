@@ -182,7 +182,7 @@
                         </div>
     
                         <div class="itens">
-                            <label class="txtProb" name="windows">Fonte</label>
+                            <label class="txtProb" name="windows">Windows</label>
                             <input class="txtQuant" id="quantWindows" type="number" min="0" max="100" placeholder="00" name="quantWindows">
     
                             <select class="select-prob" id="probWindows" name="prob-windows">

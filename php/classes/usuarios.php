@@ -307,8 +307,8 @@
 
             session_start();
             $professor = $_SESSION['login'];
-            $Ocorrencia = new Ocorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao, "não");
-            // $Ocorrencia->RegistrarOcorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao, "não");
+            $Ocorrencia = new Ocorrencia();
+            $Ocorrencia->GerarOcorrencia($professor, $data, $titulo, $laboratorio, $problema, $descricao, "não");
 
             $conexao = ConectarBanco();
             $resultado = mysqli_query($conexao, "SELECT nome FROM professor WHERE login = '" . 

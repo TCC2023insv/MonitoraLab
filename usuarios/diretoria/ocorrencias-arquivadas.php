@@ -12,16 +12,16 @@
     include('../../php/classes/ocorrencias.php');
     $conexao = ConectarBanco();
 
-    // $Ocorrencia = new Ocorrencia();
-    $sql_inicial = "SELECT * FROM `ocorrencia` WHERE `arquivado`='sim' AND";
+    $Ocorrencia = new Ocorrencia();
+    $sql_inicial = "SELECT * FROM `ocorrencia` WHERE `arquivado`='sim' AND ";
 
     if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
+        $sql_query = $conexao->query($sql_inicial . "`problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data`DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['data']) && $_GET['data'] != '')
     {
-        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . "`problema`='" . $_GET['problema'] . "' AND " . $Ocorrencia->PegarData($_GET['data']) . " ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
@@ -29,11 +29,11 @@
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '' && isset($_GET['lab']) && $_GET['lab'] != '')
     {
-        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . "`problema`='" . $_GET['problema'] . "' AND `laboratorio`='" . $_GET['lab'] . "' ORDER BY `Data` DESC");
     }
     else if (isset($_GET['problema']) && $_GET['problema'] != '')
     {
-        $sql_query = $conexao->query($sql_inicial . " `problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
+        $sql_query = $conexao->query($sql_inicial . "`problema`='" . $_GET['problema'] . "'  ORDER BY `Data` DESC");
     }
     else if (isset($_GET['data']) && $_GET['data'] != '')
     {
