@@ -118,20 +118,6 @@
         </nav>
         <h2>Ocorrências Arquivadas</h2>
         <form method="post" action="../../php/classes/usuarios.php" id="pai">
-            <div id="Problema">
-                <select id="problema" name="problema" title="problema">
-                    <option value="">Problema</option>
-                    <option value="Falta de internet">Falta de internet</option>
-                    <option value="Computadores desorganizados">Computadores desorganizados</option>
-                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
-                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
-                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
-                    <option value="Cabos desconectados">Cabos desconectados</option>
-                    <option value="Disjuntor desligado">Disjuntor desligado</option>
-                    <option value="Janela aberta">Janela aberta</option>
-                    <option value="Queda de energia">Queda de energia</option>
-                </select>
-            </div>
 
             <div id="Data">
                 <select id="data" name="data" title="data">
@@ -150,9 +136,24 @@
                     <option value="Lab 3">Lab 3</option>
                     <option value="Lab 4">Lab 4</option>
                 </select>
+            </div>            
+
+            <div id="Problema">
+                <select id="problema" name="problema" title="problema">
+                    <option value="">Problema</option>
+                    <option value="Falta de internet">Falta de internet</option>
+                    <option value="Computadores desorganizados">Computadores desorganizados</option>
+                    <option value="Sumiço de dispositivos">Sumiço de dispositivo</option>
+                    <option value="Dispositivo quebrado">Dispositivo quebrado</option>
+                    <option value="Cadeiras desorganizadas">Cadeiras desorganizadas</option>
+                    <option value="Cabos desconectados">Cabos desconectados</option>
+                    <option value="Disjuntor desligado">Disjuntor desligado</option>
+                    <option value="Janela aberta">Janela aberta</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                </select>
             </div>
-            <button type="submit" name="filtro">Filtrar</button>
-            <a href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
+            <button type="submit" name="filtro"><i class="fa-solid fa-filter"></i></button>
+            <a class="limpar" href="../../php/classes/usuarios.php?limpar=true">Limpar</a>
         </form>
         <!-- <div class="filtros">
                 <label class="filtro-selecionado">FILTRO(S):</label>

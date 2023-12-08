@@ -268,16 +268,18 @@ button:hover{
 
 #problema{
     border: none;
-    width: 70%;
+    width: 38%;
     font-family: 'Poppins', sans-serif;
     font-size: 85%;
+    margin-left: -60%;
 }
 
 #data{
     border: none;
-    width: auto;
+    width: 80%;
     font-family: 'Poppins', sans-serif;
     font-size: 85%;
+    margin-left: 3%;
 }
 
 #laboratorio{
@@ -285,29 +287,34 @@ button:hover{
     width: auto;
     font-family: 'Poppins', sans-serif;
     font-size: 85%;
+    margin-left: -80%;
 }
 
 .fa-filter{
-    font-size: 100%;
+    font-size: 130%;
+    background-color: transparent;
+    border: none;
+    color: var(--fundo-botao);
+    margin: -0.5% 0 0 -25%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.fa-filter:hover{
+    margin: -0.5% 0 0 -12%;
+    position: absolute;
 }
 
 a.limpar{
-    color: var(--vermelho-2);
-}
-
-.btn-filtrar{
-    font-family: 'Poppins' , sans-serif;
-    font-size: 95%;
-    padding: 0.3%;
-    width: 6%;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid var(--azul-1);
-    color: var(-azul-1);
+    color: red;
+    margin: 0 0 0 28%;
     position: absolute;
-    margin: -0.3% 39.5%;
 }
 
 select{
     background-color: var(--branco-1);
+}
+
+button{
+    border: none;
 }
